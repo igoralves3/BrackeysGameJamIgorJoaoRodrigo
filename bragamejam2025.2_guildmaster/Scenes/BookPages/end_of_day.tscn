@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c63amgxyxowqv" path="res://Resources/Sprites/UI_TravelBook_BookCover01a.png" id="1_trm8p"]
 [ext_resource type="Texture2D" uid="uid://d3ppyp8155ntn" path="res://Resources/Sprites/UI_TravelBook_BookPageLeft01a.png" id="2_kxr31"]
 [ext_resource type="Texture2D" uid="uid://cq067j5kjd7nr" path="res://Resources/Sprites/UI_TravelBook_Fill01b.png" id="3_dkig6"]
-[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/dum1.ttf" id="4_l26we"]
+[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="4_l26we"]
 [ext_resource type="Texture2D" uid="uid://dfsepu8fulvcv" path="res://Resources/Sprites/UI_TravelBook_GamepadMenu01a.png" id="5_0q11s"]
 [ext_resource type="Texture2D" uid="uid://bwtwncf7c26n0" path="res://Resources/Sprites/UI_TravelBook_Line01a.png" id="6_ckibk"]
 [ext_resource type="PackedScene" uid="uid://m30m3havx1rw" path="res://Scenes/quest_log_end_summary.tscn" id="7_l26we"]
@@ -27,7 +27,7 @@ texture = ExtResource("6_ckibk")
 VScrollBar/styles/grabber = SubResource("StyleBoxTexture_3invb")
 VScrollBar/styles/scroll = SubResource("StyleBoxTexture_0hnve")
 
-[node name="QuestBook" type="NinePatchRect"]
+[node name="EndOfDay" type="NinePatchRect"]
 offset_left = 33.0
 offset_top = -2.0
 offset_right = 1880.0
@@ -78,6 +78,9 @@ size_flags_horizontal = 3
 metadata/_edit_lock_ = true
 
 [node name="QuestLogEndSummary" parent="LeftPage_BG/QuestLogLabel/ScrollContainer/VBoxContainer" instance=ExtResource("7_l26we")]
+layout_mode = 2
+
+[node name="QuestLogEndSummary2" parent="LeftPage_BG/QuestLogLabel/ScrollContainer/VBoxContainer" instance=ExtResource("7_l26we")]
 layout_mode = 2
 
 [node name="RightPage_BG" type="NinePatchRect" parent="."]
@@ -202,6 +205,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="GoldTotal2" type="TextureRect" parent="RightPage_BG/Results/Total"]
+layout_mode = 0
 offset_left = 380.0
 offset_top = 51.0
 offset_right = 530.0
@@ -231,6 +235,7 @@ vertical_alignment = 1
 
 [node name="StartQuestButton" type="TextureButton" parent="RightPage_BG"]
 clip_contents = true
+layout_mode = 0
 offset_left = 494.0
 offset_top = 654.0
 offset_right = 796.0
@@ -264,3 +269,5 @@ offset_bottom = 91.0
 size_flags_vertical = 0
 mouse_filter = 0
 texture = ExtResource("13_5v3my")
+
+[editable path="LeftPage_BG/QuestLogLabel/ScrollContainer/VBoxContainer/QuestLogEndSummary2"]

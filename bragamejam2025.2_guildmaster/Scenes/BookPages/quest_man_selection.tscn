@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://b87ohqrvtvkrs"]
+[gd_scene load_steps=16 format=3 uid="uid://b87ohqrvtvkrs"]
 
 [ext_resource type="Texture2D" uid="uid://c63amgxyxowqv" path="res://Resources/Sprites/UI_TravelBook_BookCover01a.png" id="1_o27pf"]
 [ext_resource type="Texture2D" uid="uid://d3ppyp8155ntn" path="res://Resources/Sprites/UI_TravelBook_BookPageLeft01a.png" id="2_j45gr"]
+[ext_resource type="Script" uid="uid://c83ptsjwwlgeg" path="res://Scripts/quest_man_selection.gd" id="2_mu333"]
 [ext_resource type="Texture2D" uid="uid://cq067j5kjd7nr" path="res://Resources/Sprites/UI_TravelBook_Fill01b.png" id="3_1miym"]
-[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/dum1.ttf" id="4_sn0tn"]
+[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="4_sn0tn"]
 [ext_resource type="PackedScene" uid="uid://csda6yq6glsel" path="res://Scenes/character_slot_mission_selection.tscn" id="5_gk1x6"]
 [ext_resource type="Texture2D" uid="uid://blhhijbaytlid" path="res://Resources/Sprites/UI_TravelBook_BookPageRight01a.png" id="6_871ov"]
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="7_e34ok"]
@@ -21,6 +22,7 @@ offset_top = -2.0
 offset_right = 1880.0
 offset_bottom = 913.0
 texture = ExtResource("1_o27pf")
+script = ExtResource("2_mu333")
 metadata/_edit_lock_ = true
 
 [node name="LeftPage_BG" type="NinePatchRect" parent="."]
@@ -243,34 +245,6 @@ text = "Start Quest"
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="RightPage_BG/StartQuestButton"]
-layout_mode = 0
-offset_left = 206.0
-offset_top = 30.0
-offset_right = 255.0
-offset_bottom = 70.0
-texture = ExtResource("14_74gqe")
-
-[node name="StartQuestButton" type="TextureButton" parent="RightPage_BG/StartQuestButton"]
-layout_mode = 0
-offset_left = 543.0
-offset_top = 668.0
-offset_right = 815.0
-offset_bottom = 758.0
-texture_normal = ExtResource("13_3d861")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="RightPage_BG/StartQuestButton/StartQuestButton"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 24.0
-offset_right = 199.0
-offset_bottom = 81.0
-theme_override_fonts/font = ExtResource("7_e34ok")
-theme_override_font_sizes/font_size = 25
-text = "Start Quest"
-vertical_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="RightPage_BG/StartQuestButton/StartQuestButton"]
 layout_mode = 0
 offset_left = 206.0
 offset_top = 30.0

@@ -16,3 +16,9 @@ offset_bottom = 46.0
 theme_override_fonts/font = ExtResource("2_1sjt5")
 text = " - Evento Randomico em Tal Area"
 autowrap_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "lol"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://csda6yq6glsel"]
 
 [ext_resource type="Texture2D" uid="uid://duasghhm14jjl" path="res://Resources/Sprites/UI_TravelBook_Slot01a.png" id="1_fdxow"]
-[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/dum1.ttf" id="2_jhl5o"]
+[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="2_jhl5o"]
 [ext_resource type="Texture2D" uid="uid://bsccqcw5a2j7h" path="res://Resources/Sprites/UI_TravelBook_Popup01a.png" id="3_di7qs"]
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="4_7dn51"]
 

@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxlhoks2ojowv"]
+[gd_scene load_steps=6 format=3 uid="uid://cxlhoks2ojowv"]
 
 [ext_resource type="PackedScene" uid="uid://cc0gjmke6ki1w" path="res://Scenes/resources_info_bar.tscn" id="1_frkhe"]
-[ext_resource type="PackedScene" uid="uid://b87ohqrvtvkrs" path="res://Scenes/quest_man_selection.tscn" id="2_idj7w"]
+[ext_resource type="Script" uid="uid://ge72656exa8v" path="res://Scripts/GameManager.gd" id="1_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://b87ohqrvtvkrs" path="res://Scenes/BookPages/quest_man_selection.tscn" id="2_idj7w"]
+[ext_resource type="PackedScene" uid="uid://wbvwabakpwe4" path="res://Scenes/BookPages/end_of_day.tscn" id="4_v1gob"]
+[ext_resource type="PackedScene" uid="uid://bpdnaxogb4p58" path="res://Scenes/BookPages/guild_lobby.tscn" id="5_jw32o"]
 
-[node name="Control" type="Control"]
+[node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,15 +15,33 @@ offset_left = 17.0
 offset_top = 145.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pbw6q")
 
 [node name="ResourcesInfoBar" parent="." instance=ExtResource("1_frkhe")]
 layout_mode = 0
-offset_left = 41.0
-offset_top = -136.0
-offset_right = 1874.0
-offset_bottom = -9.0
+offset_left = 8.0
+offset_top = -131.0
+offset_right = 1841.0
+offset_bottom = -4.0
 
 [node name="QuestManSelection" parent="." instance=ExtResource("2_idj7w")]
+visible = false
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1847.0
+offset_bottom = 915.0
+
+[node name="EndOfDay" parent="." instance=ExtResource("4_v1gob")]
+visible = false
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1847.0
+offset_bottom = 915.0
+
+[node name="GuildLobby" parent="." instance=ExtResource("5_jw32o")]
+visible = false
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://0qjiky5fnp8b"
-path="res://.godot/imported/dum1.ttf-3f2acc7c81014b1734fa9844a7330acf.fontdata"
+path="res://.godot/imported/Dumbledor.ttf-bcfef6b47d87e53809b393f235f47926.fontdata"
 
 [deps]
 
-source_file="res://Resources/Fonts/dum1.ttf"
-dest_files=["res://.godot/imported/dum1.ttf-3f2acc7c81014b1734fa9844a7330acf.fontdata"]
+source_file="res://Resources/Fonts/Dumbledor.ttf"
+dest_files=["res://.godot/imported/Dumbledor.ttf-bcfef6b47d87e53809b393f235f47926.fontdata"]
 
 [params]
 
