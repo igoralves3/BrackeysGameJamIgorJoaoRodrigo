@@ -1,0 +1,239 @@
+[gd_scene load_steps=18 format=3 uid="uid://bpdnaxogb4p58"]
+
+[ext_resource type="Texture2D" uid="uid://c63amgxyxowqv" path="res://Resources/Sprites/UI_TravelBook_BookCover01a.png" id="1_riume"]
+[ext_resource type="Texture2D" uid="uid://d3ppyp8155ntn" path="res://Resources/Sprites/UI_TravelBook_BookPageLeft01a.png" id="2_fcm6r"]
+[ext_resource type="Texture2D" uid="uid://cq067j5kjd7nr" path="res://Resources/Sprites/UI_TravelBook_Fill01b.png" id="3_x4m7n"]
+[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/dum1.ttf" id="4_3x0j3"]
+[ext_resource type="Texture2D" uid="uid://blhhijbaytlid" path="res://Resources/Sprites/UI_TravelBook_BookPageRight01a.png" id="5_w0nxr"]
+[ext_resource type="Texture2D" uid="uid://dfsepu8fulvcv" path="res://Resources/Sprites/UI_TravelBook_GamepadMenu01a.png" id="5_x4m7n"]
+[ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="6_3x0j3"]
+[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="6_4p0pl"]
+[ext_resource type="Texture2D" uid="uid://bwtwncf7c26n0" path="res://Resources/Sprites/UI_TravelBook_Line01a.png" id="6_w0nxr"]
+[ext_resource type="Texture2D" uid="uid://b18ndtkveouh5" path="res://Resources/Sprites Animated/UI_TravelBook_Button01a_1.png" id="7_d6kf4"]
+[ext_resource type="PackedScene" uid="uid://brkndl8b72nhc" path="res://Scenes/news_log.tscn" id="7_tkfya"]
+[ext_resource type="Texture2D" uid="uid://cnqg1f24ugiaf" path="res://Resources/Sprites/UI_TravelBook_GamepadA01a.png" id="9_d6kf4"]
+[ext_resource type="PackedScene" uid="uid://bstbx8p6c2u25" path="res://Scenes/quest_label.tscn" id="12_8xw2f"]
+[ext_resource type="Texture2D" uid="uid://cas1mmska0ji" path="res://Resources/Sprites/UI_TravelBook_IconHome01a.png" id="14_8xw2f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dognj"]
+texture = ExtResource("5_x4m7n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8w6rg"]
+texture = ExtResource("6_w0nxr")
+
+[sub_resource type="Theme" id="Theme_4p0pl"]
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_dognj")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_8w6rg")
+
+[node name="QuestBook" type="NinePatchRect"]
+offset_left = 33.0
+offset_top = -2.0
+offset_right = 1880.0
+offset_bottom = 913.0
+texture = ExtResource("1_riume")
+
+[node name="LeftPage_BG" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 48.0
+offset_right = 918.0
+offset_bottom = 879.0
+texture = ExtResource("2_fcm6r")
+
+[node name="QuestLogLabel" type="NinePatchRect" parent="LeftPage_BG"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 29.0
+offset_right = 806.0
+offset_bottom = 90.0
+texture = ExtResource("3_x4m7n")
+
+[node name="Label" type="Label" parent="LeftPage_BG/QuestLogLabel"]
+layout_mode = 2
+offset_right = 758.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("4_3x0j3")
+theme_override_font_sizes/font_size = 55
+text = "News Log"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LeftPage_BG/QuestLogLabel"]
+layout_mode = 0
+offset_top = 63.0
+offset_right = 759.0
+offset_bottom = 439.0
+theme = SubResource("Theme_4p0pl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftPage_BG/QuestLogLabel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NewsLog" parent="LeftPage_BG/QuestLogLabel/ScrollContainer/VBoxContainer" instance=ExtResource("7_tkfya")]
+layout_mode = 2
+
+[node name="RankingLabel" type="NinePatchRect" parent="LeftPage_BG"]
+offset_left = 47.0
+offset_top = 490.0
+offset_right = 808.0
+offset_bottom = 551.0
+texture = ExtResource("3_x4m7n")
+
+[node name="Label" type="Label" parent="LeftPage_BG/RankingLabel"]
+layout_mode = 2
+offset_right = 758.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("4_3x0j3")
+theme_override_font_sizes/font_size = 55
+text = "Guild Ranking"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LeftPage_BG/RankingLabel"]
+layout_mode = 0
+offset_top = 63.0
+offset_right = 759.0
+offset_bottom = 281.0
+theme = SubResource("Theme_4p0pl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftPage_BG/RankingLabel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GuildRankingLabel" type="TextureRect" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("6_3x0j3")
+
+[node name="TextureRect" type="TextureRect" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer/GuildRankingLabel"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 11.0
+offset_right = 63.0
+offset_bottom = 40.0
+texture = ExtResource("9_d6kf4")
+
+[node name="LogLabel" type="Label" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer/GuildRankingLabel"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 14.0
+offset_right = 684.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("6_4p0pl")
+text = "Guild x - 1000 PONTOS"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="GuildRankingLabel2" type="TextureRect" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("6_3x0j3")
+
+[node name="TextureRect" type="TextureRect" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer/GuildRankingLabel2"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 11.0
+offset_right = 63.0
+offset_bottom = 40.0
+texture = ExtResource("9_d6kf4")
+
+[node name="LogLabel" type="Label" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer/GuildRankingLabel2"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 14.0
+offset_right = 684.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("6_4p0pl")
+text = "Guild x - 1000 PONTOS"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="GuildRankingLabel3" type="TextureRect" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("6_3x0j3")
+
+[node name="TextureRect" type="TextureRect" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer/GuildRankingLabel3"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 11.0
+offset_right = 63.0
+offset_bottom = 40.0
+texture = ExtResource("9_d6kf4")
+
+[node name="LogLabel" type="Label" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer/GuildRankingLabel3"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 14.0
+offset_right = 684.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("6_4p0pl")
+text = "Guild x - 1000 PONTOS"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="RightPage_BG" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 917.0
+offset_top = 44.0
+offset_right = 1767.0
+offset_bottom = 878.0
+texture = ExtResource("5_w0nxr")
+
+[node name="QuestNameLabel" type="Label" parent="RightPage_BG"]
+modulate = Color(0.6, 0.32549, 0.317647, 1)
+layout_mode = 0
+offset_left = 34.0
+offset_top = 26.0
+offset_right = 822.0
+offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("6_4p0pl")
+theme_override_font_sizes/font_size = 45
+text = "Quests"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestsScrollContainer" type="ScrollContainer" parent="RightPage_BG"]
+offset_left = 34.0
+offset_top = 102.0
+offset_right = 793.0
+offset_bottom = 659.0
+theme = SubResource("Theme_4p0pl")
+
+[node name="QuestsVBoxContainer" type="VBoxContainer" parent="RightPage_BG/QuestsScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="QuestLabel" parent="RightPage_BG/QuestsScrollContainer/QuestsVBoxContainer" instance=ExtResource("12_8xw2f")]
+layout_mode = 2
+
+[node name="EndDayButton" type="TextureButton" parent="RightPage_BG"]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 670.0
+offset_right = 802.0
+offset_bottom = 760.0
+texture_normal = ExtResource("7_d6kf4")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="RightPage_BG/EndDayButton"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 26.0
+offset_right = 211.0
+offset_bottom = 83.0
+theme_override_fonts/font = ExtResource("6_4p0pl")
+theme_override_font_sizes/font_size = 25
+text = "End Day"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="RightPage_BG/EndDayButton"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 25.0
+offset_right = 240.0
+offset_bottom = 72.0
+texture = ExtResource("14_8xw2f")

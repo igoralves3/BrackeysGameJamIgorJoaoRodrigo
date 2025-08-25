@@ -1,0 +1,104 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc0gjmke6ki1w"]
+
+[ext_resource type="Texture2D" uid="uid://b6xdjhwggsd7a" path="res://Resources/Sprites/UI_TravelBook_Spritesheet01a.png" id="1_n81oy"]
+[ext_resource type="Texture2D" uid="uid://cq067j5kjd7nr" path="res://Resources/Sprites/UI_TravelBook_Fill01b.png" id="2_pby5c"]
+[ext_resource type="Texture2D" uid="uid://ca7g5ekj3goff" path="res://Resources/Sprites/UI_TravelBook_IconCoin01a.png" id="3_o1wcf"]
+[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="4_m27y4"]
+[ext_resource type="Texture2D" uid="uid://cyagfudhlne1p" path="res://Resources/Sprites/UI_TravelBook_IconStar01a.png" id="5_k4lpc"]
+[ext_resource type="Texture2D" uid="uid://dt67lygir0fmv" path="res://Resources/Sprites/UI_TravelBook_Bar01a.png" id="6_elvte"]
+
+[node name="ResourcesInfoBar" type="NinePatchRect"]
+offset_left = 34.0
+offset_top = -139.0
+offset_right = 1867.0
+offset_bottom = -12.0
+texture = ExtResource("1_n81oy")
+
+[node name="Gold" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 32.0
+offset_right = 249.0
+offset_bottom = 96.0
+texture = ExtResource("2_pby5c")
+
+[node name="TextureRect" type="TextureRect" parent="Gold"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 61.0
+offset_bottom = 57.0
+texture = ExtResource("3_o1wcf")
+metadata/_edit_lock_ = true
+
+[node name="TotalGold" type="Label" parent="Gold"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 163.0
+offset_bottom = 58.0
+theme_override_fonts/font = ExtResource("4_m27y4")
+theme_override_font_sizes/font_size = 35
+text = "500"
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Reputation" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 261.0
+offset_top = 32.0
+offset_right = 428.0
+offset_bottom = 96.0
+texture = ExtResource("2_pby5c")
+
+[node name="TextureRect" type="TextureRect" parent="Reputation"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 61.0
+offset_bottom = 57.0
+texture = ExtResource("5_k4lpc")
+metadata/_edit_lock_ = true
+
+[node name="Reputation" type="Label" parent="Reputation"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 163.0
+offset_bottom = 58.0
+theme_override_fonts/font = ExtResource("4_m27y4")
+theme_override_font_sizes/font_size = 35
+text = "500"
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 577.0
+offset_top = 65.0
+offset_right = 787.0
+offset_bottom = 76.0
+texture = ExtResource("6_elvte")
+
+[node name="DayCounter" type="Label" parent="."]
+modulate = Color(0.485661, 0.33156, 0.331263, 1)
+layout_mode = 0
+offset_left = 762.0
+offset_top = 36.0
+offset_right = 1085.0
+offset_bottom = 115.0
+theme_override_fonts/font = ExtResource("4_m27y4")
+theme_override_font_sizes/font_size = 50
+text = "Day 50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1050.0
+offset_top = 65.0
+offset_right = 1260.0
+offset_bottom = 76.0
+texture = ExtResource("6_elvte")

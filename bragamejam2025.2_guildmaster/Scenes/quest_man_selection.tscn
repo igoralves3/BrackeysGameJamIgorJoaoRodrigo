@@ -1,0 +1,310 @@
+[gd_scene load_steps=15 format=3 uid="uid://b87ohqrvtvkrs"]
+
+[ext_resource type="Texture2D" uid="uid://c63amgxyxowqv" path="res://Resources/Sprites/UI_TravelBook_BookCover01a.png" id="1_o27pf"]
+[ext_resource type="Texture2D" uid="uid://d3ppyp8155ntn" path="res://Resources/Sprites/UI_TravelBook_BookPageLeft01a.png" id="2_j45gr"]
+[ext_resource type="Texture2D" uid="uid://cq067j5kjd7nr" path="res://Resources/Sprites/UI_TravelBook_Fill01b.png" id="3_1miym"]
+[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/dum1.ttf" id="4_sn0tn"]
+[ext_resource type="PackedScene" uid="uid://csda6yq6glsel" path="res://Scenes/character_slot_mission_selection.tscn" id="5_gk1x6"]
+[ext_resource type="Texture2D" uid="uid://blhhijbaytlid" path="res://Resources/Sprites/UI_TravelBook_BookPageRight01a.png" id="6_871ov"]
+[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="7_e34ok"]
+[ext_resource type="Texture2D" uid="uid://bsccqcw5a2j7h" path="res://Resources/Sprites/UI_TravelBook_Popup01a.png" id="8_rpcs8"]
+[ext_resource type="Texture2D" uid="uid://ca7g5ekj3goff" path="res://Resources/Sprites/UI_TravelBook_IconCoin01a.png" id="9_moi7u"]
+[ext_resource type="Texture2D" uid="uid://cyagfudhlne1p" path="res://Resources/Sprites/UI_TravelBook_IconStar01a.png" id="10_uhmu2"]
+[ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="11_bl8j3"]
+[ext_resource type="Texture2D" uid="uid://duasghhm14jjl" path="res://Resources/Sprites/UI_TravelBook_Slot01a.png" id="12_krv2u"]
+[ext_resource type="Texture2D" uid="uid://b18ndtkveouh5" path="res://Resources/Sprites Animated/UI_TravelBook_Button01a_1.png" id="13_3d861"]
+[ext_resource type="Texture2D" uid="uid://1ani1rq2to8l" path="res://Resources/Sprites/UI_TravelBook_IconArrow01a.png" id="14_74gqe"]
+
+[node name="QuestManSelection" type="NinePatchRect"]
+offset_left = 33.0
+offset_top = -2.0
+offset_right = 1880.0
+offset_bottom = 913.0
+texture = ExtResource("1_o27pf")
+metadata/_edit_lock_ = true
+
+[node name="LeftPage_BG" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 48.0
+offset_right = 918.0
+offset_bottom = 879.0
+texture = ExtResource("2_j45gr")
+metadata/_edit_lock_ = true
+
+[node name="RecruitsLabel" type="NinePatchRect" parent="LeftPage_BG"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 29.0
+offset_right = 806.0
+offset_bottom = 90.0
+texture = ExtResource("3_1miym")
+
+[node name="Label" type="Label" parent="LeftPage_BG/RecruitsLabel"]
+layout_mode = 2
+offset_right = 758.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("4_sn0tn")
+theme_override_font_sizes/font_size = 55
+text = "HIRED ADVENTURERS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharacterSlotsContainer" type="VBoxContainer" parent="LeftPage_BG"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 99.0
+offset_right = 813.0
+offset_bottom = 917.0
+
+[node name="CharacterSlot_MissionSelection" parent="LeftPage_BG/CharacterSlotsContainer" instance=ExtResource("5_gk1x6")]
+layout_mode = 2
+
+[node name="CharacterSlot_MissionSelection2" parent="LeftPage_BG/CharacterSlotsContainer" instance=ExtResource("5_gk1x6")]
+layout_mode = 2
+
+[node name="CharacterSlot_MissionSelection3" parent="LeftPage_BG/CharacterSlotsContainer" instance=ExtResource("5_gk1x6")]
+layout_mode = 2
+
+[node name="RightPage_BG" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 917.0
+offset_top = 44.0
+offset_right = 1767.0
+offset_bottom = 878.0
+texture = ExtResource("6_871ov")
+metadata/_edit_lock_ = true
+
+[node name="QuestInfoPannel" type="NinePatchRect" parent="RightPage_BG"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 122.0
+offset_right = 813.0
+offset_bottom = 431.0
+texture = ExtResource("8_rpcs8")
+
+[node name="QuestNameLabel" type="Label" parent="RightPage_BG/QuestInfoPannel"]
+modulate = Color(0.6, 0.32549, 0.317647, 1)
+layout_mode = 0
+offset_left = -10.0
+offset_top = -83.0
+offset_right = 778.0
+offset_bottom = 2.0
+theme_override_fonts/font = ExtResource("7_e34ok")
+theme_override_font_sizes/font_size = 45
+text = "Orc Fortress Raid"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InfoLabel" type="Label" parent="RightPage_BG/QuestInfoPannel"]
+modulate = Color(0.515271, 0.344672, 0.349243, 1)
+layout_mode = 0
+offset_left = 42.0
+offset_top = 27.0
+offset_right = 736.0
+offset_bottom = 152.0
+theme_override_fonts/font = ExtResource("4_sn0tn")
+theme_override_font_sizes/font_size = 30
+text = "A Challenge for even the most brave of adventures "
+autowrap_mode = 2
+
+[node name="RewardLabel" type="Label" parent="RightPage_BG/QuestInfoPannel"]
+modulate = Color(0.6, 0.32549, 0.317647, 1)
+layout_mode = 0
+offset_left = 169.0
+offset_top = 165.0
+offset_right = 626.0
+offset_bottom = 200.0
+theme_override_fonts/font = ExtResource("7_e34ok")
+theme_override_font_sizes/font_size = 25
+text = "Rewards:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gold" type="NinePatchRect" parent="RightPage_BG/QuestInfoPannel"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 211.0
+offset_right = 374.0
+offset_bottom = 275.0
+
+[node name="TextureRect" type="TextureRect" parent="RightPage_BG/QuestInfoPannel/Gold"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 61.0
+offset_bottom = 57.0
+texture = ExtResource("9_moi7u")
+metadata/_edit_lock_ = true
+
+[node name="TotalGold" type="Label" parent="RightPage_BG/QuestInfoPannel/Gold"]
+modulate = Color(0.6, 0.32549, 0.317647, 1)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 163.0
+offset_bottom = 58.0
+theme_override_fonts/font = ExtResource("7_e34ok")
+theme_override_font_sizes/font_size = 35
+text = "500"
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Reputation" type="NinePatchRect" parent="RightPage_BG/QuestInfoPannel"]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 211.0
+offset_right = 553.0
+offset_bottom = 275.0
+
+[node name="TextureRect" type="TextureRect" parent="RightPage_BG/QuestInfoPannel/Reputation"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 61.0
+offset_bottom = 57.0
+texture = ExtResource("10_uhmu2")
+metadata/_edit_lock_ = true
+
+[node name="Reputation" type="Label" parent="RightPage_BG/QuestInfoPannel/Reputation"]
+modulate = Color(0.6, 0.32549, 0.317647, 1)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 163.0
+offset_bottom = 58.0
+theme_override_fonts/font = ExtResource("7_e34ok")
+theme_override_font_sizes/font_size = 35
+text = "500"
+horizontal_alignment = 2
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="PartySlots" type="NinePatchRect" parent="RightPage_BG"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 446.0
+offset_right = 820.0
+offset_bottom = 637.0
+texture = ExtResource("11_bl8j3")
+region_rect = Rect2(2, 2, 58, 9)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RightPage_BG/PartySlots"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 16.0
+offset_right = 769.0
+offset_bottom = 170.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="RightPage_BG/PartySlots/HBoxContainer"]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+texture = ExtResource("12_krv2u")
+metadata/_edit_lock_ = true
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="RightPage_BG/PartySlots/HBoxContainer"]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+texture = ExtResource("12_krv2u")
+metadata/_edit_lock_ = true
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="RightPage_BG/PartySlots/HBoxContainer"]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+texture = ExtResource("12_krv2u")
+metadata/_edit_lock_ = true
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="RightPage_BG/PartySlots/HBoxContainer"]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+texture = ExtResource("12_krv2u")
+metadata/_edit_lock_ = true
+
+[node name="StartQuestButton" type="TextureButton" parent="RightPage_BG"]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 670.0
+offset_right = 822.0
+offset_bottom = 760.0
+texture_normal = ExtResource("13_3d861")
+stretch_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="RightPage_BG/StartQuestButton"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 24.0
+offset_right = 199.0
+offset_bottom = 81.0
+theme_override_fonts/font = ExtResource("7_e34ok")
+theme_override_font_sizes/font_size = 25
+text = "Start Quest"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="RightPage_BG/StartQuestButton"]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 30.0
+offset_right = 255.0
+offset_bottom = 70.0
+texture = ExtResource("14_74gqe")
+
+[node name="StartQuestButton" type="TextureButton" parent="RightPage_BG/StartQuestButton"]
+layout_mode = 0
+offset_left = 543.0
+offset_top = 668.0
+offset_right = 815.0
+offset_bottom = 758.0
+texture_normal = ExtResource("13_3d861")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="RightPage_BG/StartQuestButton/StartQuestButton"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 24.0
+offset_right = 199.0
+offset_bottom = 81.0
+theme_override_fonts/font = ExtResource("7_e34ok")
+theme_override_font_sizes/font_size = 25
+text = "Start Quest"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="RightPage_BG/StartQuestButton/StartQuestButton"]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 30.0
+offset_right = 255.0
+offset_bottom = 70.0
+texture = ExtResource("14_74gqe")
+
+[node name="BackButton" type="TextureButton" parent="RightPage_BG"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 670.0
+offset_right = 306.0
+offset_bottom = 761.0
+texture_normal = ExtResource("13_3d861")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="RightPage_BG/BackButton"]
+modulate = Color(0.72472, 0.51368, 0.518838, 1)
+layout_mode = 0
+offset_left = 71.0
+offset_top = 24.0
+offset_right = 251.0
+offset_bottom = 81.0
+theme_override_fonts/font = ExtResource("7_e34ok")
+theme_override_font_sizes/font_size = 20
+text = "Back to Lobby"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="RightPage_BG/BackButton"]
+modulate = Color(0.674815, 0.674815, 0.674815, 1)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 30.0
+offset_right = 66.0
+offset_bottom = 70.0
+texture = ExtResource("14_74gqe")
+flip_h = true

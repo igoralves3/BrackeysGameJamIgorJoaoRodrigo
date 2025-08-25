@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx7xdjmsxbu4x"]
+
+[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="1_amr13"]
+[ext_resource type="Texture2D" uid="uid://cyagfudhlne1p" path="res://Resources/Sprites/UI_TravelBook_IconStar01a.png" id="2_4nv7m"]
+[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/dum1.ttf" id="3_f06ou"]
+[ext_resource type="Texture2D" uid="uid://ca7g5ekj3goff" path="res://Resources/Sprites/UI_TravelBook_IconCoin01a.png" id="4_mbl6y"]
+
+[node name="ResultQuestEnd" type="HBoxContainer"]
+alignment = 1
+
+[node name="Rep_HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="QuestLabel" type="Label" parent="Rep_HBoxContainer"]
+modulate = Color(0.780392, 0.537255, 0.364706, 1)
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_amr13")
+text = "XYZ: "
+vertical_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="Rep_HBoxContainer"]
+custom_minimum_size = Vector2(30, 20)
+layout_mode = 2
+texture = ExtResource("2_4nv7m")
+stretch_mode = 4
+
+[node name="QuestResult" type="Label" parent="Rep_HBoxContainer"]
+modulate = Color(1, 0.309804, 0.203922, 1)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_f06ou")
+theme_override_font_sizes/font_size = 25
+text = "- 500"
+vertical_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Gold_HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Gold_HBoxContainer"]
+custom_minimum_size = Vector2(30, 20)
+layout_mode = 2
+texture = ExtResource("4_mbl6y")
+stretch_mode = 4
+
+[node name="QuestResult" type="Label" parent="Gold_HBoxContainer"]
+modulate = Color(0.6, 0.32549, 0.317647, 1)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_f06ou")
+theme_override_font_sizes/font_size = 25
+text = "+ 0"
+vertical_alignment = 2

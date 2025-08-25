@@ -1,0 +1,266 @@
+[gd_scene load_steps=20 format=3 uid="uid://wbvwabakpwe4"]
+
+[ext_resource type="Texture2D" uid="uid://c63amgxyxowqv" path="res://Resources/Sprites/UI_TravelBook_BookCover01a.png" id="1_trm8p"]
+[ext_resource type="Texture2D" uid="uid://d3ppyp8155ntn" path="res://Resources/Sprites/UI_TravelBook_BookPageLeft01a.png" id="2_kxr31"]
+[ext_resource type="Texture2D" uid="uid://cq067j5kjd7nr" path="res://Resources/Sprites/UI_TravelBook_Fill01b.png" id="3_dkig6"]
+[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/dum1.ttf" id="4_l26we"]
+[ext_resource type="Texture2D" uid="uid://dfsepu8fulvcv" path="res://Resources/Sprites/UI_TravelBook_GamepadMenu01a.png" id="5_0q11s"]
+[ext_resource type="Texture2D" uid="uid://bwtwncf7c26n0" path="res://Resources/Sprites/UI_TravelBook_Line01a.png" id="6_ckibk"]
+[ext_resource type="PackedScene" uid="uid://m30m3havx1rw" path="res://Scenes/quest_log_end_summary.tscn" id="7_l26we"]
+[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="8_x78c8"]
+[ext_resource type="Texture2D" uid="uid://cyagfudhlne1p" path="res://Resources/Sprites/UI_TravelBook_IconStar01a.png" id="9_f8ilw"]
+[ext_resource type="Texture2D" uid="uid://ca7g5ekj3goff" path="res://Resources/Sprites/UI_TravelBook_IconCoin01a.png" id="10_a76il"]
+[ext_resource type="PackedScene" uid="uid://dx7xdjmsxbu4x" path="res://Scenes/result_quest_end.tscn" id="11_0q11s"]
+[ext_resource type="Texture2D" uid="uid://blhhijbaytlid" path="res://Resources/Sprites/UI_TravelBook_BookPageRight01a.png" id="11_nkmio"]
+[ext_resource type="Texture2D" uid="uid://bsccqcw5a2j7h" path="res://Resources/Sprites/UI_TravelBook_Popup01a.png" id="12_dkig6"]
+[ext_resource type="Texture2D" uid="uid://b18ndtkveouh5" path="res://Resources/Sprites Animated/UI_TravelBook_Button01a_1.png" id="12_g1w57"]
+[ext_resource type="Texture2D" uid="uid://1ani1rq2to8l" path="res://Resources/Sprites/UI_TravelBook_IconArrow01a.png" id="13_5v3my"]
+[ext_resource type="Texture2D" uid="uid://dqaa4end3as5n" path="res://Resources/Sprites/UI_TravelBook_Frame01a.png" id="13_l26we"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3invb"]
+texture = ExtResource("5_0q11s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0hnve"]
+texture = ExtResource("6_ckibk")
+
+[sub_resource type="Theme" id="Theme_dbyk6"]
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_3invb")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_0hnve")
+
+[node name="QuestBook" type="NinePatchRect"]
+offset_left = 33.0
+offset_top = -2.0
+offset_right = 1880.0
+offset_bottom = 913.0
+texture = ExtResource("1_trm8p")
+metadata/_edit_lock_ = true
+
+[node name="LeftPage_BG" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 48.0
+offset_right = 918.0
+offset_bottom = 879.0
+texture = ExtResource("2_kxr31")
+metadata/_edit_lock_ = true
+
+[node name="QuestLogLabel" type="NinePatchRect" parent="LeftPage_BG"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 29.0
+offset_right = 806.0
+offset_bottom = 90.0
+texture = ExtResource("3_dkig6")
+
+[node name="Label" type="Label" parent="LeftPage_BG/QuestLogLabel"]
+layout_mode = 2
+offset_left = -1.0
+offset_top = -2.0
+offset_right = 757.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("4_l26we")
+theme_override_font_sizes/font_size = 55
+text = "End of Day Summary"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LeftPage_BG/QuestLogLabel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 69.0
+offset_right = 760.0
+offset_bottom = 445.0
+theme = SubResource("Theme_dbyk6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftPage_BG/QuestLogLabel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_lock_ = true
+
+[node name="QuestLogEndSummary" parent="LeftPage_BG/QuestLogLabel/ScrollContainer/VBoxContainer" instance=ExtResource("7_l26we")]
+layout_mode = 2
+
+[node name="RightPage_BG" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 917.0
+offset_top = 44.0
+offset_right = 1767.0
+offset_bottom = 878.0
+texture = ExtResource("11_nkmio")
+metadata/_edit_lock_ = true
+
+[node name="GuildNameLabel" type="Label" parent="RightPage_BG"]
+modulate = Color(0.6, 0.32549, 0.317647, 1)
+layout_mode = 0
+offset_left = 33.0
+offset_top = 14.0
+offset_right = 821.0
+offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("4_l26we")
+theme_override_font_sizes/font_size = 45
+text = "NOME DA GUILDA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Results" type="Control" parent="RightPage_BG"]
+anchors_preset = 0
+offset_left = 51.0
+offset_top = 118.0
+offset_right = 801.0
+offset_bottom = 634.0
+
+[node name="ResultsNameLabel" type="Label" parent="RightPage_BG/Results"]
+modulate = Color(0.286275, 0.2, 0.2, 1)
+layout_mode = 0
+offset_left = -4.0
+offset_top = -18.0
+offset_right = 746.0
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("8_x78c8")
+theme_override_font_sizes/font_size = 35
+text = "Results:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="NinePatchRect" parent="RightPage_BG/Results"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 27.0
+offset_right = 748.0
+offset_bottom = 518.0
+texture = ExtResource("12_dkig6")
+
+[node name="ResultsScrollContainer" type="ScrollContainer" parent="RightPage_BG/Results"]
+custom_minimum_size = Vector2(365, 0)
+layout_mode = 2
+offset_top = 60.0
+offset_right = 723.0
+offset_bottom = 227.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RightPage_BG/Results/ResultsScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ResultQuestEnd" parent="RightPage_BG/Results/ResultsScrollContainer/VBoxContainer" instance=ExtResource("11_0q11s")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="RightPage_BG/Results"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 275.0
+offset_right = 730.0
+offset_bottom = 315.0
+
+[node name="Total" type="Control" parent="RightPage_BG/Results"]
+anchors_preset = 0
+offset_top = 360.0
+offset_right = 736.0
+offset_bottom = 500.0
+
+[node name="Label" type="Label" parent="RightPage_BG/Results/Total"]
+modulate = Color(0.286275, 0.2, 0.2, 1)
+layout_mode = 0
+offset_left = 25.0
+offset_top = -2.0
+offset_right = 723.0
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("8_x78c8")
+theme_override_font_sizes/font_size = 25
+text = "Total"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoldTotal" type="TextureRect" parent="RightPage_BG/Results/Total"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 51.0
+offset_right = 337.0
+offset_bottom = 111.0
+texture = ExtResource("13_l26we")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="RightPage_BG/Results/Total/GoldTotal"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 11.0
+offset_right = 143.0
+offset_bottom = 46.0
+texture = ExtResource("9_f8ilw")
+
+[node name="Label" type="Label" parent="RightPage_BG/Results/Total/GoldTotal"]
+modulate = Color(0.286275, 0.2, 0.2, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 13.0
+offset_right = 97.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("4_l26we")
+theme_override_font_sizes/font_size = 25
+text = "5124330"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="GoldTotal2" type="TextureRect" parent="RightPage_BG/Results/Total"]
+offset_left = 380.0
+offset_top = 51.0
+offset_right = 530.0
+offset_bottom = 111.0
+texture = ExtResource("13_l26we")
+
+[node name="TextureRect" type="TextureRect" parent="RightPage_BG/Results/Total/GoldTotal2"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 11.0
+offset_right = 143.0
+offset_bottom = 46.0
+texture = ExtResource("10_a76il")
+
+[node name="Label" type="Label" parent="RightPage_BG/Results/Total/GoldTotal2"]
+modulate = Color(0.286275, 0.2, 0.2, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 13.0
+offset_right = 97.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("4_l26we")
+theme_override_font_sizes/font_size = 25
+text = "5124330"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="StartQuestButton" type="TextureButton" parent="RightPage_BG"]
+clip_contents = true
+offset_left = 494.0
+offset_top = 654.0
+offset_right = 796.0
+offset_bottom = 771.0
+focus_mode = 0
+mouse_filter = 1
+theme = SubResource("Theme_dbyk6")
+texture_normal = ExtResource("12_g1w57")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="RightPage_BG/StartQuestButton"]
+layout_mode = 2
+offset_left = 34.0
+offset_top = 32.0
+offset_right = 221.0
+offset_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("8_x78c8")
+theme_override_font_sizes/font_size = 25
+text = "Continue "
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="RightPage_BG/StartQuestButton"]
+layout_mode = 2
+offset_left = 192.0
+offset_top = 39.0
+offset_right = 261.0
+offset_bottom = 91.0
+size_flags_vertical = 0
+mouse_filter = 0
+texture = ExtResource("13_5v3my")

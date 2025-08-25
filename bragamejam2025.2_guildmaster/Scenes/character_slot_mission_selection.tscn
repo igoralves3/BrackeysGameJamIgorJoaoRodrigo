@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://csda6yq6glsel"]
+
+[ext_resource type="Texture2D" uid="uid://duasghhm14jjl" path="res://Resources/Sprites/UI_TravelBook_Slot01a.png" id="1_fdxow"]
+[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/dum1.ttf" id="2_jhl5o"]
+[ext_resource type="Texture2D" uid="uid://bsccqcw5a2j7h" path="res://Resources/Sprites/UI_TravelBook_Popup01a.png" id="3_di7qs"]
+[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="4_7dn51"]
+
+[node name="CharacterSlot_MissionSelection" type="Control"]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 3
+anchors_preset = 0
+metadata/_edit_lock_ = true
+
+[node name="PortraitSlot" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+offset_left = 1.0
+offset_top = 24.0
+offset_right = 151.0
+offset_bottom = 174.0
+texture = ExtResource("1_fdxow")
+
+[node name="Portrait" type="TextureRect" parent="PortraitSlot"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = 140.0
+offset_bottom = 139.0
+metadata/_edit_lock_ = true
+
+[node name="LabelCost" type="Label" parent="."]
+modulate = Color(0.388235, 0.25098, 0.254902, 1)
+layout_mode = 0
+offset_top = 177.0
+offset_right = 153.0
+offset_bottom = 203.0
+theme_override_fonts/font = ExtResource("2_jhl5o")
+theme_override_font_sizes/font_size = 25
+text = "Cost: 1000 Gold"
+
+[node name="LabelRank" type="Label" parent="."]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 138.0
+offset_right = 137.0
+offset_bottom = 161.0
+text = "Rank S"
+
+[node name="InfoContainer" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 28.0
+offset_right = 759.0
+offset_bottom = 172.0
+texture = ExtResource("3_di7qs")
+
+[node name="LabelName" type="Label" parent="InfoContainer"]
+modulate = Color(0.599847, 0.3251, 0.319525, 1)
+layout_mode = 0
+offset_left = 27.0
+offset_top = 12.0
+offset_right = 377.0
+offset_bottom = 49.0
+theme_override_fonts/font = ExtResource("4_7dn51")
+theme_override_font_sizes/font_size = 26
+text = "Dussard FrankStonks"
+vertical_alignment = 1
+
+[node name="LabelInfos" type="Label" parent="InfoContainer"]
+modulate = Color(0.552919, 0.221735, 0.282394, 1)
+layout_mode = 2
+offset_left = 32.0
+offset_top = 53.0
+offset_right = 570.0
+offset_bottom = 136.0
+theme_override_fonts/font = ExtResource("2_jhl5o")
+theme_override_font_sizes/font_size = 25
+text = "- Goblin Slayer
+- Demon Hunter
+- Weak Minded"

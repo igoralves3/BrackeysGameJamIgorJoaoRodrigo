@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bstbx8p6c2u25"]
+
+[ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="1_xqbeb"]
+[ext_resource type="Texture2D" uid="uid://cyagfudhlne1p" path="res://Resources/Sprites/UI_TravelBook_IconStar01a.png" id="2_b1yje"]
+[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="3_8l2fs"]
+[ext_resource type="Texture2D" uid="uid://1ani1rq2to8l" path="res://Resources/Sprites/UI_TravelBook_IconArrow01a.png" id="4_jndyu"]
+
+[node name="QuestLabel" type="TextureRect"]
+custom_minimum_size = Vector2(0, 100)
+texture = ExtResource("1_xqbeb")
+
+[node name="DifRepIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 24.0
+offset_right = 78.0
+offset_bottom = 71.0
+texture = ExtResource("2_b1yje")
+
+[node name="LogLabel" type="Label" parent="."]
+modulate = Color(0.357558, 0.264298, 0.169752, 1)
+layout_mode = 0
+offset_left = 93.0
+offset_top = 27.0
+offset_right = 634.0
+offset_bottom = 83.0
+theme_override_fonts/font = ExtResource("3_8l2fs")
+text = "Orc Fortress Raid - Reward 500 Gold, 500 Rep"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="GoButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 655.0
+offset_top = 21.0
+offset_right = 721.0
+offset_bottom = 73.0
+texture_normal = ExtResource("4_jndyu")
+stretch_mode = 0

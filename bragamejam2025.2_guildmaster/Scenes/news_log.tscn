@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://brkndl8b72nhc"]
+
+[ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="1_oak6u"]
+[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="2_1sjt5"]
+
+[node name="NewsLog" type="TextureRect"]
+custom_minimum_size = Vector2(0, 50)
+texture = ExtResource("1_oak6u")
+
+[node name="LogLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 18.0
+offset_right = 784.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("2_1sjt5")
+text = " - Evento Randomico em Tal Area"
+autowrap_mode = 2

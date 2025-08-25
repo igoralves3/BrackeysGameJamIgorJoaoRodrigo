@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxlhoks2ojowv"]
+
+[ext_resource type="PackedScene" uid="uid://cc0gjmke6ki1w" path="res://Scenes/resources_info_bar.tscn" id="1_frkhe"]
+[ext_resource type="PackedScene" uid="uid://b87ohqrvtvkrs" path="res://Scenes/quest_man_selection.tscn" id="2_idj7w"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResourcesInfoBar" parent="." instance=ExtResource("1_frkhe")]
+layout_mode = 0
+offset_left = 41.0
+offset_top = -136.0
+offset_right = 1874.0
+offset_bottom = -9.0
+
+[node name="QuestManSelection" parent="." instance=ExtResource("2_idj7w")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1847.0
+offset_bottom = 915.0
