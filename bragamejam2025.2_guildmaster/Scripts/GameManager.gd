@@ -12,6 +12,7 @@ func changeBookPage(page: String):
 	
 	match page:
 		"endofday":
+			endOfDay.resolvePendingDayEvents()
 			endOfDay.visible = true
 		"lobby":
 			guildLobby.visible = true

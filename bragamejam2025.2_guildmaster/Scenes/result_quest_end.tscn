@@ -13,7 +13,7 @@ script = ExtResource("1_4nv7m")
 [node name="Rep_HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="QuestLabel" type="Label" parent="Rep_HBoxContainer"]
+[node name="QuestNameLabel" type="Label" parent="Rep_HBoxContainer"]
 modulate = Color(0.780392, 0.537255, 0.364706, 1)
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
@@ -27,7 +27,7 @@ layout_mode = 2
 texture = ExtResource("2_4nv7m")
 stretch_mode = 4
 
-[node name="QuestResult" type="Label" parent="Rep_HBoxContainer"]
+[node name="QuestRepResult" type="Label" parent="Rep_HBoxContainer"]
 modulate = Color(1, 0.309804, 0.203922, 1)
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
@@ -49,7 +49,7 @@ layout_mode = 2
 texture = ExtResource("4_mbl6y")
 stretch_mode = 4
 
-[node name="QuestResult" type="Label" parent="Gold_HBoxContainer"]
+[node name="QuestGoldResult" type="Label" parent="Gold_HBoxContainer"]
 modulate = Color(0.6, 0.32549, 0.317647, 1)
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
