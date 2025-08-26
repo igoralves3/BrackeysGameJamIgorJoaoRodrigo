@@ -27,7 +27,17 @@ func resolvePendingDayEvents():
 	
 	
 func resolveQuest(q: quest):
-	pass	
+	if q.Rank == "F":
+		print('sucesso na busca')
+		return
+		
+	var total_party_power = 0
+	for p in Globals.questAux.questAdventurers:
+		total_party_power += p.power
+		
+	var p_success :float = clamp((total_party_power / q.difficulty) * 0.5, 5, 99)	
+	print(p_success)
+	
 	
 func clearViews():
 	var children = questsResultsContainer.get_children()

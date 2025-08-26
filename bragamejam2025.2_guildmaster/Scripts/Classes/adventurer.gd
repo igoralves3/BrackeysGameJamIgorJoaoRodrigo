@@ -8,3 +8,5 @@ var adv_fee = 100
 var isAvaible = true
 
 var traits: Array[String]
+
+var power = 1

@@ -5,3 +5,6 @@ var gold = 0
 var onGoing = false
 var questname = "questtest"
 var questAdventurers: Array[adventurer]
+
+@export var Rank = "F"
+@export var difficulty = 0
