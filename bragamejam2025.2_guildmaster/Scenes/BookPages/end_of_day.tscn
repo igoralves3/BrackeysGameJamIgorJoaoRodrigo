@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://wbvwabakpwe4"]
+[gd_scene load_steps=21 format=3 uid="uid://wbvwabakpwe4"]
 
 [ext_resource type="Texture2D" uid="uid://c63amgxyxowqv" path="res://Resources/Sprites/UI_TravelBook_BookCover01a.png" id="1_trm8p"]
+[ext_resource type="Script" uid="uid://dmut3fc48ik56" path="res://Scripts/end_of_day.gd" id="2_kkfjv"]
 [ext_resource type="Texture2D" uid="uid://d3ppyp8155ntn" path="res://Resources/Sprites/UI_TravelBook_BookPageLeft01a.png" id="2_kxr31"]
 [ext_resource type="Texture2D" uid="uid://cq067j5kjd7nr" path="res://Resources/Sprites/UI_TravelBook_Fill01b.png" id="3_dkig6"]
 [ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="4_l26we"]
@@ -33,6 +34,7 @@ offset_top = -2.0
 offset_right = 1880.0
 offset_bottom = 913.0
 texture = ExtResource("1_trm8p")
+script = ExtResource("2_kkfjv")
 metadata/_edit_lock_ = true
 
 [node name="LeftPage_BG" type="NinePatchRect" parent="."]
@@ -270,6 +272,4 @@ size_flags_vertical = 0
 mouse_filter = 0
 texture = ExtResource("13_5v3my")
 
-[connection signal="pressed" from="RightPage_BG/BackToLobbyButton" to="LeftPage_BG/QuestLogLabel/ScrollContainer/VBoxContainer/QuestLogEndSummary" method="_on_back_to_lobby_button_pressed"]
-
-[editable path="LeftPage_BG/QuestLogLabel/ScrollContainer/VBoxContainer/QuestLogEndSummary2"]
+[connection signal="pressed" from="RightPage_BG/BackToLobbyButton" to="." method="_on_back_to_lobby_button_pressed"]

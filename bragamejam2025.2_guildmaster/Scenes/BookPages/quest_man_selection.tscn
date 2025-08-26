@@ -1,19 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://b87ohqrvtvkrs"]
+[gd_scene load_steps=15 format=3 uid="uid://b87ohqrvtvkrs"]
 
 [ext_resource type="Texture2D" uid="uid://c63amgxyxowqv" path="res://Resources/Sprites/UI_TravelBook_BookCover01a.png" id="1_o27pf"]
 [ext_resource type="Texture2D" uid="uid://d3ppyp8155ntn" path="res://Resources/Sprites/UI_TravelBook_BookPageLeft01a.png" id="2_j45gr"]
 [ext_resource type="Script" uid="uid://c83ptsjwwlgeg" path="res://Scripts/quest_man_selection.gd" id="2_mu333"]
 [ext_resource type="Texture2D" uid="uid://cq067j5kjd7nr" path="res://Resources/Sprites/UI_TravelBook_Fill01b.png" id="3_1miym"]
 [ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="4_sn0tn"]
-[ext_resource type="PackedScene" uid="uid://csda6yq6glsel" path="res://Scenes/character_slot_mission_selection.tscn" id="5_gk1x6"]
 [ext_resource type="Texture2D" uid="uid://blhhijbaytlid" path="res://Resources/Sprites/UI_TravelBook_BookPageRight01a.png" id="6_871ov"]
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="7_e34ok"]
 [ext_resource type="Texture2D" uid="uid://bsccqcw5a2j7h" path="res://Resources/Sprites/UI_TravelBook_Popup01a.png" id="8_rpcs8"]
 [ext_resource type="Texture2D" uid="uid://ca7g5ekj3goff" path="res://Resources/Sprites/UI_TravelBook_IconCoin01a.png" id="9_moi7u"]
 [ext_resource type="Texture2D" uid="uid://cyagfudhlne1p" path="res://Resources/Sprites/UI_TravelBook_IconStar01a.png" id="10_uhmu2"]
 [ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="11_bl8j3"]
-[ext_resource type="Texture2D" uid="uid://duasghhm14jjl" path="res://Resources/Sprites/UI_TravelBook_Slot01a.png" id="12_krv2u"]
 [ext_resource type="Texture2D" uid="uid://b18ndtkveouh5" path="res://Resources/Sprites Animated/UI_TravelBook_Button01a_1.png" id="13_3d861"]
+[ext_resource type="PackedScene" uid="uid://v224q32i67ns" path="res://Scenes/party_slot.tscn" id="13_mu333"]
 [ext_resource type="Texture2D" uid="uid://1ani1rq2to8l" path="res://Resources/Sprites/UI_TravelBook_IconArrow01a.png" id="14_74gqe"]
 
 [node name="QuestManSelection" type="NinePatchRect"]
@@ -57,10 +56,7 @@ layout_mode = 0
 offset_left = 48.0
 offset_top = 99.0
 offset_right = 813.0
-offset_bottom = 917.0
-
-[node name="CharacterSlot_MissionSelection" parent="LeftPage_BG/CharacterSlotsContainer" instance=ExtResource("5_gk1x6")]
-layout_mode = 2
+offset_bottom = 664.0
 
 [node name="RightPage_BG" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -76,7 +72,7 @@ layout_mode = 0
 offset_left = 44.0
 offset_top = 122.0
 offset_right = 813.0
-offset_bottom = 431.0
+offset_bottom = 355.0
 texture = ExtResource("8_rpcs8")
 
 [node name="QuestNameLabel" type="Label" parent="RightPage_BG/QuestInfoPannel"]
@@ -107,10 +103,10 @@ autowrap_mode = 2
 [node name="RewardLabel" type="Label" parent="RightPage_BG/QuestInfoPannel"]
 modulate = Color(0.6, 0.32549, 0.317647, 1)
 layout_mode = 0
-offset_left = 169.0
-offset_top = 165.0
-offset_right = 626.0
-offset_bottom = 200.0
+offset_left = 165.0
+offset_top = 110.0
+offset_right = 619.0
+offset_bottom = 156.0
 theme_override_fonts/font = ExtResource("7_e34ok")
 theme_override_font_sizes/font_size = 25
 text = "Rewards:"
@@ -119,10 +115,10 @@ vertical_alignment = 1
 
 [node name="Gold" type="NinePatchRect" parent="RightPage_BG/QuestInfoPannel"]
 layout_mode = 0
-offset_left = 207.0
-offset_top = 211.0
-offset_right = 374.0
-offset_bottom = 275.0
+offset_left = 229.0
+offset_top = 151.0
+offset_right = 396.0
+offset_bottom = 215.0
 
 [node name="TextureRect" type="TextureRect" parent="RightPage_BG/QuestInfoPannel/Gold"]
 layout_mode = 0
@@ -149,10 +145,10 @@ metadata/_edit_lock_ = true
 
 [node name="Reputation" type="NinePatchRect" parent="RightPage_BG/QuestInfoPannel"]
 layout_mode = 0
-offset_left = 386.0
-offset_top = 211.0
-offset_right = 553.0
-offset_bottom = 275.0
+offset_left = 408.0
+offset_top = 151.0
+offset_right = 575.0
+offset_bottom = 215.0
 
 [node name="TextureRect" type="TextureRect" parent="RightPage_BG/QuestInfoPannel/Reputation"]
 layout_mode = 0
@@ -179,43 +175,62 @@ metadata/_edit_lock_ = true
 
 [node name="PartySlots" type="NinePatchRect" parent="RightPage_BG"]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 446.0
-offset_right = 820.0
-offset_bottom = 637.0
+offset_left = 30.0
+offset_top = 369.0
+offset_right = 818.0
+offset_bottom = 652.0
 texture = ExtResource("11_bl8j3")
 region_rect = Rect2(2, 2, 58, 9)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="RightPage_BG/PartySlots"]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 16.0
-offset_right = 769.0
-offset_bottom = 170.0
+offset_left = 24.0
+offset_top = 10.0
+offset_right = 771.0
+offset_bottom = 180.0
+theme_override_constants/separation = 12
 
-[node name="NinePatchRect" type="NinePatchRect" parent="RightPage_BG/PartySlots/HBoxContainer"]
-custom_minimum_size = Vector2(180, 50)
+[node name="PartySlot" parent="RightPage_BG/PartySlots/HBoxContainer" instance=ExtResource("13_mu333")]
 layout_mode = 2
-texture = ExtResource("12_krv2u")
-metadata/_edit_lock_ = true
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="RightPage_BG/PartySlots/HBoxContainer"]
-custom_minimum_size = Vector2(180, 50)
+[node name="PartySlot2" parent="RightPage_BG/PartySlots/HBoxContainer" instance=ExtResource("13_mu333")]
 layout_mode = 2
-texture = ExtResource("12_krv2u")
-metadata/_edit_lock_ = true
 
-[node name="NinePatchRect3" type="NinePatchRect" parent="RightPage_BG/PartySlots/HBoxContainer"]
-custom_minimum_size = Vector2(180, 50)
+[node name="PartySlot3" parent="RightPage_BG/PartySlots/HBoxContainer" instance=ExtResource("13_mu333")]
 layout_mode = 2
-texture = ExtResource("12_krv2u")
-metadata/_edit_lock_ = true
 
-[node name="NinePatchRect4" type="NinePatchRect" parent="RightPage_BG/PartySlots/HBoxContainer"]
-custom_minimum_size = Vector2(180, 50)
+[node name="PartySlot4" parent="RightPage_BG/PartySlots/HBoxContainer" instance=ExtResource("13_mu333")]
 layout_mode = 2
-texture = ExtResource("12_krv2u")
-metadata/_edit_lock_ = true
+
+[node name="SuccessChance" type="TextureRect" parent="RightPage_BG/PartySlots"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 193.0
+offset_right = 248.0
+offset_bottom = 262.0
+texture = ExtResource("3_1miym")
+
+[node name="Label" type="Label" parent="RightPage_BG/PartySlots/SuccessChance"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 24.0
+offset_right = 125.0
+offset_bottom = 47.0
+text = "Success Chance:"
+
+[node name="BalanceAfterPayouts" type="TextureRect" parent="RightPage_BG/PartySlots"]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 189.0
+offset_right = 750.0
+offset_bottom = 263.0
+
+[node name="Label" type="Label" parent="RightPage_BG/PartySlots/BalanceAfterPayouts"]
+layout_mode = 0
+offset_right = 489.0
+offset_bottom = 70.0
+text = "Balance after payouts: jose -100 ,rose -100
+mission reward if succes +400 = result 200"
 
 [node name="StartQuestButton" type="TextureButton" parent="RightPage_BG"]
 layout_mode = 0

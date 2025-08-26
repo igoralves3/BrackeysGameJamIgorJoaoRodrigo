@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://v224q32i67ns"]
+
+[ext_resource type="Script" uid="uid://crti2xwovkeyk" path="res://Scripts/party_slot.gd" id="1_xp0j7"]
+[ext_resource type="Texture2D" uid="uid://duasghhm14jjl" path="res://Resources/Sprites/UI_TravelBook_Slot01a.png" id="2_gfosu"]
+[ext_resource type="Texture2D" uid="uid://brmqmm0qbang6" path="res://Resources/Portraits/Transperent/Icon1.png" id="3_rvacg"]
+[ext_resource type="Texture2D" uid="uid://dout3p0cb4kjp" path="res://Resources/Sprites Animated/UI_TravelBook_SlotCursor01a_1.png" id="4_7nl2y"]
+[ext_resource type="Texture2D" uid="uid://1j4wqndnqnr3" path="res://Resources/Sprites Animated/UI_TravelBook_SlotCursor01a_2.png" id="5_t57wq"]
+[ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="6_yobfm"]
+[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="7_sc1iq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pj1ht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7nl2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_t57wq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="PartySlot" type="TextureButton"]
+custom_minimum_size = Vector2(175, 175)
+script = ExtResource("1_xp0j7")
+
+[node name="PortraitSlot" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 12.0
+offset_top = 25.0
+offset_right = 162.0
+offset_bottom = 175.0
+texture = ExtResource("2_gfosu")
+
+[node name="Portrait" type="TextureRect" parent="PortraitSlot"]
+visible = false
+layout_mode = 0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = 140.0
+offset_bottom = 139.0
+texture = ExtResource("3_rvacg")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="AnimatedSprite2D" parent="PortraitSlot"]
+visible = false
+position = Vector2(74.5, 75)
+scale = Vector2(5.16667, 5.13333)
+sprite_frames = SubResource("SpriteFrames_pj1ht")
+autoplay = "default"
+frame_progress = 0.281325
+
+[node name="LabelRank" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 93.0
+offset_top = 137.0
+offset_right = 145.0
+offset_bottom = 160.0
+text = "Rank S"
+
+[node name="LabelNameBG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 174.0
+offset_bottom = 22.0
+texture = ExtResource("6_yobfm")
+
+[node name="LabelName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 170.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("7_sc1iq")
+theme_override_font_sizes/font_size = 12
+text = "Empty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

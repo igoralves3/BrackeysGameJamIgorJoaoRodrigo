@@ -35,10 +35,10 @@ autowrap_mode = 2
 
 [node name="GoButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 655.0
-offset_top = 21.0
-offset_right = 721.0
-offset_bottom = 73.0
+offset_left = 648.0
+offset_top = 24.0
+offset_right = 714.0
+offset_bottom = 76.0
 texture_normal = ExtResource("4_jndyu")
 stretch_mode = 0
 

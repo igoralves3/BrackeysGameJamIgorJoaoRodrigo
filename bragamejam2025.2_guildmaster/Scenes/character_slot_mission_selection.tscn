@@ -1,25 +1,54 @@
-[gd_scene load_steps=6 format=3 uid="uid://csda6yq6glsel"]
+[gd_scene load_steps=13 format=3 uid="uid://csda6yq6glsel"]
 
 [ext_resource type="Texture2D" uid="uid://duasghhm14jjl" path="res://Resources/Sprites/UI_TravelBook_Slot01a.png" id="1_fdxow"]
-[ext_resource type="Script" uid="uid://c3ja2rr1cwqx2" path="res://Scenes/character_slot_mission_selection.gd" id="1_jhl5o"]
+[ext_resource type="Script" uid="uid://c3ja2rr1cwqx2" path="res://Scripts/character_slot_mission_selection.gd" id="1_jhl5o"]
+[ext_resource type="ButtonGroup" uid="uid://cpofrn1pi0bxu" path="res://characterButtonGroup.tres" id="1_v57m6"]
 [ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="2_jhl5o"]
 [ext_resource type="Texture2D" uid="uid://bsccqcw5a2j7h" path="res://Resources/Sprites/UI_TravelBook_Popup01a.png" id="3_di7qs"]
+[ext_resource type="Texture2D" uid="uid://brmqmm0qbang6" path="res://Resources/Portraits/Transperent/Icon1.png" id="3_xmapa"]
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="4_7dn51"]
+[ext_resource type="Texture2D" uid="uid://dout3p0cb4kjp" path="res://Resources/Sprites Animated/UI_TravelBook_SlotCursor01a_1.png" id="4_v57m6"]
+[ext_resource type="Texture2D" uid="uid://1j4wqndnqnr3" path="res://Resources/Sprites Animated/UI_TravelBook_SlotCursor01a_2.png" id="5_o57qx"]
+[ext_resource type="Texture2D" uid="uid://cq067j5kjd7nr" path="res://Resources/Sprites/UI_TravelBook_Fill01b.png" id="10_pj1ht"]
+[ext_resource type="Texture2D" uid="uid://1ani1rq2to8l" path="res://Resources/Sprites/UI_TravelBook_IconArrow01a.png" id="11_scw8u"]
 
-[node name="CharacterSlot_MissionSelection" type="Control"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_pj1ht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_v57m6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o57qx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="CharacterSlot_MissionSelection" type="TextureButton"]
 custom_minimum_size = Vector2(600, 200)
-layout_mode = 3
-anchors_preset = 0
+offset_right = 739.0
+offset_bottom = 200.0
+toggle_mode = true
+button_group = ExtResource("1_v57m6")
 script = ExtResource("1_jhl5o")
-metadata/_edit_lock_ = true
 
 [node name="PortraitSlot" type="NinePatchRect" parent="."]
+self_modulate = Color(0.556863, 0.556863, 0.556863, 1)
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-offset_left = 1.0
+offset_left = 5.0
 offset_top = 24.0
-offset_right = 151.0
+offset_right = 155.0
 offset_bottom = 174.0
+texture = ExtResource("1_fdxow")
+
+[node name="SelectedHighlight" type="NinePatchRect" parent="PortraitSlot"]
+visible = false
+layout_mode = 0
+offset_right = 149.0
+offset_bottom = 149.0
 texture = ExtResource("1_fdxow")
 
 [node name="Portrait" type="TextureRect" parent="PortraitSlot"]
@@ -28,17 +57,16 @@ offset_left = 11.0
 offset_top = 10.0
 offset_right = 140.0
 offset_bottom = 139.0
+texture = ExtResource("3_xmapa")
 metadata/_edit_lock_ = true
 
-[node name="LabelCost" type="Label" parent="."]
-modulate = Color(0.388235, 0.25098, 0.254902, 1)
-layout_mode = 0
-offset_top = 177.0
-offset_right = 153.0
-offset_bottom = 203.0
-theme_override_fonts/font = ExtResource("2_jhl5o")
-theme_override_font_sizes/font_size = 25
-text = "Cost: 1000 Gold"
+[node name="TextureRect" type="AnimatedSprite2D" parent="PortraitSlot"]
+visible = false
+position = Vector2(74.5, 75)
+scale = Vector2(5.16667, 5.13333)
+sprite_frames = SubResource("SpriteFrames_pj1ht")
+autoplay = "default"
+frame_progress = 0.740181
 
 [node name="LabelRank" type="Label" parent="."]
 layout_mode = 0
@@ -50,9 +78,9 @@ text = "Rank S"
 
 [node name="InfoContainer" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 154.0
+offset_left = 165.0
 offset_top = 28.0
-offset_right = 759.0
+offset_right = 770.0
 offset_bottom = 172.0
 texture = ExtResource("3_di7qs")
 
@@ -80,3 +108,53 @@ theme_override_font_sizes/font_size = 25
 text = "- Goblin Slayer
 - Demon Hunter
 - Weak Minded"
+
+[node name="LabelCost" type="Label" parent="."]
+modulate = Color(0.386831, 0.249975, 0.253888, 1)
+layout_mode = 0
+offset_left = 591.0
+offset_top = 140.0
+offset_right = 729.0
+offset_bottom = 166.0
+theme_override_fonts/font = ExtResource("2_jhl5o")
+theme_override_font_sizes/font_size = 22
+text = "Cost: 1000 Gold"
+vertical_alignment = 1
+
+[node name="AddButton" type="TextureButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 590.0
+offset_top = 72.0
+offset_right = 751.0
+offset_bottom = 133.0
+
+[node name="BG" type="TextureRect" parent="AddButton"]
+layout_mode = 0
+offset_left = -7.0
+offset_right = 164.0
+offset_bottom = 61.0
+texture = ExtResource("10_pj1ht")
+
+[node name="Arrow" type="TextureRect" parent="AddButton"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 11.0
+offset_right = 155.0
+offset_bottom = 51.0
+texture = ExtResource("11_scw8u")
+
+[node name="Label" type="Label" parent="AddButton"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 6.0
+offset_right = 103.0
+offset_bottom = 55.0
+text = "Add To Party"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="toggled" from="." to="." method="_on_toggled"]
+[connection signal="pressed" from="AddButton" to="." method="_on_add_button_pressed"]

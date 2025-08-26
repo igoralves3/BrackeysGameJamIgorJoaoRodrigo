@@ -15,5 +15,6 @@ func changeBookPage(page: String):
 			endOfDay.visible = true
 		"lobby":
 			guildLobby.visible = true
+			guildLobby.attAvaibleQuestsDisplay()
 		"quests":
 			questsSelection.visible = true
