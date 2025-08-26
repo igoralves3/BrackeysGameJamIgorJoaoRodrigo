@@ -11,11 +11,13 @@ config_version=5
 [application]
 
 config/name="BraGameJam2025.2_Guildmaster"
+run/main_scene="uid://cxlhoks2ojowv"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
 [autoload]
 
-Globals="*res://Scripts/Globals.gd"
+Globals="*res://Scripts/Singletons/Globals.gd"
+SceneTransition="*res://Scenes/scene_transition.tscn"
 
 [display]
 

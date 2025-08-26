@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://brkndl8b72nhc"]
+[gd_scene load_steps=4 format=3 uid="uid://brkndl8b72nhc"]
 
 [ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="1_oak6u"]
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="2_1sjt5"]
+[ext_resource type="Script" uid="uid://cl6e8wvt0jbcn" path="res://Scripts/news_log.gd" id="2_m6vkc"]
 
 [node name="NewsLog" type="TextureRect"]
 custom_minimum_size = Vector2(0, 50)
+offset_right = 490.0
+offset_bottom = 50.0
 texture = ExtResource("1_oak6u")
+script = ExtResource("2_m6vkc")
 
 [node name="LogLabel" type="Label" parent="."]
 layout_mode = 0
@@ -16,9 +20,3 @@ offset_bottom = 46.0
 theme_override_fonts/font = ExtResource("2_1sjt5")
 text = " - Evento Randomico em Tal Area"
 autowrap_mode = 2
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "lol"

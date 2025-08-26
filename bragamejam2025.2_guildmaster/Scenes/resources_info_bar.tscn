@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc0gjmke6ki1w"]
+[gd_scene load_steps=8 format=3 uid="uid://cc0gjmke6ki1w"]
 
 [ext_resource type="Texture2D" uid="uid://b6xdjhwggsd7a" path="res://Resources/Sprites/UI_TravelBook_Spritesheet01a.png" id="1_n81oy"]
+[ext_resource type="Script" uid="uid://bper0hw1ulusj" path="res://Scripts/resources_info_bar.gd" id="2_55ybi"]
 [ext_resource type="Texture2D" uid="uid://cq067j5kjd7nr" path="res://Resources/Sprites/UI_TravelBook_Fill01b.png" id="2_pby5c"]
 [ext_resource type="Texture2D" uid="uid://ca7g5ekj3goff" path="res://Resources/Sprites/UI_TravelBook_IconCoin01a.png" id="3_o1wcf"]
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="4_m27y4"]
@@ -13,13 +14,14 @@ offset_top = -139.0
 offset_right = 1867.0
 offset_bottom = -12.0
 texture = ExtResource("1_n81oy")
+script = ExtResource("2_55ybi")
 
 [node name="Gold" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 82.0
-offset_top = 32.0
-offset_right = 249.0
-offset_bottom = 96.0
+offset_left = 80.0
+offset_top = 35.0
+offset_right = 300.0
+offset_bottom = 100.0
 texture = ExtResource("2_pby5c")
 
 [node name="TextureRect" type="TextureRect" parent="Gold"]
@@ -29,27 +31,24 @@ offset_top = 7.0
 offset_right = 61.0
 offset_bottom = 57.0
 texture = ExtResource("3_o1wcf")
-metadata/_edit_lock_ = true
 
 [node name="TotalGold" type="Label" parent="Gold"]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 2.0
-offset_right = 163.0
-offset_bottom = 58.0
+offset_left = 65.0
+offset_top = 3.0
+offset_right = 194.0
+offset_bottom = 61.0
 theme_override_fonts/font = ExtResource("4_m27y4")
 theme_override_font_sizes/font_size = 35
-text = "500"
-horizontal_alignment = 2
+text = "50000"
 vertical_alignment = 2
-metadata/_edit_lock_ = true
 
 [node name="Reputation" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 261.0
-offset_top = 32.0
-offset_right = 428.0
-offset_bottom = 96.0
+offset_left = 330.0
+offset_top = 35.0
+offset_right = 530.0
+offset_bottom = 100.0
 texture = ExtResource("2_pby5c")
 
 [node name="TextureRect" type="TextureRect" parent="Reputation"]
@@ -59,20 +58,17 @@ offset_top = 7.0
 offset_right = 61.0
 offset_bottom = 57.0
 texture = ExtResource("5_k4lpc")
-metadata/_edit_lock_ = true
 
 [node name="Reputation" type="Label" parent="Reputation"]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 2.0
-offset_right = 163.0
-offset_bottom = 58.0
+offset_left = 65.0
+offset_top = 4.0
+offset_right = 193.0
+offset_bottom = 61.0
 theme_override_fonts/font = ExtResource("4_m27y4")
 theme_override_font_sizes/font_size = 35
 text = "500"
-horizontal_alignment = 2
 vertical_alignment = 2
-metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0

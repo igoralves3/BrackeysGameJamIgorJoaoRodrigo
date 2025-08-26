@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://bpdnaxogb4p58"]
+[gd_scene load_steps=19 format=3 uid="uid://bpdnaxogb4p58"]
 
 [ext_resource type="Texture2D" uid="uid://c63amgxyxowqv" path="res://Resources/Sprites/UI_TravelBook_BookCover01a.png" id="1_riume"]
+[ext_resource type="Script" uid="uid://b27k2v1pxreet" path="res://Scripts/guild_lobby.gd" id="2_2na1d"]
 [ext_resource type="Texture2D" uid="uid://d3ppyp8155ntn" path="res://Resources/Sprites/UI_TravelBook_BookPageLeft01a.png" id="2_fcm6r"]
 [ext_resource type="Texture2D" uid="uid://cq067j5kjd7nr" path="res://Resources/Sprites/UI_TravelBook_Fill01b.png" id="3_x4m7n"]
 [ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="4_3x0j3"]
@@ -31,6 +32,7 @@ offset_top = -2.0
 offset_right = 1880.0
 offset_bottom = 913.0
 texture = ExtResource("1_riume")
+script = ExtResource("2_2na1d")
 
 [node name="LeftPage_BG" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -40,7 +42,7 @@ offset_right = 918.0
 offset_bottom = 879.0
 texture = ExtResource("2_fcm6r")
 
-[node name="QuestLogLabel" type="NinePatchRect" parent="LeftPage_BG"]
+[node name="NewsLogLabel" type="NinePatchRect" parent="LeftPage_BG"]
 layout_mode = 0
 offset_left = 45.0
 offset_top = 29.0
@@ -48,7 +50,7 @@ offset_right = 806.0
 offset_bottom = 90.0
 texture = ExtResource("3_x4m7n")
 
-[node name="Label" type="Label" parent="LeftPage_BG/QuestLogLabel"]
+[node name="Label" type="Label" parent="LeftPage_BG/NewsLogLabel"]
 layout_mode = 2
 offset_right = 758.0
 offset_bottom = 63.0
@@ -58,19 +60,19 @@ text = "News Log"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="LeftPage_BG/QuestLogLabel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="LeftPage_BG/NewsLogLabel"]
 layout_mode = 0
 offset_top = 63.0
 offset_right = 759.0
 offset_bottom = 439.0
 theme = SubResource("Theme_4p0pl")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LeftPage_BG/QuestLogLabel/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftPage_BG/NewsLogLabel/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="NewsLog" parent="LeftPage_BG/QuestLogLabel/ScrollContainer/VBoxContainer" instance=ExtResource("7_tkfya")]
+[node name="NewsLog" parent="LeftPage_BG/NewsLogLabel/ScrollContainer/VBoxContainer" instance=ExtResource("7_tkfya")]
 layout_mode = 2
 
 [node name="RankingLabel" type="NinePatchRect" parent="LeftPage_BG"]
@@ -239,3 +241,5 @@ offset_top = 25.0
 offset_right = 240.0
 offset_bottom = 72.0
 texture = ExtResource("14_8xw2f")
+
+[connection signal="pressed" from="RightPage_BG/EndDayButton" to="." method="_on_end_day_button_pressed"]

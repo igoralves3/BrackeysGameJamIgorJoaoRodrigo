@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx7xdjmsxbu4x"]
+[gd_scene load_steps=6 format=3 uid="uid://dx7xdjmsxbu4x"]
 
+[ext_resource type="Script" uid="uid://b7waptjxcywga" path="res://Scripts/result_quest_end.gd" id="1_4nv7m"]
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="1_amr13"]
 [ext_resource type="Texture2D" uid="uid://cyagfudhlne1p" path="res://Resources/Sprites/UI_TravelBook_IconStar01a.png" id="2_4nv7m"]
 [ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="3_f06ou"]
@@ -7,6 +8,7 @@
 
 [node name="ResultQuestEnd" type="HBoxContainer"]
 alignment = 1
+script = ExtResource("1_4nv7m")
 
 [node name="Rep_HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

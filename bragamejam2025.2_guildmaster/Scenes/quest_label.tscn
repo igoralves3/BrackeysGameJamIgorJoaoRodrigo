@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bstbx8p6c2u25"]
+[gd_scene load_steps=6 format=3 uid="uid://bstbx8p6c2u25"]
 
 [ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="1_xqbeb"]
+[ext_resource type="Script" uid="uid://8xxpj1irn71b" path="res://Scripts/quest_label.gd" id="2_8l2fs"]
 [ext_resource type="Texture2D" uid="uid://cyagfudhlne1p" path="res://Resources/Sprites/UI_TravelBook_IconStar01a.png" id="2_b1yje"]
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="3_8l2fs"]
 [ext_resource type="Texture2D" uid="uid://1ani1rq2to8l" path="res://Resources/Sprites/UI_TravelBook_IconArrow01a.png" id="4_jndyu"]
 
 [node name="QuestLabel" type="TextureRect"]
 custom_minimum_size = Vector2(0, 100)
+offset_right = 754.0
+offset_bottom = 108.0
 texture = ExtResource("1_xqbeb")
+script = ExtResource("2_8l2fs")
 
 [node name="DifRepIcon" type="TextureRect" parent="."]
 layout_mode = 0
@@ -17,7 +21,7 @@ offset_right = 78.0
 offset_bottom = 71.0
 texture = ExtResource("2_b1yje")
 
-[node name="LogLabel" type="Label" parent="."]
+[node name="QuestDescriptionLabel" type="Label" parent="."]
 modulate = Color(0.357558, 0.264298, 0.169752, 1)
 layout_mode = 0
 offset_left = 93.0
@@ -37,3 +41,5 @@ offset_right = 721.0
 offset_bottom = 73.0
 texture_normal = ExtResource("4_jndyu")
 stretch_mode = 0
+
+[connection signal="pressed" from="GoButton" to="." method="_on_go_button_pressed"]

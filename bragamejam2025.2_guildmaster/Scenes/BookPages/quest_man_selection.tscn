@@ -62,12 +62,6 @@ offset_bottom = 917.0
 [node name="CharacterSlot_MissionSelection" parent="LeftPage_BG/CharacterSlotsContainer" instance=ExtResource("5_gk1x6")]
 layout_mode = 2
 
-[node name="CharacterSlot_MissionSelection2" parent="LeftPage_BG/CharacterSlotsContainer" instance=ExtResource("5_gk1x6")]
-layout_mode = 2
-
-[node name="CharacterSlot_MissionSelection3" parent="LeftPage_BG/CharacterSlotsContainer" instance=ExtResource("5_gk1x6")]
-layout_mode = 2
-
 [node name="RightPage_BG" type="NinePatchRect" parent="."]
 layout_mode = 0
 offset_left = 917.0
@@ -282,3 +276,6 @@ offset_right = 66.0
 offset_bottom = 70.0
 texture = ExtResource("14_74gqe")
 flip_h = true
+
+[connection signal="pressed" from="RightPage_BG/StartQuestButton" to="." method="_on_start_quest_button_pressed"]
+[connection signal="pressed" from="RightPage_BG/BackButton" to="." method="_on_back_button_pressed"]

@@ -24,6 +24,13 @@ offset_top = -131.0
 offset_right = 1841.0
 offset_bottom = -4.0
 
+[node name="GuildLobby" parent="." instance=ExtResource("5_jw32o")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1847.0
+offset_bottom = 915.0
+
 [node name="QuestManSelection" parent="." instance=ExtResource("2_idj7w")]
 visible = false
 layout_mode = 0
@@ -33,14 +40,6 @@ offset_right = 1847.0
 offset_bottom = 915.0
 
 [node name="EndOfDay" parent="." instance=ExtResource("4_v1gob")]
-visible = false
-layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 1847.0
-offset_bottom = 915.0
-
-[node name="GuildLobby" parent="." instance=ExtResource("5_jw32o")]
 visible = false
 layout_mode = 0
 offset_left = 0.0

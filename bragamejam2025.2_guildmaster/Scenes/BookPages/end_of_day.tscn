@@ -233,7 +233,7 @@ text = "5124330"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="StartQuestButton" type="TextureButton" parent="RightPage_BG"]
+[node name="BackToLobbyButton" type="TextureButton" parent="RightPage_BG"]
 clip_contents = true
 layout_mode = 0
 offset_left = 494.0
@@ -246,7 +246,7 @@ theme = SubResource("Theme_dbyk6")
 texture_normal = ExtResource("12_g1w57")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="RightPage_BG/StartQuestButton"]
+[node name="Label" type="Label" parent="RightPage_BG/BackToLobbyButton"]
 layout_mode = 2
 offset_left = 34.0
 offset_top = 32.0
@@ -260,7 +260,7 @@ theme_override_font_sizes/font_size = 25
 text = "Continue "
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="RightPage_BG/StartQuestButton"]
+[node name="TextureRect" type="TextureRect" parent="RightPage_BG/BackToLobbyButton"]
 layout_mode = 2
 offset_left = 192.0
 offset_top = 39.0
@@ -269,5 +269,7 @@ offset_bottom = 91.0
 size_flags_vertical = 0
 mouse_filter = 0
 texture = ExtResource("13_5v3my")
+
+[connection signal="pressed" from="RightPage_BG/BackToLobbyButton" to="LeftPage_BG/QuestLogLabel/ScrollContainer/VBoxContainer/QuestLogEndSummary" method="_on_back_to_lobby_button_pressed"]
 
 [editable path="LeftPage_BG/QuestLogLabel/ScrollContainer/VBoxContainer/QuestLogEndSummary2"]
