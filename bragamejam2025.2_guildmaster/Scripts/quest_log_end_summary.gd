@@ -6,15 +6,17 @@ extends TextureRect
 @onready var goldLabel = $VBoxContainer/HBoxContainer/GoldResult/GoldResultLabel
 
 	
-func setLabels(failstate, charactersDead, repObtained, goldObtained):
-	if failstate == true:
+	
+## nesse momento no tempo se a quest nao possui personagens nela entao falou	
+func setLabels(q: quest):
+	if q.questAdventurers.size()==0:
 		logLabel.text = "quest falhou"
 	else:
 		logLabel.text = "quest sucesso"
 		
-	if charactersDead.size()>0:
-		for cdeaths in charactersDead:
-			logLabel.text = logLabel.text + " - " + charactersDead[0] + " morreu!"
+	if q.advDead.size()>0:
+		for adv in q.advDead:
+			logLabel.text = logLabel.text + " - " + adv.name + " morreu!"
 	
-	repLabel.text = repObtained
-	goldLabel.text = goldObtained
+	repLabel.text = str(q.finalRep)
+	goldLabel.text = str(q.finalGold)

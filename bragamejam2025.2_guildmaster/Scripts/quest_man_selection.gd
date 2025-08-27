@@ -76,7 +76,7 @@ func _on_start_quest_button_pressed() -> void:
 		
 			# adc os aventureiros na quest desejada
 			for adv in Globals.partyNow:
-				Globals.questAux.questAdventurers.append(adv)
+				Globals.questAux.addAdventurer(adv)
 				
 			# da clear no partyAux e no quest aux
 			Globals.partyNow.clear()

@@ -1,10 +1,35 @@
 class_name quest extends Node
 
-var rep = 0
-var gold = 0
+## after multipliers when quest is done
+var finalGold = 0
+var finalRep = 0
+
+## auxiliar to show logs after
+var advDead: Array[adventurer]
+
+## contador usado para verificação da mecanica de double down, sendo aqui quantas vezes a quest foi continuada
+## quando fizer double down e incrementar o contador, lembrar de ajustar a rep e o gold deacordo
+var doubleDownaux = 0
+
+## quest endend aux
 var onGoing = false
-var questname = "questtest"
+
+var rep = 100
+var gold = 100
+var questname = "Test Quest"
 var questAdventurers: Array[adventurer]
 
 @export var Rank = "F"
 @export var difficulty = 0
+
+func setQuest(qrep,qgold,qname,qdiff):
+	rep = qrep
+	gold = qgold
+	questname = qname
+	difficulty = qdiff
+
+func addAdventurer(adv: adventurer):
+	questAdventurers.append(adv)
+	
+func removeAdventurer(adv: adventurer):
+	questAdventurers.erase(adv)

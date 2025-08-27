@@ -50,7 +50,7 @@ func newDaySpawnQuests():
 	const quest = preload("res://Scripts/Classes/quest.gd")
 	var auxnewq = quest.new()
 	#adc no globals a quest criada
-	Globals.quests.append(auxnewq)
+	Globals.availableQuests.append(auxnewq)
 	
 	attAvaibleQuestsDisplay()
 
@@ -62,7 +62,7 @@ func attAvaibleQuestsDisplay():
 		c.queue_free()
 	
 	## popula o container de quests no lobby 
-	for q in Globals.quests:
+	for q in Globals.availableQuests:
 		var questlabel = quest_label.instantiate()
 		questsContainer.add_child(questlabel)
 		questlabel.setNewQuest(q)

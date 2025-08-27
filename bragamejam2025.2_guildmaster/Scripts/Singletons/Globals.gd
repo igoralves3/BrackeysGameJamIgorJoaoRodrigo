@@ -10,7 +10,7 @@ var questAux = null
 ## usado apenas temporariamente
 var partyNow: Array[adventurer]
 
-var quests: Array[quest]
+var availableQuests: Array[quest]
 var adventurers: Array[adventurer]
 
 var onGoingQuests: Array[quest]
