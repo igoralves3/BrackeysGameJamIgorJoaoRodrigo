@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bpdnaxogb4p58"]
+[gd_scene load_steps=18 format=3 uid="uid://bpdnaxogb4p58"]
 
 [ext_resource type="Texture2D" uid="uid://c63amgxyxowqv" path="res://Resources/Sprites/UI_TravelBook_BookCover01a.png" id="1_riume"]
 [ext_resource type="Script" uid="uid://b27k2v1pxreet" path="res://Scripts/guild_lobby.gd" id="2_2na1d"]
@@ -7,12 +7,11 @@
 [ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="4_3x0j3"]
 [ext_resource type="Texture2D" uid="uid://blhhijbaytlid" path="res://Resources/Sprites/UI_TravelBook_BookPageRight01a.png" id="5_w0nxr"]
 [ext_resource type="Texture2D" uid="uid://dfsepu8fulvcv" path="res://Resources/Sprites/UI_TravelBook_GamepadMenu01a.png" id="5_x4m7n"]
-[ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="6_3x0j3"]
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="6_4p0pl"]
 [ext_resource type="Texture2D" uid="uid://bwtwncf7c26n0" path="res://Resources/Sprites/UI_TravelBook_Line01a.png" id="6_w0nxr"]
 [ext_resource type="Texture2D" uid="uid://b18ndtkveouh5" path="res://Resources/Sprites Animated/UI_TravelBook_Button01a_1.png" id="7_d6kf4"]
 [ext_resource type="PackedScene" uid="uid://brkndl8b72nhc" path="res://Scenes/news_log.tscn" id="7_tkfya"]
-[ext_resource type="Texture2D" uid="uid://cnqg1f24ugiaf" path="res://Resources/Sprites/UI_TravelBook_GamepadA01a.png" id="9_d6kf4"]
+[ext_resource type="PackedScene" uid="uid://crboxa4c7vkj1" path="res://Scenes/guild_ranking_label.tscn" id="9_6a4ub"]
 [ext_resource type="PackedScene" uid="uid://bstbx8p6c2u25" path="res://Scenes/quest_label.tscn" id="12_8xw2f"]
 [ext_resource type="Texture2D" uid="uid://cas1mmska0ji" path="res://Resources/Sprites/UI_TravelBook_IconHome01a.png" id="14_8xw2f"]
 
@@ -105,77 +104,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="GuildRankingLabel" type="TextureRect" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+[node name="GuildRankingLabel" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer" instance=ExtResource("9_6a4ub")]
 layout_mode = 2
-texture = ExtResource("6_3x0j3")
-
-[node name="TextureRect" type="TextureRect" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer/GuildRankingLabel"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 11.0
-offset_right = 63.0
-offset_bottom = 40.0
-texture = ExtResource("9_d6kf4")
-
-[node name="LogLabel" type="Label" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer/GuildRankingLabel"]
-layout_mode = 0
-offset_left = 74.0
-offset_top = 14.0
-offset_right = 684.0
-offset_bottom = 38.0
-theme_override_fonts/font = ExtResource("6_4p0pl")
-text = "Guild x - 1000 PONTOS"
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="GuildRankingLabel2" type="TextureRect" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-texture = ExtResource("6_3x0j3")
-
-[node name="TextureRect" type="TextureRect" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer/GuildRankingLabel2"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 11.0
-offset_right = 63.0
-offset_bottom = 40.0
-texture = ExtResource("9_d6kf4")
-
-[node name="LogLabel" type="Label" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer/GuildRankingLabel2"]
-layout_mode = 0
-offset_left = 74.0
-offset_top = 14.0
-offset_right = 684.0
-offset_bottom = 38.0
-theme_override_fonts/font = ExtResource("6_4p0pl")
-text = "Guild x - 1000 PONTOS"
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="GuildRankingLabel3" type="TextureRect" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-texture = ExtResource("6_3x0j3")
-
-[node name="TextureRect" type="TextureRect" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer/GuildRankingLabel3"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 11.0
-offset_right = 63.0
-offset_bottom = 40.0
-texture = ExtResource("9_d6kf4")
-
-[node name="LogLabel" type="Label" parent="LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer/GuildRankingLabel3"]
-layout_mode = 0
-offset_left = 74.0
-offset_top = 14.0
-offset_right = 684.0
-offset_bottom = 38.0
-theme_override_fonts/font = ExtResource("6_4p0pl")
-text = "Guild x - 1000 PONTOS"
-vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="RightPage_BG" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -186,7 +116,7 @@ offset_bottom = 878.0
 texture = ExtResource("5_w0nxr")
 
 [node name="QuestNameLabel" type="Label" parent="RightPage_BG"]
-modulate = Color(0.6, 0.32549, 0.317647, 1)
+modulate = Color(0.388235, 0.25098, 0.254902, 1)
 layout_mode = 0
 offset_left = 34.0
 offset_top = 26.0
@@ -212,6 +142,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="QuestLabel" parent="RightPage_BG/QuestsScrollContainer/QuestsVBoxContainer" instance=ExtResource("12_8xw2f")]
+self_modulate = Color(0.779291, 0.779291, 0.779291, 1)
 layout_mode = 2
 
 [node name="EndDayButton" type="TextureButton" parent="RightPage_BG"]

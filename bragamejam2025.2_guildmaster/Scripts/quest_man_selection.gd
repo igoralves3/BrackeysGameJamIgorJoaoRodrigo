@@ -10,6 +10,12 @@ var adv_label = preload("res://Scenes/character_slot_mission_selection.tscn")
 @onready var currQuestGoldLabel = $RightPage_BG/QuestInfoPannel/Gold/TotalGold
 
 
+@onready var successIndicatorLabel = $RightPage_BG/PartySlots/SuccessChance/TextureRect/SuccessIndicatorLabel
+@onready var PayValueLabel = $RightPage_BG/PartySlots/BalanceAfterPayouts/TextureRect/Payout/PayValue
+@onready var FeeValueLabel = $RightPage_BG/PartySlots/BalanceAfterPayouts/TextureRect/Fee/FeeValue
+@onready var TotalValueLabel = $RightPage_BG/PartySlots/BalanceAfterPayouts/TextureRect/Total/TotalValue
+
+
 @onready var slot1 = $RightPage_BG/PartySlots/HBoxContainer/PartySlot
 @onready var slot2 = $RightPage_BG/PartySlots/HBoxContainer/PartySlot2
 @onready var slot3 = $RightPage_BG/PartySlots/HBoxContainer/PartySlot3
@@ -24,15 +30,35 @@ var auxPartyCounter = 0
 func _process(delta):
 	
 	#caso aconteça alguma mudança no rooster dos personagens selecionados pra quest atual
-	if Globals.partyNow.size()!=auxPartyCounter:
+	if Globals.partyNow.size()!=auxPartyCounter and Globals.questAux!=null:
 		attPartyCharactersDisplay()
 		attGuildCharacterStatus()
+		attQuestChancesandPayouts()
 		auxPartyCounter = Globals.partyNow.size()
 		
 	## check pra atualizar os personagens disponiveis roda assim que ficar visivel a pagina
 	if visible and not has_been_visible_and_processed:
 		attGuildCharacterStatus()
+		attQuestInfos()
+		
 		has_been_visible_and_processed = true
+
+func attQuestChancesandPayouts():
+	successIndicatorLabel.text = "MODERATE"
+	PayValueLabel.text = "+" + str(Globals.questAux.gold)
+	
+	var feeTotalValue = 0
+	for adv in Globals.partyNow:
+		feeTotalValue = feeTotalValue + adv.adv_fee
+		
+	FeeValueLabel.text = "-" + str(feeTotalValue)
+	TotalValueLabel.text = str(feeTotalValue - Globals.questAux.gold)
+
+func attQuestInfos():
+	currQuestNameLabel.text = str(Globals.questAux.questname)
+	currQuestInfoLabel.text = str(Globals.questAux.questinfo)
+	currQuestRepLabel.text = str(Globals.questAux.rep)
+	currQuestGoldLabel.text = str(Globals.questAux.gold)
 
 func attPartyCharactersDisplay():
 	for i in range(0, 4):

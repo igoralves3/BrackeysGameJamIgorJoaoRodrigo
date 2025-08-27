@@ -23,6 +23,7 @@ offset_bottom = 104.0
 metadata/_edit_lock_ = true
 
 [node name="LogLabel" type="Label" parent="VBoxContainer"]
+self_modulate = Color(0.388235, 0.25098, 0.254902, 1)
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_vertical = 3
@@ -73,6 +74,7 @@ texture = ExtResource("5_ghxj8")
 metadata/_edit_lock_ = true
 
 [node name="GoldResultLabel" type="Label" parent="VBoxContainer/HBoxContainer/GoldResult"]
+self_modulate = Color(0.388235, 0.25098, 0.254902, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_yde1k")
 theme_override_font_sizes/font_size = 25

@@ -7,19 +7,19 @@ extends NinePatchRect
 
 var quest_label = preload("res://Scenes/quest_label.tscn")
 
+var rank_label = preload("res://Scenes/guild_ranking_label.tscn")
+
 ## variavel local do dia que compara com globals se for diferente o dia passou tem que atualizar a view
 var localdayaux = 0
 
 
 func _ready() -> void:
-	# cria um aventureiro teste
-	const adv = preload("res://Scripts/Classes/adventurer.gd")
-	var auxnewa = adventurer.new()
+	
+	var auxnewa = Spawner.spawnNewAdventurer()
 	#adc no globals o adv
 	Globals.adventurers.append(auxnewa)
 	
-	const adv2 = preload("res://Scripts/Classes/adventurer.gd")
-	var auxnewa2 = adventurer.new()
+	var auxnewa2 = Spawner.spawnNewAdventurer()
 	#adc no globals o adv
 	Globals.adventurers.append(auxnewa2)
 
@@ -47,8 +47,7 @@ func newDaySpawnNews():
 
 func newDaySpawnQuests():
 	# cria uma nova quest exemplo no começo do dia
-	const quest = preload("res://Scripts/Classes/quest.gd")
-	var auxnewq = quest.new()
+	var auxnewq = Spawner.spawnNewQuest()
 	#adc no globals a quest criada
 	Globals.availableQuests.append(auxnewq)
 	
@@ -69,8 +68,21 @@ func attAvaibleQuestsDisplay():
 
 ## atualiza os ranks caso haja mudanças e termina o jogo caso o rank seja o maior entre as guilds
 func attGuildRanks():
-	pass
+	
+	var children = rankingContainer.get_children()
+	for c in children:
+		c.queue_free()
+	
+	var deep_dict_copy_aux = Globals.rivalGuilds_dict.duplicate(true)
+	deep_dict_copy_aux[Globals.guildName] = Globals.totalrep
+	
+	var keys_sorted_by_value = deep_dict_copy_aux.keys()
+	keys_sorted_by_value.sort_custom(func(a, b): return deep_dict_copy_aux[a] > deep_dict_copy_aux[b])
 
+	for key in keys_sorted_by_value:
+		var ranklabel = rank_label.instantiate()
+		rankingContainer.add_child(ranklabel)
+		ranklabel.setLabel(key,deep_dict_copy_aux[key])
 
 func _on_end_day_button_pressed() -> void:
 	#Globals.reset()

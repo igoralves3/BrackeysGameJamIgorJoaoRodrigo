@@ -19,6 +19,8 @@ var gold = 100
 var questname = "Test Quest"
 var questAdventurers: Array[adventurer]
 
+var questinfo = "Quest info here"
+
 @export var Rank = "F"
 @export var difficulty = 0
 
@@ -27,6 +29,10 @@ func setQuest(qrep,qgold,qname,qdiff):
 	gold = qgold
 	questname = qname
 	difficulty = qdiff
+	
+	## default no multiplier final rewards
+	finalGold = qgold
+	finalRep = qrep
 
 func addAdventurer(adv: adventurer):
 	questAdventurers.append(adv)

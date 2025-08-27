@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 Globals="*res://Scripts/Singletons/Globals.gd"
 SceneTransition="*res://Scenes/scene_transition.tscn"
 SoundManager="*res://Scenes/SoundManager/SoundManager.tscn"
+Spawner="*res://Scripts/Singletons/Spawner.gd"
 
 [display]
 

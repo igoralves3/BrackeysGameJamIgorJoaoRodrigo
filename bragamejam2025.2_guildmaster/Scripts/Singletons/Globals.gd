@@ -10,6 +10,11 @@ var questAux = null
 ## usado apenas temporariamente
 var partyNow: Array[adventurer]
 
+
+var guildName = "Nome da Guild"
+
+var rivalGuilds_dict = {"White": 500, "Yellow": 750, "Orange": 1000}
+
 var availableQuests: Array[quest]
 var adventurers: Array[adventurer]
 

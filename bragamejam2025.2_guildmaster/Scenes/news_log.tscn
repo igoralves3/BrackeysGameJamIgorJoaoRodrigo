@@ -12,6 +12,7 @@ texture = ExtResource("1_oak6u")
 script = ExtResource("2_m6vkc")
 
 [node name="LogLabel" type="Label" parent="."]
+self_modulate = Color(0.388235, 0.25098, 0.254902, 1)
 layout_mode = 0
 offset_left = 27.0
 offset_top = 18.0
