@@ -50,9 +50,9 @@ func resolveQuest(q: quest):
 	
 	## doubledown nao tem logo acaba a quest
 	if doubledown == false:
-		questSuccessCal(q)
+		questSuccessCalculation(q)
 		## quest survivors calculation
-		questSurvivorsCal(q)
+		questSurvivorsCalculation(q)
 
 		
 	#doubledown TRUE cria uma copia da quest para caso o player queira encerrar a quest e pegar os rewards	
@@ -62,21 +62,23 @@ func resolveQuest(q: quest):
 		var auxnewq = quest.new()
 		auxnewq.setQuest(q.rep,q.gold,q.name,q.difficulty)
 		auxnewq.questAdventurers = q.questAdventurers
-		questSuccessCal(auxnewq)
-		questSurvivorsCal(auxnewq)
+		questSuccessCalculation(auxnewq)
+		questSurvivorsCalculation(auxnewq)
 		## att valores da quest original, NÃO da copia
 		questDoubleDownValuesAtt(q)
 
 
 func questDoubleDownValuesAtt(q: quest):
 	pass
-		
-func questSurvivorsCal(q: quest):
+	
+## calculo sobreviventes ou nao da quest	
+func questSurvivorsCalculation(q: quest):
 	## quest end set remaining survivors to avaible 	
 	for adv in q.questAdventurers:
 		adv.isAvaible = true
 
-func questSuccessCal(q: quest):
+## calculo sucesso da quest
+func questSuccessCalculation(q: quest):
 	## quest success calculation	
 	var total_party_power = 0
 	for quest_adv in q.questAdventurers:

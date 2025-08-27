@@ -11,6 +11,10 @@ var advDead: Array[adventurer]
 ## quando fizer double down e incrementar o contador, lembrar de ajustar a rep e o gold deacordo
 var doubleDownaux = 0
 
+
+# VERY LIKELY, LIKELY, EVEN ODDS, UNLIKELY, VERY UNLIKELY 
+var chanceOfSuccess = "EVEN ODDS"
+
 ## quest endend aux
 var onGoing = false
 

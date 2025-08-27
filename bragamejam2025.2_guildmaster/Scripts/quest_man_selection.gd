@@ -44,8 +44,11 @@ func _process(delta):
 		has_been_visible_and_processed = true
 
 func attQuestChancesandPayouts():
-	successIndicatorLabel.text = "MODERATE"
+
 	PayValueLabel.text = "+" + str(Globals.questAux.gold)
+	
+	successIndicatorLabel.text = "MODERATE"
+	Globals.questAux.chanceOfSuccess = "MODERATE"
 	
 	var feeTotalValue = 0
 	for adv in Globals.partyNow:

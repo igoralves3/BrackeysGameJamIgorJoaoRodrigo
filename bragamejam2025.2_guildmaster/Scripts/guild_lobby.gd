@@ -6,7 +6,6 @@ extends NinePatchRect
 @onready var questsContainer = $RightPage_BG/QuestsScrollContainer/QuestsVBoxContainer
 
 var quest_label = preload("res://Scenes/quest_label.tscn")
-
 var rank_label = preload("res://Scenes/guild_ranking_label.tscn")
 
 ## variavel local do dia que compara com globals se for diferente o dia passou tem que atualizar a view
@@ -86,6 +85,7 @@ func attGuildRanks():
 
 func _on_end_day_button_pressed() -> void:
 	#Globals.reset()
+	
 	#SoundManager.play_sfx("select_sound")
 	get_tree().get_root().get_node("Main").changeBookPage("endofday")
 	pass
