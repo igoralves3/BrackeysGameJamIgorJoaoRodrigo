@@ -24,6 +24,7 @@ var totalgold = 1000
 var totalrep = 0
 var day = 1
 
+var tierGuild = "Unlicenced"
 
 func startActiveQuest():
 	onGoingQuests.append(questAux)
