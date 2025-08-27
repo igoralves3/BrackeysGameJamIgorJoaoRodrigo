@@ -153,11 +153,27 @@ func spawnNewQuest() -> quest:
 	return myquests.pick_random()
 	
 func spawnNewAdventurer() -> adventurer:
-	
 	# cria um aventureiro teste
 	const nadv = preload("res://Scripts/Classes/adventurer.gd")
 	var auxnewa = adventurer.new()
 	
+	var maleNames = ["Elres","Helman","Gaenbeornw","Sege","Helmund","Walter","Helre","Feiusi","Aerehrt","Ealfard","Mund","Tane","Gerey","Narder","Enryn","Alters","Georguy","Ames","Piersym","Frobert"]
+	var female_names = ["Wigswe","Elell","Ewall","Bricthlu","Burhiua","Evell","Wulfwe","Saewe","Kather","Arran","Mindra","Wene","Burga","Joane","Cyna","Odgis","Cecie","Benne","Sarrey","Enen"]
+	var surnames = ["Serpentstone","Boulderward","Rapidroar","Blazeblight","Springwing","Frozentalon","Smartflare","Simplesnarl","Pineshine","Duskbash","Roqueleilles",
+		"Vizin","Dullac","Cregnon","Boisgefelon","Échefort","Échezac","Chabalot","Estieveron","Ravibannes","Crowhisk","Battlebough","Highspirit","Blazebash","Titanwater",
+		"Sternglide","Blazeward","Noblebraid","Hydrahand","Frozenbow","Croissard","Sunne","Clarimtal","Massounie","Chavallon","Chananteau","Chamidras","Vernillevé","Lamagnon","Sublimpes"]
+	
+	var characterName = ""
+	
+	var coin_flip = randi_range(1,100) 
+	## male
+	if coin_flip >= 50:
+		characterName = maleNames.pick_random() + " " +surnames.pick_random()
+		auxnewa.setAdventurer(characterName,"male")
+	else:
+		characterName = female_names.pick_random() + " " +surnames.pick_random()
+		auxnewa.setAdventurer(characterName,"female")
+			
 	return auxnewa
 
 	
