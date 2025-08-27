@@ -88,4 +88,5 @@ func _on_end_day_button_pressed() -> void:
 	
 	#SoundManager.play_sfx("select_sound")
 	get_tree().get_root().get_node("Main").changeBookPage("endofday")
+	SoundManager.pickButtonSFX(randi() % 3)
 	pass

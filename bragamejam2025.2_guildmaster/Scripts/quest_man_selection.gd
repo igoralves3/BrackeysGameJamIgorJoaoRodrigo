@@ -87,6 +87,7 @@ func listGuildCharacters():
 
 func _on_back_button_pressed() -> void:
 	get_tree().get_root().get_node("Main").changeBookPage("lobby")
+	SoundManager.pickButtonSFX(randi() % 3)
 	has_been_visible_and_processed = false
 
 
@@ -112,4 +113,5 @@ func _on_start_quest_button_pressed() -> void:
 			Globals.startActiveQuest()
 			
 		get_tree().get_root().get_node("Main").changeBookPage("lobby")
+		SoundManager.pickButtonSFX(randi() % 3)
 		has_been_visible_and_processed = false
