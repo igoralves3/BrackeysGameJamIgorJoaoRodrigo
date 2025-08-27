@@ -5,7 +5,7 @@ extends Control
 @onready var AddPartyButton = $AddButton
 
 @onready var advCostLabel = $LabelCost
-@onready var advRankLabel = $LabelRank
+@onready var advRankLabel = $PortraitSlot/LabelRank
 @onready var advNameLabel = $InfoContainer/LabelName
 
 var adventurerLocal = null

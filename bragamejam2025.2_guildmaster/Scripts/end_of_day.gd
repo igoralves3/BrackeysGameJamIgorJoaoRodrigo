@@ -7,6 +7,8 @@ var quest_end_summary = preload("res://Scenes/quest_log_end_summary.tscn")
 var quest_result_value = preload("res://Scenes/result_quest_end.tscn")
 
 
+
+
 func resolvePendingDayEvents():
 	clearViews()
 	## pegar todas as quests ativas e resolver elas
@@ -23,20 +25,33 @@ func resolvePendingDayEvents():
 		questsResultsContainer.add_child(questresult)
 		#questresult.setLabels()
 		
+		## quest complete remove quest from avaible quests on globals script 
+		if Globals.quests.has(activeQuest):
+			Globals.quests.erase(activeQuest)
+			
+		## quest end set survivors to avaible 	
+		for adv in activeQuest.questAdventurers:
+			adv.isAvaible = true
+			
 	## calculate and att total 
 	
 	
 func resolveQuest(q: quest):
+	
+	## quest success calculation
 	if q.Rank == "F":
 		print('sucesso na busca')
 		return
 		
 	var total_party_power = 0
-	for p in Globals.questAux.questAdventurers:
-		total_party_power += p.power
+	for quest_adv in Globals.q.questAdventurers:
+		total_party_power += quest_adv.power
 		
 	var p_success :float = clamp((total_party_power / q.difficulty) * 0.5, 5, 99)	
 	print(p_success)
+	
+	## quest survivors calculation
+	## if death remove and delete from quest, if not removed assumed survived
 	
 	
 func clearViews():

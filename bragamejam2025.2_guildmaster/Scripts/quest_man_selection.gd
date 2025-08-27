@@ -1,7 +1,7 @@
 extends NinePatchRect
 
 var adv_label = preload("res://Scenes/character_slot_mission_selection.tscn")
-@onready var charactersContainer = $LeftPage_BG/CharacterSlotsContainer
+@onready var charactersContainer = $LeftPage_BG/ScrollContainer/CharacterSlotsContainer
 
 ## current quest infos
 @onready var currQuestNameLabel = $RightPage_BG/QuestInfoPannel/QuestNameLabel
@@ -31,7 +31,6 @@ func _process(delta):
 		
 	## check pra atualizar os personagens disponiveis roda assim que ficar visivel a pagina
 	if visible and not has_been_visible_and_processed:
-		print("QuestSelectionScreen")
 		attGuildCharacterStatus()
 		has_been_visible_and_processed = true
 
