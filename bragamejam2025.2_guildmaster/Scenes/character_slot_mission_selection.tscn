@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://csda6yq6glsel"]
+[gd_scene load_steps=14 format=3 uid="uid://csda6yq6glsel"]
 
 [ext_resource type="Texture2D" uid="uid://duasghhm14jjl" path="res://Resources/Sprites/UI_TravelBook_Slot01a.png" id="1_fdxow"]
 [ext_resource type="Script" uid="uid://c3ja2rr1cwqx2" path="res://Scripts/character_slot_mission_selection.gd" id="1_jhl5o"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="4_7dn51"]
 [ext_resource type="Texture2D" uid="uid://dout3p0cb4kjp" path="res://Resources/Sprites Animated/UI_TravelBook_SlotCursor01a_1.png" id="4_v57m6"]
 [ext_resource type="Texture2D" uid="uid://1j4wqndnqnr3" path="res://Resources/Sprites Animated/UI_TravelBook_SlotCursor01a_2.png" id="5_o57qx"]
+[ext_resource type="Texture2D" uid="uid://b6xdjhwggsd7a" path="res://Resources/Sprites/UI_TravelBook_Spritesheet01a.png" id="7_scw8u"]
 [ext_resource type="Texture2D" uid="uid://cq067j5kjd7nr" path="res://Resources/Sprites/UI_TravelBook_Fill01b.png" id="10_pj1ht"]
 [ext_resource type="Texture2D" uid="uid://1ani1rq2to8l" path="res://Resources/Sprites/UI_TravelBook_IconArrow01a.png" id="11_scw8u"]
 
@@ -66,13 +67,27 @@ sprite_frames = SubResource("SpriteFrames_pj1ht")
 autoplay = "default"
 frame_progress = 0.740181
 
-[node name="LabelRank" type="Label" parent="PortraitSlot"]
+[node name="TextureRect2" type="TextureRect" parent="PortraitSlot"]
 layout_mode = 0
-offset_left = 87.0
-offset_top = 117.0
-offset_right = 139.0
-offset_bottom = 140.0
+offset_left = 41.0
+offset_top = 124.0
+offset_right = 112.0
+offset_bottom = 147.0
+texture = ExtResource("7_scw8u")
+expand_mode = 1
+
+[node name="LabelRank" type="Label" parent="PortraitSlot/TextureRect2"]
+self_modulate = Color(0.485049, 0.337771, 0.337428, 1)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 8.0
+offset_right = 68.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("4_7dn51")
+theme_override_font_sizes/font_size = 13
 text = "Rank S"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="InfoContainer" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -109,14 +124,14 @@ text = "- Goblin Slayer
 [node name="LabelCost" type="Label" parent="."]
 modulate = Color(0.386831, 0.249975, 0.253888, 1)
 layout_mode = 0
-offset_left = 590.0
-offset_top = 112.0
+offset_left = 550.0
+offset_top = 106.0
 offset_right = 728.0
-offset_bottom = 138.0
+offset_bottom = 140.0
 theme_override_fonts/font = ExtResource("2_jhl5o")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 29
 text = "Cost: 1000 Gold"
-vertical_alignment = 1
+vertical_alignment = 2
 
 [node name="AddButton" type="TextureButton" parent="."]
 visible = false

@@ -39,6 +39,7 @@ metadata/_edit_lock_ = true
 [node name="RepResult" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
+theme_override_constants/separation = 10
 metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/RepResult"]
@@ -51,17 +52,17 @@ texture = ExtResource("3_fwrmf")
 metadata/_edit_lock_ = true
 
 [node name="RepResultLabel" type="Label" parent="VBoxContainer/HBoxContainer/RepResult"]
-modulate = Color(1, 0.247059, 0.129412, 1)
+modulate = Color(0.388235, 0.25098, 0.254902, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_yde1k")
-theme_override_font_sizes/font_size = 25
-text = "- 500 "
+theme_override_font_sizes/font_size = 30
+text = "- 5 Rep"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_lock_ = true
 
 [node name="GoldResult" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/GoldResult"]
@@ -77,8 +78,8 @@ metadata/_edit_lock_ = true
 self_modulate = Color(0.388235, 0.25098, 0.254902, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_yde1k")
-theme_override_font_sizes/font_size = 25
-text = "+ 0"
+theme_override_font_sizes/font_size = 32
+text = "+ 0 Gold"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true

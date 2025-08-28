@@ -13,14 +13,16 @@ var localdayaux = 0
 
 
 func _ready() -> void:
-	
+		
+	## READY EXECUTA APENAS DA PRIMEIRA VEZ! SPAWNS INICIAIS AQUI!
 	var auxnewa = Spawner.spawnNewAdventurer()
 	#adc no globals o adv
-	Globals.adventurers.append(auxnewa)
+	Globals.knownAdventurers.append(auxnewa)
 	
-	var auxnewa2 = Spawner.spawnNewAdventurer()
+	#var auxnewa2 = Spawner.spawnNewAdventurer()
 	#adc no globals o adv
-	Globals.adventurers.append(auxnewa2)
+	#Globals.knownAdventurers.append(auxnewa2)
+	pass
 
 func _process(delta: float) -> void:
 	## dia MUDOU!!!
@@ -30,7 +32,6 @@ func _process(delta: float) -> void:
 		setNewDay()
 		attGuildRanks()
 		
-
 ## cria quests e news randomicas 
 func setNewDay():	
 	newDaySpawnAdventurers()
@@ -38,18 +39,54 @@ func setNewDay():
 	newDaySpawnQuests()
 
 func newDaySpawnAdventurers():
-	pass
+	## se nao ta no limite cria novo aventureiro no array de aventureiros conhecidos
+	if Globals.knownAdventurersMaxLimit > Globals.knownAdventurers.size():
+		var auxnewa = Spawner.spawnNewAdventurer()
+		print("spawning new adventurer: " + auxnewa.adv_name)
+		#adc no globals o adv
+		Globals.knownAdventurers.append(auxnewa)
+		
+		
+	 # sorteia os aventureiros do dia 
+	for i in Globals.availbleAdventurersMaxLimit:
+		if Globals.knownAdventurers.is_empty():
+			#print("all knownadventurerspicked")
+			pass
+		else:
+			Globals.knownAdventurers.shuffle()
+			Globals.availbleAdventurers.append(Globals.knownAdventurers.pop_front())
+
 
 # cria os eventos randomicos no começo do dia
 func newDaySpawnNews():
 	pass
 
 func newDaySpawnQuests():
-	# cria uma nova quest exemplo no começo do dia
+	
+	## por enquanto sempre spawna 3 quests
 	var auxnewq = Spawner.spawnNewQuest()
-	#adc no globals a quest criada
+	Globals.availableQuests.append(auxnewq)
+	auxnewq = Spawner.spawnNewQuest()
+	Globals.availableQuests.append(auxnewq)
+	auxnewq = Spawner.spawnNewQuest()
 	Globals.availableQuests.append(auxnewq)
 	
+	match Globals.tierGuild:
+		"Unlicensed":
+			pass
+		"Iron":
+			pass	
+		"Bronze":
+			pass
+		"Silver":
+			pass
+		"Gold":
+			pass
+		"Platinum":
+			pass
+		"Diamond":
+			pass
+
 	attAvaibleQuestsDisplay()
 
 
@@ -61,9 +98,10 @@ func attAvaibleQuestsDisplay():
 	
 	## popula o container de quests no lobby 
 	for q in Globals.availableQuests:
-		var questlabel = quest_label.instantiate()
-		questsContainer.add_child(questlabel)
-		questlabel.setNewQuest(q)
+		if q:
+			var questlabel = quest_label.instantiate()
+			questsContainer.add_child(questlabel)
+			questlabel.setNewQuest(q)
 
 ## atualiza os ranks caso haja mudanças e termina o jogo caso o rank seja o maior entre as guilds
 func attGuildRanks():

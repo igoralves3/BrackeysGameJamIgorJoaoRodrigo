@@ -5,14 +5,14 @@ extends Control
 @onready var AddPartyButton = $AddButton
 
 @onready var advCostLabel = $LabelCost
-@onready var advRankLabel = $PortraitSlot/LabelRank
+@onready var advRankLabel = $PortraitSlot/TextureRect2/LabelRank
 @onready var advNameLabel = $InfoContainer/LabelName
 
 var adventurerLocal = null
 
 func setAdventurer(adv: adventurer):
 	adventurerLocal = adv
-	advCostLabel.text = "Cost: " + str(adv.adv_fee) + " Gold"
+	advCostLabel.text = "Cost: " + str(adv.getAdventurerFee()) + " Gold"
 	advRankLabel.text = "Rank: " + str(adv.rank)
 	advNameLabel.text = adv.adv_name
 	

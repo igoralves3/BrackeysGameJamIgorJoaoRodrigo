@@ -41,6 +41,8 @@ func spawnNewQuest() -> quest:
 		minumum_ranks_possible = 7
 	if Globals.tierGuild == "Diamond":
 		minumum_ranks_possible = 7
+	if Globals.tierGuild == "Pinnacle":
+		minumum_ranks_possible = 7
 		
 	
 		
@@ -110,7 +112,7 @@ func spawnNewQuest() -> quest:
 		#quest = rep, gold, name, diff,
 		if rank == "F":
 			var q1 = nq.new()
-			q1.setQuest(2,20,"Test Quest 1", 0)
+			q1.setQuest(2,20,"Test Quest 1", 1)
 			q1.questinfo = "Nice quest Info"
 			myquests.append(q1)
 		if rank == "E":
@@ -164,16 +166,72 @@ func spawnNewAdventurer() -> adventurer:
 		"Sternglide","Blazeward","Noblebraid","Hydrahand","Frozenbow","Croissard","Sunne","Clarimtal","Massounie","Chavallon","Chananteau","Chamidras","Vernillevé","Lamagnon","Sublimpes"]
 	
 	var characterName = ""
+	var newAdvRank = "F"
+	var chance = 0
 	
+	match Globals.tierGuild:
+		"Unlicensed":
+			chance = randi_range(0,100)
+			if chance <= 30:
+				newAdvRank = "E"
+			else:
+				newAdvRank = "F"
+		"Iron":
+			chance = randi_range(0,100)
+			if chance <= 20:
+				newAdvRank = "F"
+			elif chance > 20 and chance <= 70:
+				newAdvRank = "E"
+			else:
+				newAdvRank = "D"
+		"Bronze":
+			chance = randi_range(0,100)
+			if chance <= 20:
+				newAdvRank = "E"
+			elif chance > 20 and chance <= 70:
+				newAdvRank = "D"
+			else:
+				newAdvRank = "C"
+		"Silver":
+			chance = randi_range(0,100)
+			if chance <= 20:
+				newAdvRank = "D"
+			elif chance > 20 and chance <= 70:
+				newAdvRank = "C"
+			else:
+				newAdvRank = "B"
+		"Gold":
+			chance = randi_range(0,100)
+			if chance <= 20:
+				newAdvRank = "C"
+			elif chance > 20 and chance <= 70:
+				newAdvRank = "B"
+			else:
+				newAdvRank = "A"
+		"Platinum":
+			chance = randi_range(0,100)
+			if chance <= 40:
+				newAdvRank = "B"
+			elif chance > 40 and chance <= 90:
+				newAdvRank = "A"
+			else:
+				newAdvRank = "S"
+		"Diamond":
+			chance = randi_range(0,100)
+			if chance <= 60:
+				newAdvRank = "A"
+			else:
+				newAdvRank = "S"		
+					
 	var coin_flip = randi_range(1,100) 
 	## male
 	if coin_flip >= 50:
 		characterName = maleNames.pick_random() + " " +surnames.pick_random()
-		auxnewa.setAdventurer(characterName,"male")
+		auxnewa.setAdventurer(characterName,"male",newAdvRank)
 	else:
 		characterName = female_names.pick_random() + " " +surnames.pick_random()
-		auxnewa.setAdventurer(characterName,"female")
-			
+		auxnewa.setAdventurer(characterName,"female",newAdvRank)
+		
 	return auxnewa
 
 	

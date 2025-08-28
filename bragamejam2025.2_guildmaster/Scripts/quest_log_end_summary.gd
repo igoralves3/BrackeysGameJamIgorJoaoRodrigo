@@ -9,14 +9,16 @@ extends TextureRect
 	
 ## nesse momento no tempo se a quest nao possui personagens nela entao falou	
 func setLabels(q: quest):
-	if q.questAdventurers.size()==0:
-		logLabel.text = "quest falhou"
-	else:
-		logLabel.text = "quest sucesso"
+	if q.success:
+		repLabel.text = "+" + str(q.finalRep) + " Rep"
+		logLabel.text = "Quest Complete!"
+	else:		
+		logLabel.text = "Quest failed!"
+		repLabel.text = "-" + str(q.finalRep) + " Rep"
+		repLabel.modulate = Color("ff3f21")
 		
 	if q.advDead.size()>0:
 		for adv in q.advDead:
-			logLabel.text = logLabel.text + " - " + adv.name + " morreu!"
+			logLabel.text = logLabel.text + " - " + adv.adv_name + " morreu!"
 	
-	repLabel.text = str(q.finalRep)
-	goldLabel.text = str(q.finalGold)
+	goldLabel.text =  "+" + str(q.finalGold) + " Gold"

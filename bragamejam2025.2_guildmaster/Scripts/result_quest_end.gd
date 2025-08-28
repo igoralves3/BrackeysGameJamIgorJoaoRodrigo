@@ -6,10 +6,14 @@ extends HBoxContainer
 @onready var questGoldLabel = $Gold_HBoxContainer/QuestGoldResult
 
 func setLabels(q: quest):
-	
-	questNameLabel.text = str(q.name)
-	questRepLabel.text = str(q.finalRep)
-	questGoldLabel.text = str(q.finalGold)
+	if q.success:
+		questRepLabel.text = "+" + str(q.finalRep)
+	else:		
+		questRepLabel.text = "-" + str(q.finalRep)
+		questRepLabel.modulate = Color("ff3f21")
+		
+	questNameLabel.text = str(q.questname) + ": "
+	questGoldLabel.text = "+" + str(q.finalGold)
 	
 	if q.finalRep < 0:
 		questRepLabel.modulate = Color("#FF4f34")

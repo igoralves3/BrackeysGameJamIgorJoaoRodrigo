@@ -11,28 +11,28 @@ func _ready():
 
 func pickBGMusic(index: int):
 	$BG.stop()
-	print(index)
-	print(BGMusicPlaylist[index])
+	#print(index)
+	#print(BGMusicPlaylist[index])
 	$BG.stream = load(BGMusicPlaylist[index])
 	$BG.play()
 
 func pickFailMusic(index: int):
 	$SFX.stop()
-	print(index)
-	print(FailPlaylist[index])
+	#print(index)
+	#print(FailPlaylist[index])
 	$SFX.stream = load(FailPlaylist[index])
 	$SFX.play()
 
 func pickVictoryMusic(index: int):
 	$SFX.stop()
-	print(index)
-	print(VictoryPlaylist[index])
+	#print(index)
+	#print(VictoryPlaylist[index])
 	$SFX.stream = load(VictoryPlaylist[index])
 	$SFX.play()
 
 func pickButtonSFX(index: int):
 	$SFX.stop()
-	print(index)
-	print(ButtonPlayList[index])
+	#print(index)
+	#print(ButtonPlayList[index])
 	$SFX.stream = load(ButtonPlayList[index])
 	$SFX.play()

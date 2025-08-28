@@ -12,7 +12,7 @@ func reload_currentscene():
 func change_scene(scene: String):
 	color_rect.visible = true
 	var timer = get_tree().create_timer(randf_range(0.9, 1.5))
-	print(timer.time_left)
+	#print(timer.time_left)
 	await timer.timeout
 	
 	get_tree().change_scene_to_file(scene)

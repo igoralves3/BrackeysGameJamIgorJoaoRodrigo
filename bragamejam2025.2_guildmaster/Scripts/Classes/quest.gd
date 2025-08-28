@@ -27,7 +27,7 @@ var questAdventurers: Array[adventurer]
 var questinfo = "Quest info here"
 
 @export var Rank = "F"
-@export var difficulty = 0
+@export var difficulty = 1
 
 func setQuest(qrep,qgold,qname,qdiff):
 	rep = qrep

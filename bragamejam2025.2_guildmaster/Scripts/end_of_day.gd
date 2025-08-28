@@ -39,8 +39,8 @@ func resolvePendingDayEvents():
 				Globals.onGoingQuests.erase(activeQuest)	
 			
 	## calculate and att total 
-	$RightPage_BG/Results/Total/RepTotalLabel.text = "+" + str(endDayRepEarned)
-	$RightPage_BG/Results/Total/GoldTotalLabel.text = "+" + str(endDayGoldEarned)
+	$RightPage_BG/Results/Total/RepTotalContainer/RepTotalLabel.text = "+ " + str(endDayRepEarned) + " Rep"
+	$RightPage_BG/Results/Total/GoldTotalContainer/GoldTotalLabel.text = "+ " + str(endDayGoldEarned) + " Gold"
 	
 	
 func resolveQuest(q: quest):
@@ -67,7 +67,6 @@ func resolveQuest(q: quest):
 		## att valores da quest original, NÃO da copia
 		questDoubleDownValuesAtt(q)
 
-
 func questDoubleDownValuesAtt(q: quest):
 	if q.success:
 		randomize()
@@ -92,6 +91,7 @@ func questDoubleDownValuesAtt(q: quest):
 	else:
 		pass
 ## calculo sobreviventes ou nao da quest	
+
 func questSurvivorsCalculation(q: quest):
 	## quest end set remaining survivors to avaible 	
 	var baseDeathChance: int
@@ -137,19 +137,23 @@ func questSurvivorsCalculation(q: quest):
 			if q.questAdventurers.size() > 1:
 				var diceRoll:= randi()%100
 				adv.isAvaible = diceRoll < 100-baseDeathChance
-				pass
-			else:
+			else:	
 				adv.isAvaible = true
+		else:
+			var diceRoll:= randi()%100
+			adv.isAvaible = diceRoll < 100-baseDeathChance
+			
+		## player death, remove from arrays
+		if adv.isAvaible == false:
+			print("adventurer DEATH: " + adv.adv_name)
+			q.advDead.append(adv)
+			Globals.killAdv(adv)
+			if q.questAdventurers.has(adv):
+				q.questAdventurers.erase(adv)
 
 ## calculo sucesso da quest
 func questSuccessCalculation(q: quest):
-	## quest success calculation
-	var total_party_power = 0
-	for quest_adv in q.questAdventurers:
-		total_party_power += quest_adv.power
 		
-	#var p_success :float = clamp((total_party_power / q.difficulty) * 0.5, 5, 99)	
-	#print(p_success)
 	randomize()
 	var diceRoll:= randi()%100
 	var probability: int
@@ -157,32 +161,33 @@ func questSuccessCalculation(q: quest):
 	match (q.chanceOfSuccess):
 		"VERY LIKELY":
 			probability = randi_range(80, 99)
-			pass
 		"LIKELY":
 			probability = randi_range(60, 79)
-			pass
 		"EVEN ODDS":
 			probability = randi_range(40, 59)
-			pass
 		"UNLIKELY":
 			probability = randi_range(20, 39)
-			pass
 		"VERY UNLIKELY":
 			probability = randi_range(5, 19)
-			pass
-			
+		
+	print("quest diceroll: " + str(diceRoll))
+	print("quest probability: " + str(probability))
+	
 	if diceRoll <= probability:
 		#Vitoria
+		print("quest Success!")
 		q.success = true
 		## calculate gold and rep earned
 		endDayGoldEarned = endDayGoldEarned + q.finalGold
 		endDayRepEarned = endDayRepEarned + q.finalRep
 	else:
 		#Fracasso
+		print("quest FAILED!")
 		q.success = false
+		q.finalGold = 0
 		## calculate losses
 		endDayRepEarned = endDayRepEarned - calculateRepLoss(q)
-		pass
+		
 	## quest endend
 	q.onGoing = false
 
@@ -203,6 +208,7 @@ func calculateRepLoss(q: quest) -> int:
 		"S":
 			return 2500
 	return 0
+	
 func clearViews():
 	var children = questsResultsContainer.get_children()
 	for c in children:
@@ -217,5 +223,12 @@ func _on_back_to_lobby_button_pressed() -> void:
 	SoundManager.pickButtonSFX(randi() % 3)
 	
 	Globals.totalgold = Globals.totalgold + endDayGoldEarned
-	Globals.totalrep = Globals.totalrep + endDayRepEarned
+	
+	## se retornar true upou agora
+	if Globals.addReputation(endDayRepEarned):
+		print("Up Guild Tier: " + Globals.tierGuild)
+	## caso contrario nada acontece
+	else:
+		pass
+		
 	Globals.day = Globals.day + 1

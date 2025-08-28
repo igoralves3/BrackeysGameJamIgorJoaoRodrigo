@@ -10,18 +10,18 @@ var adv_label = preload("res://Scenes/character_slot_mission_selection.tscn")
 @onready var currQuestGoldLabel = $RightPage_BG/QuestInfoPannel/Gold/TotalGold
 
 
-@onready var successIndicatorLabel = $RightPage_BG/PartySlots/SuccessChance/TextureRect/SuccessIndicatorLabel
-@onready var PayValueLabel = $RightPage_BG/PartySlots/BalanceAfterPayouts/TextureRect/Payout/PayValue
-@onready var FeeValueLabel = $RightPage_BG/PartySlots/BalanceAfterPayouts/TextureRect/Fee/FeeValue
-@onready var TotalValueLabel = $RightPage_BG/PartySlots/BalanceAfterPayouts/TextureRect/Total/TotalValue
+@onready var successIndicatorLabel = $RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/SuccessChance/TextureRect/SuccessIndicatorLabel
+@onready var PayValueLabel = $RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Payout/PayValue
+@onready var FeeValueLabel = $RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Fee/FeeValue
+@onready var TotalValueLabel = $RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Total/TotalValue
 
 
-@onready var slot1 = $RightPage_BG/PartySlots/HBoxContainer/PartySlot
-@onready var slot2 = $RightPage_BG/PartySlots/HBoxContainer/PartySlot2
-@onready var slot3 = $RightPage_BG/PartySlots/HBoxContainer/PartySlot3
-@onready var slot4 = $RightPage_BG/PartySlots/HBoxContainer/PartySlot4
-
-@onready var playerSlots = [$RightPage_BG/PartySlots/HBoxContainer/PartySlot,$RightPage_BG/PartySlots/HBoxContainer/PartySlot2,$RightPage_BG/PartySlots/HBoxContainer/PartySlot3,$RightPage_BG/PartySlots/HBoxContainer/PartySlot4]
+@onready var playerSlots = [$RightPage_BG/PartySlots/VBoxContainer/HBoxContainer/PartySlot,
+							$RightPage_BG/PartySlots/VBoxContainer/HBoxContainer/PartySlot2,
+							$RightPage_BG/PartySlots/VBoxContainer/HBoxContainer/PartySlot3,
+							$RightPage_BG/PartySlots/VBoxContainer/HBoxContainer/PartySlot4]
+							
+@onready var outComeContainer = $RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer
 
 var has_been_visible_and_processed = false
 var auxPartyCounter = 0
@@ -33,8 +33,11 @@ func _process(delta):
 	if Globals.partyNow.size()!=auxPartyCounter and Globals.questAux!=null:
 		attPartyCharactersDisplay()
 		attGuildCharacterStatus()
-		attQuestChancesandPayouts()
 		auxPartyCounter = Globals.partyNow.size()
+		if Globals.partyNow.size() > 0:
+			attQuestChancesandPayouts()
+		else:
+			outComeContainer.visible = false
 		
 	## check pra atualizar os personagens disponiveis roda assim que ficar visivel a pagina
 	if visible and not has_been_visible_and_processed:
@@ -45,14 +48,44 @@ func _process(delta):
 
 func attQuestChancesandPayouts():
 
+	outComeContainer.visible = true
+	## quest success calculation
+	var total_party_power = 0
+	for quest_adv in Globals.questAux.questAdventurers:
+		total_party_power += quest_adv.power
+		
+	var auxdiff = total_party_power - Globals.questAux.difficulty
+	var percentile = roundi(Globals.questAux.difficulty/100)
+	if percentile == 0:
+		percentile = 1
+	var succChance = auxdiff/percentile
+
+	if Globals.questAux.Rank == "F":
+		successIndicatorLabel.text = "VERY LIKELY"
+		Globals.questAux.chanceOfSuccess = "VERY LIKELY"
+	else:
+		if succChance < -80:
+			successIndicatorLabel.text = "VERY UNLIKELY"
+			Globals.questAux.chanceOfSuccess = "VERY UNLIKELY"
+		elif succChance < -80 and succChance > -30:
+			successIndicatorLabel.text = "UNLIKELY"
+			Globals.questAux.chanceOfSuccess = "UNLIKELY"
+		elif succChance == 0:	
+			successIndicatorLabel.text = "EVEN ODDS"
+			Globals.questAux.chanceOfSuccess = "EVEN ODDS"
+		elif succChance > 30 and succChance < 80:
+			successIndicatorLabel.text = "LIKELY"
+			Globals.questAux.chanceOfSuccess = "LIKELY"
+		elif succChance > 80:
+			successIndicatorLabel.text = "VERY LIKELY"
+			Globals.questAux.chanceOfSuccess = "VERY LIKELY"
+
+
+	## pay information indicators
 	PayValueLabel.text = "+" + str(Globals.questAux.gold)
-	
-	successIndicatorLabel.text = "MODERATE"
-	Globals.questAux.chanceOfSuccess = "MODERATE"
-	
 	var feeTotalValue = 0
 	for adv in Globals.partyNow:
-		feeTotalValue = feeTotalValue + adv.adv_fee
+		feeTotalValue = feeTotalValue + adv.getAdventurerFee()
 		
 	FeeValueLabel.text = "-" + str(feeTotalValue)
 	TotalValueLabel.text = str(feeTotalValue - Globals.questAux.gold)
@@ -79,7 +112,8 @@ func attGuildCharacterStatus():
 	listGuildCharacters()
 
 func listGuildCharacters():
-	for adv in Globals.adventurers:
+	for adv in Globals.availbleAdventurers:
+		#print(str(Globals.availbleAdventurers.size()))
 		#instancia uma nova quest label e coloca no container
 		var advlabel = adv_label.instantiate()
 		charactersContainer.add_child(advlabel)
@@ -97,7 +131,7 @@ func _on_start_quest_button_pressed() -> void:
 		# calculate gold cost 
 		var goldcost = 0
 		for adv in Globals.partyNow:
-			goldcost = adv.adv_fee + goldcost
+			goldcost = adv.getAdventurerFee() + goldcost
 			
 		## if can pay
 		if Globals.totalgold >= goldcost:
