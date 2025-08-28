@@ -3,6 +3,7 @@ class_name quest extends Node
 ## after multipliers when quest is done
 var finalGold = 0
 var finalRep = 0
+var success: bool
 
 ## auxiliar to show logs after
 var advDead: Array[adventurer]

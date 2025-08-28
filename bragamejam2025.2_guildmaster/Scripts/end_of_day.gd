@@ -69,29 +69,123 @@ func resolveQuest(q: quest):
 
 
 func questDoubleDownValuesAtt(q: quest):
-	pass
-	
+	if q.success:
+		randomize()
+		var diceRoll: int = randi() % 100
+		var probability: int = 15
+		match (q.chanceOfSuccess):
+			"EVEN ODDS":
+				probability += 10
+				pass
+			"UNLIKELY":
+				probability += 25
+				pass
+			"VERY UNLIKELY":
+				probability += 50
+				pass
+		if diceRoll <= probability:
+			#success
+			pass
+		else:
+			#fail
+			pass
+	else:
+		pass
 ## calculo sobreviventes ou nao da quest	
 func questSurvivorsCalculation(q: quest):
 	## quest end set remaining survivors to avaible 	
+	var baseDeathChance: int
+	match (q.Rank):
+		"F":
+			if q.success:
+				baseDeathChance = 1
+			else: 
+				baseDeathChance = 5
+		"E":
+			if q.success:
+				baseDeathChance = 1
+			else: 
+				baseDeathChance = 5
+		"D":
+			if q.success:
+				baseDeathChance = 1
+			else: 
+				baseDeathChance = 5
+		"C":
+			if q.success:
+				baseDeathChance = 2
+			else: 
+				baseDeathChance = 10
+		"B":
+			if q.success:
+				baseDeathChance = 3
+			else: 
+				baseDeathChance = 15
+		"A":
+			if q.success:
+				baseDeathChance = 5
+			else: 
+				baseDeathChance = 25
+		"S":
+			if q.success:
+				baseDeathChance = 10
+			else: 
+				baseDeathChance = 50
+				
 	for adv in q.questAdventurers:
-		adv.isAvaible = true
+		if q.success:
+			if q.questAdventurers.size() > 1:
+				var diceRoll:= randi()%100
+				adv.isAvaible = diceRoll < 100-baseDeathChance
+				pass
+			else:
+				adv.isAvaible = true
 
 ## calculo sucesso da quest
 func questSuccessCalculation(q: quest):
-	## quest success calculation	
+	## quest success calculation
 	var total_party_power = 0
 	for quest_adv in q.questAdventurers:
 		total_party_power += quest_adv.power
 		
 	#var p_success :float = clamp((total_party_power / q.difficulty) * 0.5, 5, 99)	
 	#print(p_success)
+	randomize()
+	var diceRoll:= randi()%100
+	var probability: int
 	
+	match (q.chanceOfSuccess):
+		"VERY LIKELY":
+			probability = randi_range(80, 99)
+			pass
+		"LIKELY":
+			probability = randi_range(60, 79)
+			pass
+		"EVEN ODDS":
+			probability = randi_range(40, 59)
+			pass
+		"UNLIKELY":
+			probability = randi_range(20, 39)
+			pass
+		"VERY UNLIKELY":
+			probability = randi_range(5, 19)
+			pass
+			
+	if diceRoll <= probability:
+		#Vitoria
+		q.success = true
+		## calculate gold and rep earned
+		endDayGoldEarned = endDayGoldEarned + q.finalGold
+		endDayRepEarned = endDayRepEarned + q.finalRep
+	else:
+		#Fracasso
+		q.success = false
+		## calculate losses
+		endDayGoldEarned = endDayGoldEarned - q.finalGold
+		endDayRepEarned = endDayRepEarned - q.finalRep
+		pass
 	## quest endend
 	q.onGoing = false
-	## calculate gold and rep earned
-	endDayGoldEarned = endDayGoldEarned + q.finalGold
-	endDayRepEarned = endDayRepEarned + q.finalRep
 
 func clearViews():
 	var children = questsResultsContainer.get_children()
