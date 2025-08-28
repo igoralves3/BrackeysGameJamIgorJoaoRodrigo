@@ -181,12 +181,28 @@ func questSuccessCalculation(q: quest):
 		#Fracasso
 		q.success = false
 		## calculate losses
-		endDayGoldEarned = endDayGoldEarned - q.finalGold
-		endDayRepEarned = endDayRepEarned - q.finalRep
+		endDayRepEarned = endDayRepEarned - calculateRepLoss(q)
 		pass
 	## quest endend
 	q.onGoing = false
 
+func calculateRepLoss(q: quest) -> int:
+	match (q.Rank):
+		"F":
+			pass
+		"E":
+			return 5
+		"D":
+			return 20
+		"C":
+			return 60
+		"B":
+			return 200
+		"A":
+			return 500
+		"S":
+			return 2500
+	return 0
 func clearViews():
 	var children = questsResultsContainer.get_children()
 	for c in children:
