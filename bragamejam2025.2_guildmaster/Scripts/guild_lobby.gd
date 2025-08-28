@@ -63,6 +63,36 @@ func newDaySpawnNews():
 
 func newDaySpawnQuests():
 	
+	var minumum_ranks_possible = 1
+	
+	if Globals.tierGuild == "Unlicensed":
+		minumum_ranks_possible = 2
+	if Globals.tierGuild == "Iron":
+		minumum_ranks_possible = 3
+	if Globals.tierGuild == "Bronze":
+		minumum_ranks_possible = 4
+	if Globals.tierGuild == "Silver":
+		minumum_ranks_possible = 5
+	if Globals.tierGuild == "Gold":
+		minumum_ranks_possible = 6
+	if Globals.tierGuild == "Platinum":
+		minumum_ranks_possible = 7
+	if Globals.tierGuild == "Diamond":
+		minumum_ranks_possible = 7
+	if Globals.tierGuild == "Pinnacle":
+		minumum_ranks_possible = 7
+			
+	var max_quests = 5
+	
+	if minumum_ranks_possible >= 3 and minumum_ranks_possible <= 4:
+		max_quests=6
+	elif minumum_ranks_possible > 4:
+		max_quests=7
+		
+	var n = randi_range(1,max_quests)
+	for i in range(0,n-1):
+		pass
+	
 	## por enquanto sempre spawna 3 quests
 	var auxnewq = Spawner.spawnNewQuest()
 	Globals.availableQuests.append(auxnewq)

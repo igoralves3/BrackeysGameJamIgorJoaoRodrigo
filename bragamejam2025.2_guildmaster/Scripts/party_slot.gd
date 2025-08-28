@@ -14,6 +14,7 @@ func _on_pressed() -> void:
 func setAdventurer(adv: adventurer):
 	localAdvReference = adv
 	advNameLabel.text = adv.adv_name
+	advPortrait.texture = load(adv.adv_portrait)
 	advPortrait.visible = true
 
 func clearAdventurerDisplay():

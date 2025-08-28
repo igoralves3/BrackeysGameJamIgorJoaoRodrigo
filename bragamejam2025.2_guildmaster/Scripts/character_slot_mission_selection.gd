@@ -7,13 +7,14 @@ extends Control
 @onready var advCostLabel = $LabelCost
 @onready var advRankLabel = $PortraitSlot/TextureRect2/LabelRank
 @onready var advNameLabel = $InfoContainer/LabelName
-
+@onready var advPortrait = $PortraitSlot/Portrait
 var adventurerLocal = null
 
 func setAdventurer(adv: adventurer):
 	adventurerLocal = adv
 	advCostLabel.text = "Cost: " + str(adv.getAdventurerFee()) + " Gold"
 	advRankLabel.text = "Rank: " + str(adv.rank)
+	advPortrait.texture = load(adv.adv_portrait)
 	advNameLabel.text = adv.adv_name
 	
 	if adv.isAvaible:
