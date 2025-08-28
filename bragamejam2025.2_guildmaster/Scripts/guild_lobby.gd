@@ -8,6 +8,8 @@ extends NinePatchRect
 var quest_label = preload("res://Scenes/quest_label.tscn")
 var rank_label = preload("res://Scenes/guild_ranking_label.tscn")
 
+@onready var hold_timer = $RightPage_BG/EndDayButton/HoldTimer
+
 ## variavel local do dia que compara com globals se for diferente o dia passou tem que atualizar a view
 var localdayaux = 0
 
@@ -64,58 +66,48 @@ func newDaySpawnNews():
 func newDaySpawnQuests():
 	
 	var minumum_ranks_possible = 1
+	var max_quests = 3
 	
 	if Globals.tierGuild == "Unlicensed":
 		minumum_ranks_possible = 2
+		max_quests = 3
 	if Globals.tierGuild == "Iron":
 		minumum_ranks_possible = 3
+		max_quests = 5
 	if Globals.tierGuild == "Bronze":
 		minumum_ranks_possible = 4
+		max_quests = 7
 	if Globals.tierGuild == "Silver":
 		minumum_ranks_possible = 5
+		max_quests = 9
 	if Globals.tierGuild == "Gold":
 		minumum_ranks_possible = 6
+		max_quests = 12
 	if Globals.tierGuild == "Platinum":
 		minumum_ranks_possible = 7
+		max_quests = 15
 	if Globals.tierGuild == "Diamond":
 		minumum_ranks_possible = 7
+		max_quests = 17
 	if Globals.tierGuild == "Pinnacle":
 		minumum_ranks_possible = 7
+		max_quests = 20
 			
-	var max_quests = 5
-	
-	if minumum_ranks_possible >= 3 and minumum_ranks_possible <= 4:
-		max_quests=6
-	elif minumum_ranks_possible > 4:
-		max_quests=7
+	##if minumum_ranks_possible >= 3 and minumum_ranks_possible <= 4:
+	##	max_quests=6
+	##elif minumum_ranks_possible > 4:
+	##	max_quests=7
 		
 	var n = randi_range(1,max_quests)
-	for i in range(0,n-1):
-		pass
-	
-	## por enquanto sempre spawna 3 quests
-	var auxnewq = Spawner.spawnNewQuest()
-	Globals.availableQuests.append(auxnewq)
-	auxnewq = Spawner.spawnNewQuest()
-	Globals.availableQuests.append(auxnewq)
-	auxnewq = Spawner.spawnNewQuest()
-	Globals.availableQuests.append(auxnewq)
-	
-	match Globals.tierGuild:
-		"Unlicensed":
-			pass
-		"Iron":
-			pass	
-		"Bronze":
-			pass
-		"Silver":
-			pass
-		"Gold":
-			pass
-		"Platinum":
-			pass
-		"Diamond":
-			pass
+	for i in range(0,n):
+		print("spawn quest")
+		var auxnewq = Spawner.spawnNewQuest()	
+		if Globals.availableQuests.size()!=0:
+			for q in Globals.availableQuests:
+				if q.questname != auxnewq.questname:
+					Globals.availableQuests.append(auxnewq)
+		else:
+			Globals.availableQuests.append(auxnewq)
 
 	attAvaibleQuestsDisplay()
 
@@ -151,10 +143,18 @@ func attGuildRanks():
 		rankingContainer.add_child(ranklabel)
 		ranklabel.setLabel(key,deep_dict_copy_aux[key])
 
-func _on_end_day_button_pressed() -> void:
-	#Globals.reset()
-	
-	#SoundManager.play_sfx("select_sound")
+
+func _on_end_day_button_button_down() -> void:
+	hold_timer.start()
+
+
+func _on_end_day_button_button_up() -> void:
+	if hold_timer.is_stopped():
+		pass
+	else:
+		hold_timer.stop()
+
+
+func _on_hold_timer_timeout() -> void:
 	get_tree().get_root().get_node("Main").changeBookPage("endofday")
 	SoundManager.pickButtonSFX(randi() % 3)
-	pass

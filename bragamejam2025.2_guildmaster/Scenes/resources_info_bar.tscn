@@ -98,3 +98,16 @@ offset_top = 65.0
 offset_right = 1260.0
 offset_bottom = 76.0
 texture = ExtResource("6_elvte")
+
+[node name="DayCounter2" type="Label" parent="."]
+modulate = Color(0.485661, 0.33156, 0.331263, 1)
+offset_left = 1257.0
+offset_top = 39.0
+offset_right = 1779.0
+offset_bottom = 108.0
+theme_override_fonts/font = ExtResource("4_m27y4")
+theme_override_font_sizes/font_size = 30
+text = "The Flying Dragon Test Test Test Test Test "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

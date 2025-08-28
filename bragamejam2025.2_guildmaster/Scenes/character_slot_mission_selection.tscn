@@ -109,6 +109,7 @@ text = "Dussard FrankStonks"
 vertical_alignment = 1
 
 [node name="LabelInfos" type="Label" parent="InfoContainer"]
+visible = false
 modulate = Color(0.552919, 0.221735, 0.282394, 1)
 layout_mode = 2
 offset_left = 32.0

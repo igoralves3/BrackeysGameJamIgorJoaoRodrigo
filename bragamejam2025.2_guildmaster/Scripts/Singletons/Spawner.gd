@@ -163,6 +163,8 @@ func spawnNewQuest() -> quest:
 		The job is to look threatening and ensure that nobody steals a sword."
 		myQuests.append(q5)
 		
+		return myQuests.pick_random()
+		
 	if rank == "D":
 		var myQuests = []
 		

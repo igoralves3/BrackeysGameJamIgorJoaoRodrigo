@@ -74,9 +74,9 @@ metadata/_edit_lock_ = true
 [node name="QuestInfoPannel" type="NinePatchRect" parent="RightPage_BG"]
 layout_mode = 0
 offset_left = 44.0
-offset_top = 122.0
+offset_top = 79.0
 offset_right = 813.0
-offset_bottom = 355.0
+offset_bottom = 360.0
 texture = ExtResource("8_rpcs8")
 
 [node name="QuestNameLabel" type="Label" parent="RightPage_BG/QuestInfoPannel"]
@@ -85,7 +85,7 @@ layout_mode = 0
 offset_left = -10.0
 offset_top = -83.0
 offset_right = 778.0
-offset_bottom = 2.0
+offset_bottom = 27.0
 theme_override_fonts/font = ExtResource("7_e34ok")
 theme_override_font_sizes/font_size = 45
 text = "Orc Fortress Raid"
@@ -98,19 +98,21 @@ layout_mode = 0
 offset_left = 42.0
 offset_top = 27.0
 offset_right = 736.0
-offset_bottom = 152.0
+offset_bottom = 213.0
 theme_override_fonts/font = ExtResource("4_sn0tn")
-theme_override_font_sizes/font_size = 30
-text = "A Challenge for even the most brave of adventures "
+theme_override_font_sizes/font_size = 28
+text = "The herbalist is in need of some specific herbs to prepare a few ointments. 
+		He is the only one at his shop and can't leave it without anyone, 
+		that's why he is looking for some helping hands to gather those herbs in the nearby forest."
 autowrap_mode = 2
 
 [node name="RewardLabel" type="Label" parent="RightPage_BG/QuestInfoPannel"]
 modulate = Color(0.6, 0.32549, 0.317647, 1)
 layout_mode = 0
-offset_left = 165.0
-offset_top = 110.0
-offset_right = 619.0
-offset_bottom = 156.0
+offset_left = 98.0
+offset_top = 231.0
+offset_right = 277.0
+offset_bottom = 270.0
 theme_override_fonts/font = ExtResource("7_e34ok")
 theme_override_font_sizes/font_size = 25
 text = "Rewards:"
@@ -119,10 +121,11 @@ vertical_alignment = 1
 
 [node name="Gold" type="NinePatchRect" parent="RightPage_BG/QuestInfoPannel"]
 layout_mode = 0
-offset_left = 229.0
-offset_top = 151.0
-offset_right = 396.0
-offset_bottom = 215.0
+offset_left = 288.0
+offset_top = 220.0
+offset_right = 455.0
+offset_bottom = 284.0
+scale = Vector2(0.8, 0.8)
 
 [node name="TextureRect" type="TextureRect" parent="RightPage_BG/QuestInfoPannel/Gold"]
 layout_mode = 0
@@ -145,13 +148,15 @@ theme_override_font_sizes/font_size = 35
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 2
+metadata/_edit_lock_ = true
 
 [node name="Reputation" type="NinePatchRect" parent="RightPage_BG/QuestInfoPannel"]
 layout_mode = 0
-offset_left = 408.0
-offset_top = 151.0
-offset_right = 575.0
-offset_bottom = 215.0
+offset_left = 453.0
+offset_top = 220.0
+offset_right = 620.0
+offset_bottom = 284.0
+scale = Vector2(0.8, 0.8)
 
 [node name="TextureRect" type="TextureRect" parent="RightPage_BG/QuestInfoPannel/Reputation"]
 layout_mode = 0
@@ -174,6 +179,7 @@ theme_override_font_sizes/font_size = 35
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 2
+metadata/_edit_lock_ = true
 
 [node name="PartySlots" type="NinePatchRect" parent="RightPage_BG"]
 custom_minimum_size = Vector2(750, 180)
@@ -212,7 +218,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="OutcomeContainer" type="Control" parent="RightPage_BG/PartySlots/VBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(780, 110)
 layout_mode = 2
 
@@ -261,7 +266,7 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = 289.0
 offset_right = 768.0
-offset_bottom = 74.0
+offset_bottom = 95.0
 
 [node name="Label" type="Label" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts"]
 modulate = Color(0.388235, 0.25098, 0.254902, 1)
@@ -277,10 +282,10 @@ vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts"]
 layout_mode = 0
-offset_left = -9.0
+offset_left = -18.0
 offset_top = 33.0
-offset_right = 440.0
-offset_bottom = 102.0
+offset_right = 475.0
+offset_bottom = 112.0
 texture = ExtResource("3_1miym")
 
 [node name="Payout" type="Control" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect"]
@@ -297,6 +302,7 @@ offset_top = 6.0
 offset_right = 149.0
 offset_bottom = 43.0
 theme_override_fonts/font = ExtResource("7_e34ok")
+theme_override_font_sizes/font_size = 20
 text = "Quest Pay:"
 vertical_alignment = 1
 
@@ -312,12 +318,12 @@ texture = ExtResource("9_moi7u")
 
 [node name="PayValue" type="Label" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Payout"]
 layout_mode = 0
-offset_left = 171.0
-offset_top = 11.0
-offset_right = 263.0
-offset_bottom = 41.0
+offset_left = 224.0
+offset_top = 14.0
+offset_right = 328.0
+offset_bottom = 44.0
 theme_override_fonts/font = ExtResource("7_e34ok")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 16
 text = "+ 50 Gold"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -332,10 +338,12 @@ offset_bottom = 73.0
 
 [node name="FeeLabel" type="Label" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Fee"]
 layout_mode = 0
-offset_right = 166.0
-offset_bottom = 36.0
+offset_left = 1.0
+offset_top = 8.0
+offset_right = 213.0
+offset_bottom = 44.0
 theme_override_fonts/font = ExtResource("7_e34ok")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 20
 text = "Adventureres fee:"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -351,13 +359,14 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("9_moi7u")
 
 [node name="FeeValue" type="Label" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Fee"]
+self_modulate = Color(0.905882, 0.313726, 0.235294, 1)
 layout_mode = 0
-offset_left = 166.0
-offset_top = 4.0
-offset_right = 262.0
-offset_bottom = 34.0
+offset_left = 220.0
+offset_top = 11.0
+offset_right = 328.0
+offset_bottom = 41.0
 theme_override_fonts/font = ExtResource("7_e34ok")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 16
 text = "- 50 Gold"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -365,17 +374,17 @@ vertical_alignment = 1
 [node name="Total" type="Control" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 266.0
-offset_top = 19.0
-offset_right = 439.0
-offset_bottom = 62.0
+offset_left = 327.0
+offset_right = 492.0
+offset_bottom = 78.0
+metadata/_edit_lock_ = true
 
 [node name="FeeLabel" type="Label" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Total"]
 layout_mode = 0
-offset_left = 18.0
-offset_top = 3.0
-offset_right = 87.0
-offset_bottom = 43.0
+offset_left = 29.0
+offset_top = 1.0
+offset_right = 122.0
+offset_bottom = 41.0
 theme_override_fonts/font = ExtResource("7_e34ok")
 text = "Total:"
 horizontal_alignment = 1
@@ -383,25 +392,28 @@ vertical_alignment = 1
 
 [node name="GoldCoin" type="TextureRect" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Total"]
 layout_mode = 0
-offset_left = 143.0
-offset_top = 1.0
-offset_right = 183.0
-offset_bottom = 41.0
+offset_left = 123.0
+offset_top = 22.0
+offset_right = 162.0
+offset_bottom = 62.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("9_moi7u")
 
 [node name="TotalValue" type="Label" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Total"]
 layout_mode = 0
-offset_left = 86.0
-offset_top = 7.0
-offset_right = 143.0
-offset_bottom = 36.0
+offset_left = 30.0
+offset_top = 29.0
+offset_right = 120.0
+offset_bottom = 86.0
 theme_override_fonts/font = ExtResource("7_e34ok")
-text = "+ 20"
+theme_override_font_sizes/font_size = 16
+text = "+20000 Gold"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="StartQuestButton" type="TextureButton" parent="RightPage_BG"]
+visible = false
 layout_mode = 0
 offset_left = 543.0
 offset_top = 694.0

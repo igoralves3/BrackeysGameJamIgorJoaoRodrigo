@@ -25,7 +25,7 @@ var availbleAdventurers: Array[adventurer]
 var availbleAdventurersMaxLimit = 5
 
 var totalgold = 1000
-var totalrep = 0
+var totalrep = 99
 var day = 1
 
 var tierGuild = "Unlicenced"

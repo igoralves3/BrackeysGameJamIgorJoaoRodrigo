@@ -224,6 +224,8 @@ func _on_back_to_lobby_button_pressed() -> void:
 	
 	Globals.totalgold = Globals.totalgold + endDayGoldEarned
 	
+	Globals.availableQuests.clear()
+	
 	## se retornar true upou agora
 	if Globals.addReputation(endDayRepEarned):
 		print("Up Guild Tier: " + Globals.tierGuild)

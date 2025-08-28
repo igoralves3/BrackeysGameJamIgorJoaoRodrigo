@@ -36,8 +36,10 @@ func _process(delta):
 		auxPartyCounter = Globals.partyNow.size()
 		if Globals.partyNow.size() > 0:
 			attQuestChancesandPayouts()
+			$RightPage_BG/StartQuestButton.visible = true
 		else:
 			outComeContainer.visible = false
+			$RightPage_BG/StartQuestButton.visible = false
 		
 	## check pra atualizar os personagens disponiveis roda assim que ficar visivel a pagina
 	if visible and not has_been_visible_and_processed:

@@ -8,7 +8,7 @@ var questLocal = null
 
 func setNewQuest(q: quest):
 	questLocal = q
-	descName.text = str(q.questname)
+	descName.text = str(q.questname) + " - " + str(q.gold) + " Gold, " + str(q.rep) + " Rep"
 	
 	if q.onGoing == true:
 		self.modulate = Color("#565656")
