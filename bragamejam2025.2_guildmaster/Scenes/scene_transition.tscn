@@ -1,11 +1,84 @@
-[gd_scene load_steps=2 format=3 uid="uid://qfslktk4vorj"]
+[gd_scene load_steps=8 format=3 uid="uid://qfslktk4vorj"]
 
 [ext_resource type="Script" uid="uid://d0nojrk4qp7ef" path="res://Scripts/Singletons/scene_transition.gd" id="1_crfs3"]
+[ext_resource type="Texture2D" uid="uid://0vq6dm5scg0w" path="res://Resources/BGs/IMG_5239.png" id="2_8sxkv"]
+[ext_resource type="Script" uid="uid://ccocmh3nyq4pb" path="res://Scripts/bgscrollscript.gd" id="3_sd3nk"]
+
+[sub_resource type="Animation" id="Animation_6nemr"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4k12m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8sxkv"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iaif7"]
+_data = {
+&"RESET": SubResource("Animation_4k12m"),
+&"fade_in": SubResource("Animation_6nemr"),
+&"fade_out": SubResource("Animation_8sxkv")
+}
 
 [node name="SceneTransition" type="CanvasLayer"]
 script = ExtResource("1_crfs3")
 
+[node name="BG_5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(959, 120)
+scale = Vector2(15, 15)
+texture = ExtResource("2_8sxkv")
+hframes = 5
+script = ExtResource("3_sd3nk")
+
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1916.0
-offset_bottom = 1076.0
-color = Color(0.129558, 0.129558, 0.129558, 1)
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+color = Color(0.0383972, 0.0383972, 0.0383971, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ColorRect")
+libraries = {
+&"": SubResource("AnimationLibrary_iaif7")
+}

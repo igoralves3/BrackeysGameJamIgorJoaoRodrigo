@@ -1,20 +1,21 @@
 extends CanvasLayer
 
+signal on_transition_finished
+
 @onready var color_rect: ColorRect = $ColorRect
-#@onready var timer: Timer = $Timer
+@onready var animation_player = $AnimationPlayer
 
 func _ready() -> void:
 	color_rect.visible = false
+	animation_player.animation_finished.connect(_on_animation_finished)
 
-func reload_currentscene():
-	get_tree().reload_current_scene()
+func _on_animation_finished(anim_name):
+	if anim_name == "fade_in":
+		on_transition_finished.emit()
+		animation_player.play("fade_out")
+	elif anim_name == "fade_out":
+		color_rect.visible = false
 
-func change_scene(scene: String):
+func transition():
 	color_rect.visible = true
-	var timer = get_tree().create_timer(randf_range(0.9, 1.5))
-	#print(timer.time_left)
-	await timer.timeout
-	
-	get_tree().change_scene_to_file(scene)
-	
-	color_rect.visible = false
+	animation_player.play("fade_in")
