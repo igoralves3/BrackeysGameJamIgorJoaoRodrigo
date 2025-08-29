@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://crboxa4c7vkj1"]
 
 [ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="1_cf33y"]
-[ext_resource type="Texture2D" uid="uid://cnqg1f24ugiaf" path="res://Resources/Sprites/UI_TravelBook_GamepadA01a.png" id="2_th34o"]
 [ext_resource type="Script" uid="uid://ctopv5niq87gf" path="res://Scripts/guild_ranking_label.gd" id="2_vxnop"]
+[ext_resource type="Texture2D" uid="uid://d0or5a66vwhp2" path="res://Resources/ShieldSprites/Transperent/Icon9.png" id="3_rldey"]
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="3_vxnop"]
 [ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="5_rldey"]
 
@@ -15,12 +15,12 @@ script = ExtResource("2_vxnop")
 
 [node name="GuildIcon" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 8.0
-offset_right = 56.0
-offset_bottom = 37.0
+offset_left = 25.0
+offset_top = 7.0
+offset_right = 57.0
+offset_bottom = 39.0
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("2_th34o")
+texture = ExtResource("3_rldey")
 
 [node name="GuildName" type="Label" parent="."]
 self_modulate = Color(0.286275, 0.2, 0.2, 1)
@@ -30,6 +30,7 @@ offset_top = 11.0
 offset_right = 274.0
 offset_bottom = 53.0
 theme_override_fonts/font = ExtResource("3_vxnop")
+theme_override_font_sizes/font_size = 20
 text = "White Guild"
 vertical_alignment = 1
 autowrap_mode = 2

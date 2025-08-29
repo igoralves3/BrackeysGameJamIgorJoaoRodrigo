@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmvplitwo1xgc"]
+[gd_scene load_steps=9 format=3 uid="uid://bmvplitwo1xgc"]
 
 [ext_resource type="Script" uid="uid://dmen8hq1nnxs3" path="res://Scripts/main_menu.gd" id="1_bumi1"]
 [ext_resource type="Texture2D" uid="uid://bl8r1v10ok3sv" path="res://Resources/BGs/IMG_4822.png" id="2_17uig"]
@@ -7,6 +7,8 @@
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="4_n4fnu"]
 [ext_resource type="Texture2D" uid="uid://b6xdjhwggsd7a" path="res://Resources/Sprites/UI_TravelBook_Spritesheet01a.png" id="5_6itu3"]
 [ext_resource type="Texture2D" uid="uid://dqaa4end3as5n" path="res://Resources/Sprites/UI_TravelBook_Frame01a.png" id="7_6itu3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6itu3"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -35,7 +37,6 @@ hframes = 5
 script = ExtResource("4_17uig")
 
 [node name="MainMenuContainer" type="HBoxContainer" parent="."]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 1919.0
 offset_bottom = 1079.0
@@ -75,6 +76,32 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
+[node name="InputFieldContainer" type="HBoxContainer" parent="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer"]
+visible = false
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/InputFieldContainer"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+texture = ExtResource("7_6itu3")
+
+[node name="LineEdit" type="LineEdit" parent="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/InputFieldContainer/TextureRect"]
+self_modulate = Color(0.57485, 0.244301, 0.135397, 1)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 291.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("4_n4fnu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6itu3")
+placeholder_text = "Guild Name"
+alignment = 1
+max_length = 36
+
 [node name="PlayGameButton" type="TextureButton" parent="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer"]
 custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
@@ -82,7 +109,7 @@ texture_normal = ExtResource("7_6itu3")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/PlayGameButton"]
-self_modulate = Color(0.581726, 0.245728, 0.137927, 1)
+self_modulate = Color(0.580392, 0.247059, 0.137255, 1)
 layout_mode = 0
 offset_top = 8.0
 offset_right = 295.0
@@ -105,6 +132,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[connection signal="text_submitted" from="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/InputFieldContainer/TextureRect/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="mouse_entered" from="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/PlayGameButton" to="." method="_on_play_game_button_mouse_entered"]
 [connection signal="mouse_exited" from="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/PlayGameButton" to="." method="_on_play_game_button_mouse_exited"]
 [connection signal="pressed" from="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/PlayGameButton" to="." method="_on_play_game_button_pressed"]

@@ -13,7 +13,7 @@ var repEarnedThisRound = 0
 
 
 var guildName = "The Flying Dragon"
-var rivalGuilds_dict = {"White": 500, "Yellow": 750, "Orange": 1000}
+var rivalGuilds_dict = {"White Guild": 500, "Yellow Guild": 750, "Orange Guild": 1000}
 
 var availableQuests: Array[quest]
 var onGoingQuests: Array[quest]
@@ -92,13 +92,13 @@ func updateRivalGuildsRep():
 	var slow_rate = randf_range(0.05, 0.45)
 	
 	var variation = repEarnedThisRound * high_rate
-	rivalGuilds_dict["White"] = int(rivalGuilds_dict["White"] + variation)
+	rivalGuilds_dict["White Guild"] = int(rivalGuilds_dict["White Guild"] + variation)
 	
 	var variation2 = repEarnedThisRound * mid_rate
-	rivalGuilds_dict["Yellow"] = int(rivalGuilds_dict["Yellow"] + variation2)
+	rivalGuilds_dict["Yellow Guild"] = int(rivalGuilds_dict["Yellow Guild"] + variation2)
 	
 	var variation3 = repEarnedThisRound * slow_rate
-	rivalGuilds_dict["Orange"] = int(rivalGuilds_dict["Orange"] + variation3)
+	rivalGuilds_dict["Orange Guild"] = int(rivalGuilds_dict["Orange Guild"] + variation3)
 
 func startActiveQuest():
 	onGoingQuests.append(questAux)
