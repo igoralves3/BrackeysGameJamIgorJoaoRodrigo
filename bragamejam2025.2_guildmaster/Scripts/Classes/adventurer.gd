@@ -36,31 +36,41 @@ func getAdventurerFee() -> int:
 	return 1000
 
 ## adc reputation que funciona como experiencia retorna true se upou
-func addReptutation(rep) -> bool:
+func addReputationAdv(rep) -> bool:
+	var rankedup = false
 	reputation = reputation + rep
 	match rank:
 		"F":
 			if reputation > 100:
 				rank = "E"
-				return true
+				rankedup = true
 		"E":
 			if reputation > 500:
 				rank = "D"
-				return true
+				rankedup = true
 		"D":
 			if reputation > 1500:
 				rank = "C"
-				return true
+				rankedup = true
 		"C":
 			if reputation > 4000:
 				rank = "B"
-				return true
+				rankedup = true
 		"B":
 			if reputation > 9000:
 				rank = "A"
-				return true
+				rankedup = true
 	
-	return false
+	if rankedup:
+		# adding event to current events
+		const ne = preload("res://Scripts/Classes/event.gd")
+		var auxnewE = ne.new()
+		auxnewE.setEvent("Adventurer RankUp",Globals.guildName,adv_name,"")
+		Globals.currentEvents.append(auxnewE)
+		
+		return true
+	else:
+		return false
 
 func setAdventurer(advn,advs,advr):
 	adv_name = advn

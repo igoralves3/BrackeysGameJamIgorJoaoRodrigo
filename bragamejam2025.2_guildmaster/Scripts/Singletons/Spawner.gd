@@ -461,7 +461,3 @@ func spawnNewAdventurer() -> adventurer:
 		auxnewa.setAdventurer(characterName,"female",newAdvRank)
 		
 	return auxnewa
-
-	
-func spawnNewEvent():
-	pass

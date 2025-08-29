@@ -5,19 +5,20 @@
 [ext_resource type="Script" uid="uid://cl6e8wvt0jbcn" path="res://Scripts/news_log.gd" id="2_m6vkc"]
 
 [node name="NewsLog" type="TextureRect"]
-custom_minimum_size = Vector2(0, 50)
-offset_right = 490.0
-offset_bottom = 50.0
+custom_minimum_size = Vector2(0, 100)
+offset_right = 521.0
+offset_bottom = 72.0
 texture = ExtResource("1_oak6u")
 script = ExtResource("2_m6vkc")
 
 [node name="LogLabel" type="Label" parent="."]
 self_modulate = Color(0.388235, 0.25098, 0.254902, 1)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 0
-offset_left = 27.0
-offset_top = 18.0
-offset_right = 784.0
-offset_bottom = 46.0
+offset_left = 21.0
+offset_top = 24.0
+offset_right = 501.0
+offset_bottom = 84.0
 theme_override_fonts/font = ExtResource("2_1sjt5")
-text = " - Evento Randomico em Tal Area"
+text = " - Evento Randomico em Tal Area Evento Randomico em Tal Area Evento Randomico em Tal Area Evento Randomico em Tal Area"
 autowrap_mode = 2

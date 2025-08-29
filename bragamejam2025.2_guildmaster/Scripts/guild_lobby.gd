@@ -7,6 +7,7 @@ extends NinePatchRect
 
 var quest_label = preload("res://Scenes/quest_label.tscn")
 var rank_label = preload("res://Scenes/guild_ranking_label.tscn")
+var news_label = preload("res://Scenes/news_log.tscn")
 
 @onready var hold_timer = $RightPage_BG/EndDayButton/HoldTimer
 
@@ -29,22 +30,22 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	## dia MUDOU!!!
 	if(localdayaux!=Globals.day):
-		print("new day, settting up new quests and news")
+		#print("new day, settting up new quests and news")
 		localdayaux = Globals.day 
 		setNewDay()
 		attGuildRanks()
 		
 ## cria quests e news randomicas 
 func setNewDay():	
-	newDaySpawnAdventurers()
 	newDaySpawnNews()
+	newDaySpawnAdventurers()
 	newDaySpawnQuests()
 
 func newDaySpawnAdventurers():
 	## se nao ta no limite cria novo aventureiro no array de aventureiros conhecidos
 	if Globals.knownAdventurersMaxLimit > Globals.knownAdventurers.size():
 		var auxnewa = Spawner.spawnNewAdventurer()
-		print("spawning new adventurer: " + auxnewa.adv_name)
+		#print("spawning new adventurer: " + auxnewa.adv_name)
 		#adc no globals o adv
 		Globals.knownAdventurers.append(auxnewa)
 		
@@ -61,7 +62,17 @@ func newDaySpawnAdventurers():
 
 # cria os eventos randomicos no começo do dia
 func newDaySpawnNews():
-	pass
+	#clear nas quests antigas antes de popular
+	var children = newslogContainer.get_children()
+	for c in children:
+		c.queue_free()
+	
+	
+	for e in Globals.currentEvents:
+		if e:
+			var newslabel = news_label.instantiate()
+			newslogContainer.add_child(newslabel)
+			newslabel.setLabel(e)
 
 func newDaySpawnQuests():
 	
@@ -100,16 +111,20 @@ func newDaySpawnQuests():
 		
 	var n = randi_range(1,max_quests)
 	for i in range(0,n):
-		print("spawn quest")
 		var auxnewq = Spawner.spawnNewQuest()	
-		if Globals.availableQuests.size()!=0:
-			for q in Globals.availableQuests:
-				if q.questname != auxnewq.questname:
-					Globals.availableQuests.append(auxnewq)
+		if checkQuestExists(auxnewq):
+			pass
 		else:
 			Globals.availableQuests.append(auxnewq)
-
+	
 	attAvaibleQuestsDisplay()
+
+func checkQuestExists(q: quest) -> bool:
+	for gq in Globals.availableQuests:
+		if gq.questname == q.questname:
+			return true
+	return false
+
 
 
 func attAvaibleQuestsDisplay():
@@ -159,6 +174,9 @@ func _on_end_day_button_button_up() -> void:
 
 func _on_hold_timer_timeout() -> void:
 	get_tree().get_root().get_node("Main").changeBookPage("endofday")
+	Globals.currentEvents.clear()
+	Globals.repEarnedThisRound = 0
+	Globals.availableQuests.clear()
 	SoundManager.pickButtonSFX(randi() % 3)
 
 

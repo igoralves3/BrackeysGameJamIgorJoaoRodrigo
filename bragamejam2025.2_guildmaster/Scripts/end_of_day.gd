@@ -24,7 +24,7 @@ func resolvePendingDayEvents():
 	clearViews()
 	## pegar todas as quests ativas e resolver elas
 	for activeQuest in Globals.onGoingQuests:
-		print("spawn quest ending")
+		#print("spawn quest ending")
 		resolveQuest(activeQuest)
 	
 		## populate summaries
@@ -154,11 +154,22 @@ func questSurvivorsCalculation(q: quest):
 			
 		## player death, remove from arrays
 		if adv.isAvaible == false:
+			
+			## adding event to current events
+			const ne = preload("res://Scripts/Classes/event.gd")
+			var auxnewE = ne.new()
+			auxnewE.setEvent("Adventurer Death",Globals.guildName,adv.adv_name,"")
+			Globals.currentEvents.append(auxnewE)
+			
 			print("adventurer DEATH: " + adv.adv_name)
 			q.advDead.append(adv)
 			Globals.killAdv(adv)
 			if q.questAdventurers.has(adv):
 				q.questAdventurers.erase(adv)
+				
+		## adv alive calculate exp		
+		else:
+			adv.addReputationAdv(q.finalRep)
 
 ## calculo sucesso da quest
 func questSuccessCalculation(q: quest):
@@ -179,13 +190,20 @@ func questSuccessCalculation(q: quest):
 		"VERY UNLIKELY":
 			probability = randi_range(5, 19)
 		
-	print("quest diceroll: " + str(diceRoll))
-	print("quest probability: " + str(probability))
+	#print("quest diceroll: " + str(diceRoll))
+	#print("quest probability: " + str(probability))
 	
 	if diceRoll <= probability:
 		#Vitoria
-		print("quest Success!")
+		#print("quest Success!")
 		q.success = true
+		
+		const ne = preload("res://Scripts/Classes/event.gd")
+		var auxnewE = ne.new()
+		auxnewE.setEvent("Quest Completed",Globals.guildName,"Completing the Quest",q)
+		Globals.currentEvents.append(auxnewE)
+		
+		
 		## calculate gold and rep earned
 		endDayGoldEarned = endDayGoldEarned + q.finalGold
 		endDayRepEarned = endDayRepEarned + q.finalRep
@@ -194,6 +212,13 @@ func questSuccessCalculation(q: quest):
 		print("quest FAILED!")
 		q.success = false
 		q.finalGold = 0
+		
+		const ne = preload("res://Scripts/Classes/event.gd")
+		var auxnewE = ne.new()
+		auxnewE.setEvent("Quest Failed",Globals.guildName,"Perished",q)
+		Globals.currentEvents.append(auxnewE)
+		
+		
 		## calculate losses
 		endDayRepEarned = endDayRepEarned - calculateRepLoss(q)
 		
@@ -228,16 +253,26 @@ func clearViews():
 		c2.queue_free()
 
 func _on_back_to_lobby_button_pressed() -> void:
+	
+	SceneTransition.transition()
+	await SceneTransition.on_transition_finished
 	get_tree().get_root().get_node("Main").changeBookPage("lobby")
 	SoundManager.pickButtonSFX(randi() % 3)
 	
 	Globals.totalgold = Globals.totalgold + endDayGoldEarned
-	
 	Globals.availableQuests.clear()
 	
+	#print("rep earnedthisround: " + str(endDayRepEarned))
+	Globals.repEarnedThisRound = endDayRepEarned
 	## se retornar true upou agora
-	if Globals.addReputation(endDayRepEarned):
+	if Globals.addReputationGuild(endDayRepEarned):
 		print("Up Guild Tier: " + Globals.tierGuild)
+		
+		const ne = preload("res://Scripts/Classes/event.gd")
+		var auxnewE = ne.new()
+		auxnewE.setEvent("Guild RankUp",Globals.guildName,Globals.tierGuild,"")
+		Globals.currentEvents.append(auxnewE)
+		
 	## caso contrario nada acontece
 	else:
 		pass

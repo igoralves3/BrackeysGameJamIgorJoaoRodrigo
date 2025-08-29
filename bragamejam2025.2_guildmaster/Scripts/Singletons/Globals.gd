@@ -9,6 +9,7 @@ var config = ConfigFile.new()
 var questAux = null
 ## usado apenas temporariamente
 var partyNow: Array[adventurer]
+var repEarnedThisRound = 0
 
 
 var guildName = "The Flying Dragon"
@@ -24,6 +25,8 @@ var knownAdventurersMaxLimit = 10
 var availbleAdventurers: Array[adventurer]
 var availbleAdventurersMaxLimit = 5
 
+var currentEvents: Array[event]
+
 var totalgold = 1000
 var totalrep = 99
 var day = 1
@@ -32,10 +35,11 @@ var tierGuild = "Unlicenced"
 
 
 ## usado para adicionar reputção no final do dia, retorna true se upou agora (para fins de popups e triggar animaçoes)
-func addReputation(rep) -> bool:
+func addReputationGuild(rep) -> bool:
 	totalrep = totalrep + rep
+	updateRivalGuildsRep()
+	
 	match tierGuild:
-		
 		"Unlicenced":
 			if totalrep > 100:
 				tierGuild = "Iron"
@@ -81,10 +85,26 @@ func addReputation(rep) -> bool:
 	
 	return false
 
+func updateRivalGuildsRep():
+	
+	var high_rate = randf_range(0.80, 1.00)
+	var mid_rate = randf_range(0.40, 0.70)
+	var slow_rate = randf_range(0.05, 0.45)
+	
+	var variation = repEarnedThisRound * high_rate
+	rivalGuilds_dict["White"] = int(rivalGuilds_dict["White"] + variation)
+	
+	var variation2 = repEarnedThisRound * mid_rate
+	rivalGuilds_dict["Yellow"] = int(rivalGuilds_dict["Yellow"] + variation2)
+	
+	var variation3 = repEarnedThisRound * slow_rate
+	rivalGuilds_dict["Orange"] = int(rivalGuilds_dict["Orange"] + variation3)
+
 func startActiveQuest():
 	onGoingQuests.append(questAux)
 	questAux.onGoing = true
 	questAux = null
+
 	
 # auxiliar functions to add and remove adventurers from party selection
 func addParty(adv: adventurer):

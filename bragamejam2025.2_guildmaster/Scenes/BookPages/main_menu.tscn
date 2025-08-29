@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://ccocmh3nyq4pb" path="res://Scripts/bgscrollscript.gd" id="4_17uig"]
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="4_n4fnu"]
 [ext_resource type="Texture2D" uid="uid://b6xdjhwggsd7a" path="res://Resources/Sprites/UI_TravelBook_Spritesheet01a.png" id="5_6itu3"]
-[ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="7_n4fnu"]
+[ext_resource type="Texture2D" uid="uid://dqaa4end3as5n" path="res://Resources/Sprites/UI_TravelBook_Frame01a.png" id="7_6itu3"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -35,6 +35,7 @@ hframes = 5
 script = ExtResource("4_17uig")
 
 [node name="MainMenuContainer" type="HBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 1919.0
 offset_bottom = 1079.0
@@ -57,9 +58,9 @@ texture = ExtResource("5_6itu3")
 self_modulate = Color(0.76544, 0.345707, 0.211681, 1)
 layout_mode = 2
 offset_left = 59.0
-offset_top = 64.0
+offset_top = 74.0
 offset_right = 1142.0
-offset_bottom = 179.0
+offset_bottom = 189.0
 theme_override_fonts/font = ExtResource("4_n4fnu")
 theme_override_font_sizes/font_size = 100
 text = "The GuildMaster"
@@ -67,7 +68,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenuContainer/MainMenuVBoxContainer"]
-custom_minimum_size = Vector2(50, 90)
+custom_minimum_size = Vector2(50, 150)
 layout_mode = 2
 
 [node name="PlayButtonContainer" type="HBoxContainer" parent="MainMenuContainer/MainMenuVBoxContainer"]
@@ -77,28 +78,33 @@ alignment = 1
 [node name="PlayGameButton" type="TextureButton" parent="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer"]
 custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
-texture_normal = ExtResource("7_n4fnu")
+texture_normal = ExtResource("7_6itu3")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/PlayGameButton"]
-self_modulate = Color(0.447256, 0.180678, 0.0949587, 1)
+self_modulate = Color(0.581726, 0.245728, 0.137927, 1)
 layout_mode = 0
-offset_right = 300.0
-offset_bottom = 80.0
+offset_top = 8.0
+offset_right = 295.0
+offset_bottom = 83.0
 theme_override_fonts/font = ExtResource("4_n4fnu")
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 35
 text = "Play Game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="OptionsContainer" type="HBoxContainer" parent="."]
 visible = false
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="CreditsContainer" type="HBoxContainer" parent="."]
 visible = false
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[connection signal="mouse_entered" from="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/PlayGameButton" to="." method="_on_play_game_button_mouse_entered"]
+[connection signal="mouse_exited" from="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/PlayGameButton" to="." method="_on_play_game_button_mouse_exited"]
 [connection signal="pressed" from="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/PlayGameButton" to="." method="_on_play_game_button_pressed"]
