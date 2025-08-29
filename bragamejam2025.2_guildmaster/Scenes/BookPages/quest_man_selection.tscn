@@ -101,9 +101,7 @@ offset_right = 736.0
 offset_bottom = 213.0
 theme_override_fonts/font = ExtResource("4_sn0tn")
 theme_override_font_sizes/font_size = 28
-text = "The herbalist is in need of some specific herbs to prepare a few ointments. 
-		He is the only one at his shop and can't leave it without anyone, 
-		that's why he is looking for some helping hands to gather those herbs in the nearby forest."
+text = "The horse stable keepers in the city need some help with a... delicate procedure. They are full of manure, and the stablehands have threatened to walk out. The guild is being offered a smelly but straightforward job: shovel the day away, loading carts with horse manure for the city gardens. Iron stomach and sturdy shoes recommended."
 autowrap_mode = 2
 
 [node name="RewardLabel" type="Label" parent="RightPage_BG/QuestInfoPannel"]
@@ -253,13 +251,14 @@ texture = ExtResource("13_daaas")
 expand_mode = 1
 
 [node name="SuccessIndicatorLabel" type="Label" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/SuccessChance/TextureRect"]
-self_modulate = Color(0.88, 0.3872, 0.1408, 1)
+self_modulate = Color(0.392157, 0.0588235, 0.0196078, 1)
 layout_mode = 0
-offset_left = 9.0
-offset_top = 9.0
-offset_right = 200.0
-offset_bottom = 35.0
-text = "MODERATE"
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 197.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 21
+text = "VERY LIKELY"
 horizontal_alignment = 1
 vertical_alignment = 1
 

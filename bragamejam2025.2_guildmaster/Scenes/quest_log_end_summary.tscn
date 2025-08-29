@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://m30m3havx1rw"]
+[gd_scene load_steps=8 format=3 uid="uid://m30m3havx1rw"]
 
 [ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="1_sv3q6"]
 [ext_resource type="Script" uid="uid://nwvir4cx4myp" path="res://Scripts/quest_log_end_summary.gd" id="2_fwrmf"]
@@ -6,43 +6,44 @@
 [ext_resource type="Texture2D" uid="uid://cyagfudhlne1p" path="res://Resources/Sprites/UI_TravelBook_IconStar01a.png" id="3_fwrmf"]
 [ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="4_yde1k"]
 [ext_resource type="Texture2D" uid="uid://ca7g5ekj3goff" path="res://Resources/Sprites/UI_TravelBook_IconCoin01a.png" id="5_ghxj8"]
+[ext_resource type="Texture2D" uid="uid://duasghhm14jjl" path="res://Resources/Sprites/UI_TravelBook_Slot01a.png" id="7_fwrmf"]
 
 [node name="QuestLogEndSummary" type="TextureRect"]
-custom_minimum_size = Vector2(0, 130)
-offset_right = 561.0
-offset_bottom = 130.0
+custom_minimum_size = Vector2(0, 160)
+offset_right = 575.0
+offset_bottom = 161.0
 size_flags_vertical = 3
 texture = ExtResource("1_sv3q6")
 script = ExtResource("2_fwrmf")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="QuestEndLogContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 32.0
-offset_right = 720.0
-offset_bottom = 104.0
-metadata/_edit_lock_ = true
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 555.0
+offset_bottom = 150.0
 
-[node name="LogLabel" type="Label" parent="VBoxContainer"]
+[node name="LogLabel" type="Label" parent="QuestEndLogContainer"]
 self_modulate = Color(0.388235, 0.25098, 0.254902, 1)
-custom_minimum_size = Vector2(300, 50)
+custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_vgbvq")
-text = "- Quest xyz fracassou e todo mundo morreu"
+theme_override_font_sizes/font_size = 18
+text = " - Quest xyz  Quest xyz  Quest xyz  Quest xyz Quest xyz Quest xyz Quest xyz "
 vertical_alignment = 2
-metadata/_edit_lock_ = true
+autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="QuestEndLogContainer"]
 layout_mode = 2
-metadata/_edit_lock_ = true
 
-[node name="RepResult" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="RepResult" type="HBoxContainer" parent="QuestEndLogContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 theme_override_constants/separation = 10
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/RepResult"]
+[node name="TextureRect" type="TextureRect" parent="QuestEndLogContainer/HBoxContainer/RepResult"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -51,7 +52,7 @@ size_flags_stretch_ratio = 0.0
 texture = ExtResource("3_fwrmf")
 metadata/_edit_lock_ = true
 
-[node name="RepResultLabel" type="Label" parent="VBoxContainer/HBoxContainer/RepResult"]
+[node name="RepResultLabel" type="Label" parent="QuestEndLogContainer/HBoxContainer/RepResult"]
 modulate = Color(0.388235, 0.25098, 0.254902, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_yde1k")
@@ -60,12 +61,12 @@ text = "- 5 Rep"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GoldResult" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="GoldResult" type="HBoxContainer" parent="QuestEndLogContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/GoldResult"]
+[node name="TextureRect" type="TextureRect" parent="QuestEndLogContainer/HBoxContainer/GoldResult"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -74,7 +75,7 @@ size_flags_stretch_ratio = 0.0
 texture = ExtResource("5_ghxj8")
 metadata/_edit_lock_ = true
 
-[node name="GoldResultLabel" type="Label" parent="VBoxContainer/HBoxContainer/GoldResult"]
+[node name="GoldResultLabel" type="Label" parent="QuestEndLogContainer/HBoxContainer/GoldResult"]
 self_modulate = Color(0.388235, 0.25098, 0.254902, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_yde1k")
@@ -83,3 +84,98 @@ text = "+ 0 Gold"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="QuestEndLogContainer"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="DDQuestChoiceContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 23.0
+offset_top = 19.0
+offset_right = 555.0
+offset_bottom = 146.0
+
+[node name="DoubleDownLabel" type="Label" parent="DDQuestChoiceContainer"]
+self_modulate = Color(0.388235, 0.25098, 0.254902, 1)
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vgbvq")
+text = "- Quest xyz has found a hidden entrace in the cave, the party is tired, but they can try to get the riches out of the cave, PROCEED?"
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DDQuestChoiceContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DDQuestChoiceContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="DDConfirmButton" type="TextureButton" parent="DDQuestChoiceContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+texture_normal = ExtResource("7_fwrmf")
+stretch_mode = 0
+
+[node name="DDConfirmLabel" type="Label" parent="DDQuestChoiceContainer/HBoxContainer/DDConfirmButton"]
+self_modulate = Color(0.210928, 0.530134, 0.06129, 1)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 141.0
+offset_bottom = 37.0
+text = "Proceed!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="DDQuestChoiceContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="DDReturnButton" type="TextureButton" parent="DDQuestChoiceContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+texture_normal = ExtResource("7_fwrmf")
+stretch_mode = 0
+
+[node name="DDReturnLabel" type="Label" parent="DDQuestChoiceContainer/HBoxContainer/DDReturnButton"]
+self_modulate = Color(0.680271, 0.320689, 0.316304, 1)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 141.0
+offset_bottom = 37.0
+text = "Return to Guild"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="DDQuestChoiceContainer"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="DDQuestContinueContainer" type="VBoxContainer" parent="."]
+visible = false
+offset_left = 23.0
+offset_top = 19.0
+offset_right = 555.0
+offset_bottom = 146.0
+
+[node name="DoubleDownLabel" type="Label" parent="DDQuestContinueContainer"]
+self_modulate = Color(0.388235, 0.25098, 0.254902, 1)
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_vgbvq")
+theme_override_font_sizes/font_size = 19
+text = "- Quest xyz has continued searching for greater fame and riches!"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DDQuestContinueContainer"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[connection signal="pressed" from="DDQuestChoiceContainer/HBoxContainer/DDConfirmButton" to="." method="_on_dd_confirm_button_pressed"]
+[connection signal="pressed" from="DDQuestChoiceContainer/HBoxContainer/DDReturnButton" to="." method="_on_dd_return_button_pressed"]
