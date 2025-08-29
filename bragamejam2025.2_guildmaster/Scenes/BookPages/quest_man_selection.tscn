@@ -218,6 +218,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="OutcomeContainer" type="Control" parent="RightPage_BG/PartySlots/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(780, 110)
 layout_mode = 2
 
@@ -413,7 +414,6 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="StartQuestButton" type="TextureButton" parent="RightPage_BG"]
-visible = false
 layout_mode = 0
 offset_left = 543.0
 offset_top = 694.0
@@ -422,12 +422,13 @@ offset_bottom = 784.0
 texture_normal = ExtResource("13_3d861")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="RightPage_BG/StartQuestButton"]
+[node name="StartQuestLabel" type="Label" parent="RightPage_BG/StartQuestButton"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 24.0
 offset_right = 199.0
 offset_bottom = 81.0
+mouse_filter = 1
 theme_override_fonts/font = ExtResource("7_e34ok")
 theme_override_font_sizes/font_size = 25
 text = "Start Quest"
@@ -450,20 +451,19 @@ offset_bottom = 780.0
 texture_normal = ExtResource("13_3d861")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="RightPage_BG/BackButton"]
-modulate = Color(0.72472, 0.51368, 0.518838, 1)
+[node name="BackToLobbyLabel" type="Label" parent="RightPage_BG/BackButton"]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 24.0
 offset_right = 251.0
 offset_bottom = 81.0
+mouse_filter = 1
 theme_override_fonts/font = ExtResource("7_e34ok")
 theme_override_font_sizes/font_size = 20
 text = "Back to Lobby"
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="RightPage_BG/BackButton"]
-modulate = Color(0.674815, 0.674815, 0.674815, 1)
 layout_mode = 0
 offset_left = 17.0
 offset_top = 30.0
@@ -472,5 +472,9 @@ offset_bottom = 70.0
 texture = ExtResource("14_74gqe")
 flip_h = true
 
+[connection signal="mouse_entered" from="RightPage_BG/StartQuestButton" to="." method="_on_start_quest_button_mouse_entered"]
+[connection signal="mouse_exited" from="RightPage_BG/StartQuestButton" to="." method="_on_start_quest_button_mouse_exited"]
 [connection signal="pressed" from="RightPage_BG/StartQuestButton" to="." method="_on_start_quest_button_pressed"]
+[connection signal="mouse_entered" from="RightPage_BG/BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="mouse_exited" from="RightPage_BG/BackButton" to="." method="_on_back_button_mouse_exited"]
 [connection signal="pressed" from="RightPage_BG/BackButton" to="." method="_on_back_button_pressed"]

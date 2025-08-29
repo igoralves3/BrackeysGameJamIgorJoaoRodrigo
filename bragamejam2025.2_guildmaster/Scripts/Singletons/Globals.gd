@@ -11,7 +11,7 @@ var questAux = null
 var partyNow: Array[adventurer]
 
 
-var guildName = "Nome da Guild"
+var guildName = "The Flying Dragon"
 var rivalGuilds_dict = {"White": 500, "Yellow": 750, "Orange": 1000}
 
 var availableQuests: Array[quest]

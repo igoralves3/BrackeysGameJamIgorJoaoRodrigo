@@ -151,3 +151,21 @@ func _on_start_quest_button_pressed() -> void:
 		get_tree().get_root().get_node("Main").changeBookPage("lobby")
 		SoundManager.pickButtonSFX(randi() % 3)
 		has_been_visible_and_processed = false
+
+
+func _on_start_quest_button_mouse_entered() -> void:
+	$RightPage_BG/StartQuestButton/StartQuestLabel.modulate = Color("d2b1b0")
+	$RightPage_BG/StartQuestButton/TextureRect.texture = load("res://Resources/Sprites/UI_TravelBook_IconArrow01a-1PRESSED.png")
+
+func _on_start_quest_button_mouse_exited() -> void:
+	$RightPage_BG/StartQuestButton/StartQuestLabel.modulate = Color("ffffff")
+	$RightPage_BG/StartQuestButton/TextureRect.texture = load("res://Resources/Sprites/UI_TravelBook_IconArrow01a.png")
+
+
+func _on_back_button_mouse_entered() -> void:
+	$RightPage_BG/BackButton/BackToLobbyLabel.modulate = Color("d2b1b0")
+	$RightPage_BG/BackButton/TextureRect.texture = load("res://Resources/Sprites/UI_TravelBook_IconArrow01a-1PRESSED.png")
+
+func _on_back_button_mouse_exited() -> void:
+	$RightPage_BG/BackButton/BackToLobbyLabel.modulate = Color("ffffff")
+	$RightPage_BG/BackButton/TextureRect.texture = load("res://Resources/Sprites/UI_TravelBook_IconArrow01a.png")

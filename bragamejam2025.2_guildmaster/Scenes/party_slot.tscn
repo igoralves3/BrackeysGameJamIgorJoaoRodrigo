@@ -35,6 +35,15 @@ offset_right = 162.0
 offset_bottom = 178.0
 texture = ExtResource("2_gfosu")
 
+[node name="RemoveHighlight" type="ColorRect" parent="PortraitSlot"]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 140.0
+offset_bottom = 139.0
+color = Color(0.984415, 0.433874, 0.348629, 0.270588)
+
 [node name="Portrait" type="TextureRect" parent="PortraitSlot"]
 visible = false
 layout_mode = 0
@@ -81,4 +90,6 @@ text = "Empty"
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

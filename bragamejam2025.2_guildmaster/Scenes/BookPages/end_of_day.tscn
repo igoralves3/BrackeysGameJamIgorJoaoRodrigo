@@ -292,4 +292,8 @@ size_flags_vertical = 0
 mouse_filter = 0
 texture = ExtResource("13_5v3my")
 
+[connection signal="button_down" from="RightPage_BG/BackToLobbyButton" to="." method="_on_back_to_lobby_button_button_down"]
+[connection signal="button_up" from="RightPage_BG/BackToLobbyButton" to="." method="_on_back_to_lobby_button_button_up"]
+[connection signal="mouse_entered" from="RightPage_BG/BackToLobbyButton" to="." method="_on_back_to_lobby_button_mouse_entered"]
+[connection signal="mouse_exited" from="RightPage_BG/BackToLobbyButton" to="." method="_on_back_to_lobby_button_mouse_exited"]
 [connection signal="pressed" from="RightPage_BG/BackToLobbyButton" to="." method="_on_back_to_lobby_button_pressed"]

@@ -25,9 +25,9 @@ texture = ExtResource("2_th34o")
 [node name="GuildName" type="Label" parent="."]
 self_modulate = Color(0.286275, 0.2, 0.2, 1)
 layout_mode = 0
-offset_left = 74.0
+offset_left = 80.0
 offset_top = 11.0
-offset_right = 268.0
+offset_right = 274.0
 offset_bottom = 53.0
 theme_override_fonts/font = ExtResource("3_vxnop")
 text = "White Guild"

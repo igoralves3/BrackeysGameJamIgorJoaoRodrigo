@@ -146,15 +146,25 @@ func attGuildRanks():
 
 func _on_end_day_button_button_down() -> void:
 	hold_timer.start()
-
+	$RightPage_BG/EndDayButton/TextureRect.play("default")
 
 func _on_end_day_button_button_up() -> void:
 	if hold_timer.is_stopped():
+		$RightPage_BG/EndDayButton/TextureRect.play("static")
 		pass
 	else:
+		$RightPage_BG/EndDayButton/TextureRect.play("static")
 		hold_timer.stop()
 
 
 func _on_hold_timer_timeout() -> void:
 	get_tree().get_root().get_node("Main").changeBookPage("endofday")
 	SoundManager.pickButtonSFX(randi() % 3)
+
+
+func _on_end_day_button_mouse_entered() -> void:
+	$RightPage_BG/EndDayButton/Label.modulate = Color("99725d")
+
+
+func _on_end_day_button_mouse_exited() -> void:
+	$RightPage_BG/EndDayButton/Label.modulate = Color("ffffff")

@@ -3,13 +3,20 @@ extends NinePatchRect
 @onready var questsSummaryContainer = $LeftPage_BG/QuestLogLabel/ScrollContainer/VBoxContainer
 @onready var questsResultsContainer = $RightPage_BG/Results/ResultsScrollContainer/VBoxContainer
 
+@onready var guildNameLabel = $RightPage_BG/GuildNameLabel
+
 var quest_end_summary = preload("res://Scenes/quest_log_end_summary.tscn")
 var quest_result_value = preload("res://Scenes/result_quest_end.tscn")
+
+
 
 var doubleDownQuestsAux = []
 
 var endDayGoldEarned = 0
 var endDayRepEarned = 0
+
+func _ready() -> void:
+	guildNameLabel.text = Globals.guildName
 
 
 func resolvePendingDayEvents():
@@ -17,6 +24,7 @@ func resolvePendingDayEvents():
 	clearViews()
 	## pegar todas as quests ativas e resolver elas
 	for activeQuest in Globals.onGoingQuests:
+		print("spawn quest ending")
 		resolveQuest(activeQuest)
 	
 		## populate summaries
@@ -29,6 +37,7 @@ func resolvePendingDayEvents():
 		questsResultsContainer.add_child(questresult)
 		questresult.setLabels(activeQuest)
 		
+	for activeQuest in Globals.onGoingQuests:	
 		## check if complete else doubledown activated, still onGoing
 		if activeQuest.onGoing == false:
 			## quest complete remove quest from avaible quests on globals script 
@@ -37,7 +46,7 @@ func resolvePendingDayEvents():
 			
 			if Globals.onGoingQuests.has(activeQuest):
 				Globals.onGoingQuests.erase(activeQuest)	
-			
+		
 	## calculate and att total 
 	$RightPage_BG/Results/Total/RepTotalContainer/RepTotalLabel.text = "+ " + str(endDayRepEarned) + " Rep"
 	$RightPage_BG/Results/Total/GoldTotalContainer/GoldTotalLabel.text = "+ " + str(endDayGoldEarned) + " Gold"
@@ -234,3 +243,19 @@ func _on_back_to_lobby_button_pressed() -> void:
 		pass
 		
 	Globals.day = Globals.day + 1
+
+
+func _on_back_to_lobby_button_button_down() -> void:
+	pass # Replace with function body.
+
+
+func _on_back_to_lobby_button_button_up() -> void:
+	pass # Replace with function body.
+
+
+func _on_back_to_lobby_button_mouse_entered() -> void:
+	$RightPage_BG/BackToLobbyButton/Label.modulate = Color("99725d")
+
+
+func _on_back_to_lobby_button_mouse_exited() -> void:
+	$RightPage_BG/BackToLobbyButton/Label.modulate = Color("ffffff")

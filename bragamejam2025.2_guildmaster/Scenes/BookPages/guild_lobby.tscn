@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bpdnaxogb4p58"]
+[gd_scene load_steps=25 format=3 uid="uid://bpdnaxogb4p58"]
 
 [ext_resource type="Texture2D" uid="uid://c63amgxyxowqv" path="res://Resources/Sprites/UI_TravelBook_BookCover01a.png" id="1_riume"]
 [ext_resource type="Script" uid="uid://b27k2v1pxreet" path="res://Scripts/guild_lobby.gd" id="2_2na1d"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://brkndl8b72nhc" path="res://Scenes/news_log.tscn" id="7_tkfya"]
 [ext_resource type="PackedScene" uid="uid://crboxa4c7vkj1" path="res://Scenes/guild_ranking_label.tscn" id="9_6a4ub"]
 [ext_resource type="PackedScene" uid="uid://bstbx8p6c2u25" path="res://Scenes/quest_label.tscn" id="12_8xw2f"]
-[ext_resource type="Texture2D" uid="uid://cas1mmska0ji" path="res://Resources/Sprites/UI_TravelBook_IconHome01a.png" id="14_8xw2f"]
+[ext_resource type="Texture2D" uid="uid://ebq7e1aveu2" path="res://Resources/Sprites/UI_TravelBook_IconHome01a-1ANIMATED.png" id="14_l7g5x"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dognj"]
 texture = ExtResource("5_x4m7n")
@@ -24,6 +24,64 @@ texture = ExtResource("6_w0nxr")
 [sub_resource type="Theme" id="Theme_4p0pl"]
 VScrollBar/styles/grabber = SubResource("StyleBoxTexture_dognj")
 VScrollBar/styles/scroll = SubResource("StyleBoxTexture_8w6rg")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2na1d"]
+atlas = ExtResource("14_l7g5x")
+region = Rect2(0, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6a4ub"]
+atlas = ExtResource("14_l7g5x")
+region = Rect2(15, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5iyqo"]
+atlas = ExtResource("14_l7g5x")
+region = Rect2(30, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltr6a"]
+atlas = ExtResource("14_l7g5x")
+region = Rect2(45, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r017d"]
+atlas = ExtResource("14_l7g5x")
+region = Rect2(60, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doavy"]
+atlas = ExtResource("14_l7g5x")
+region = Rect2(75, 0, 15, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m7keu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2na1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6a4ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5iyqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltr6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r017d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doavy")
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2na1d")
+}],
+"loop": true,
+"name": &"static",
+"speed": 5.0
+}]
 
 [node name="GuildLobby" type="NinePatchRect"]
 offset_left = 33.0
@@ -165,16 +223,19 @@ theme_override_font_sizes/font_size = 25
 text = "End Day"
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="RightPage_BG/EndDayButton"]
-layout_mode = 0
-offset_left = 184.0
-offset_top = 25.0
-offset_right = 240.0
-offset_bottom = 72.0
-texture = ExtResource("14_8xw2f")
+[node name="TextureRect" type="AnimatedSprite2D" parent="RightPage_BG/EndDayButton"]
+position = Vector2(216, 47)
+scale = Vector2(4.403, 4)
+sprite_frames = SubResource("SpriteFrames_m7keu")
+autoplay = "static"
+frame = 5
+frame_progress = 1.0
 
 [node name="HoldTimer" type="Timer" parent="RightPage_BG/EndDayButton"]
+wait_time = 0.8
 
 [connection signal="button_down" from="RightPage_BG/EndDayButton" to="." method="_on_end_day_button_button_down"]
 [connection signal="button_up" from="RightPage_BG/EndDayButton" to="." method="_on_end_day_button_button_up"]
+[connection signal="mouse_entered" from="RightPage_BG/EndDayButton" to="." method="_on_end_day_button_mouse_entered"]
+[connection signal="mouse_exited" from="RightPage_BG/EndDayButton" to="." method="_on_end_day_button_mouse_exited"]
 [connection signal="timeout" from="RightPage_BG/EndDayButton/HoldTimer" to="." method="_on_hold_timer_timeout"]

@@ -21,3 +21,14 @@ func clearAdventurerDisplay():
 	advNameLabel.text = "Empty"
 	advRankLabel.visible = false
 	advPortrait.visible = false
+	localAdvReference = null
+
+
+func _on_mouse_entered() -> void:
+	if(localAdvReference!=null):
+		$PortraitSlot/RemoveHighlight.visible = true
+
+
+func _on_mouse_exited() -> void:
+	if(localAdvReference!=null):
+		$PortraitSlot/RemoveHighlight.visible = false

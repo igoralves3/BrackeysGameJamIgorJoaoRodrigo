@@ -45,3 +45,16 @@ func _on_add_button_pressed() -> void:
 		AddPartyButton.visible = false
 	else:
 		print("cannot add adverurer not avaible")
+
+
+
+
+
+func _on_add_button_mouse_entered() -> void:
+	$AddButton/Arrow.texture = load("res://Resources/Sprites/UI_TravelBook_IconArrow01a-1PRESSED.png")
+	$AddButton/Arrow.modulate = Color("d2b1b0")
+
+
+func _on_add_button_mouse_exited() -> void:
+	$AddButton/Arrow.texture = load("res://Resources/Sprites/UI_TravelBook_IconArrow01a.png")
+	$AddButton/Arrow.modulate = Color("ffffff")

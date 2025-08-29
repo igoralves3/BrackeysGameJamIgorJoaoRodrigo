@@ -26,6 +26,7 @@ Spawner="*res://Scripts/Singletons/Spawner.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="uid://bxwdxplg3s3m4"
 
 [rendering]
 

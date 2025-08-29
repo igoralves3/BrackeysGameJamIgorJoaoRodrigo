@@ -125,29 +125,29 @@ text = "- Goblin Slayer
 [node name="LabelCost" type="Label" parent="."]
 modulate = Color(0.386831, 0.249975, 0.253888, 1)
 layout_mode = 0
-offset_left = 550.0
+offset_left = 526.0
 offset_top = 106.0
 offset_right = 728.0
-offset_bottom = 140.0
+offset_bottom = 141.0
 theme_override_fonts/font = ExtResource("2_jhl5o")
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 33
 text = "Cost: 1000 Gold"
 vertical_alignment = 2
 
 [node name="AddButton" type="TextureButton" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 591.0
+offset_left = 589.0
 offset_top = 45.0
 offset_right = 752.0
 offset_bottom = 106.0
 
 [node name="BG" type="TextureRect" parent="AddButton"]
 layout_mode = 0
-offset_left = -17.0
+offset_left = -11.0
 offset_top = -4.0
 offset_right = 166.0
-offset_bottom = 60.0
+offset_bottom = 57.0
 texture = ExtResource("10_pj1ht")
 
 [node name="Arrow" type="TextureRect" parent="AddButton"]
@@ -174,4 +174,6 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="toggled" from="." to="." method="_on_toggled"]
+[connection signal="mouse_entered" from="AddButton" to="." method="_on_add_button_mouse_entered"]
+[connection signal="mouse_exited" from="AddButton" to="." method="_on_add_button_mouse_exited"]
 [connection signal="pressed" from="AddButton" to="." method="_on_add_button_pressed"]
