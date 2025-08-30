@@ -25,7 +25,9 @@ func resolvePendingDDQuests():
 
 	## pegar todas as quests ativas e resolver elas
 	for activeQuest in Globals.onGoingQuests:
-			
+		
+		print(activeQuest.questname)
+		
 		if activeQuest.doubleDownTriggered == false:
 			resolveQuest(activeQuest)
 		
@@ -40,6 +42,7 @@ func resolvePendingDDQuests():
 			questresult.setLabels(activeQuest)
 		
 		else:
+			## checca se foi ativado double down ai nao popula mais com botao ativado, apenas botoes desativdos com indicaçao de dd
 			## populate ONLY summaries
 			var questsum = quest_end_summary.instantiate()
 			questsSummaryContainer.add_child(questsum)
@@ -76,6 +79,7 @@ func startResolvingDayQuests():
 			questresult.setLabels(activeQuest)
 		
 		else:
+			
 			## populate ONLY summaries
 			var questsum = quest_end_summary.instantiate()
 			questsSummaryContainer.add_child(questsum)
@@ -264,18 +268,13 @@ func clearViews():
 		c2.queue_free()
 
 func _on_back_to_lobby_button_pressed() -> void:
-	var main_node = get_tree().get_root().get_node("Main")
+	
+	#var main_node = get_tree().get_root().get_node("Main")
 	#SceneTransition.transition()
 	#await SceneTransition.on_transition_finished
-	main_node.changeBookPage("lobby")
+	#main_node.changeBookPage("lobby")
 	#SoundManager.pickButtonSFX(randi() % 3)
-	
-	endDayAttQuestResults()
-	startResolvingDayQuests()
-	endDayAttQuestResults()
-	
-	
-	
+		
 	
 	print("end day gold = "+str(endDayGoldEarned))	
 		
@@ -301,10 +300,12 @@ func _on_back_to_lobby_button_pressed() -> void:
 	endDayRepEarned = 0
 	Globals.endDay()
 	
+	endDayAttQuestResults()
 	
 	SceneTransition.transition()
 	await SceneTransition.on_transition_finished
 	SoundManager.pickButtonSFX(randi() % 3)
+	
 	
 	const scenetoLoad = preload("res://Scenes/day_cycle.tscn")
 	get_tree().change_scene_to_packed(scenetoLoad)

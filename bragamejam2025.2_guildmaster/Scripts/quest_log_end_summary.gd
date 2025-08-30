@@ -34,10 +34,20 @@ func setEndLabels(q: quest):
 func setLabels(q: quest):
 	
 	questlocal = q
+	
+	if q.doubleDownActive == true:
+		DDChoiceContainer.visible = false
+		DDContinueContainer.visible = true
+		QEndLogContainer.visible = false
+		$DDQuestContinueContainer/DoubleDownLabel.text = "- Quest: " + questlocal.questname + " has continued searching for greater riches and fame!"
+		return
+
 	if q.doubleDownTriggered:
 		DDChoiceContainer.visible = true
 		$DDQuestChoiceContainer/DoubleDownLabel.text = "- Quest: " + questlocal.questname + " has found a hidden riches during the quest, the party is tired, but they can try to get the valuables at a increased risk, SHOULD THEY PROCEED?"
-	if q.doubleDownTriggered == false and q.doubleDownNow == false:
+		return 
+		
+	if q.doubleDownTriggered == false and q.doubleDownActive == false:
 		setEndLabels(q)
 
 
@@ -53,12 +63,12 @@ func questDoubleDownValuesAtt(q: quest):
 
 
 func _on_dd_confirm_button_pressed() -> void:
-	
-	questlocal.doubleDownTriggered = true
+	questlocal.doubleDownTriggered = false
 	questDoubleDownValuesAtt(questlocal)
 	DDChoiceContainer.visible = false
 	DDContinueContainer.visible = true
 	QEndLogContainer.visible = false
+	questlocal.doubleDownTriggered = true
 	$DDQuestContinueContainer/DoubleDownLabel.text = "- Quest: " + questlocal.questname + " has continued searching for greater riches and fame!"
 
 
