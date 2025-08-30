@@ -62,6 +62,36 @@ offset_bottom = 678.0
 [node name="CharacterSlotsContainer" type="VBoxContainer" parent="LeftPage_BG/ScrollContainer"]
 layout_mode = 2
 
+[node name="BackButton" type="TextureButton" parent="LeftPage_BG"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 685.0
+offset_right = 293.0
+offset_bottom = 776.0
+texture_normal = ExtResource("13_3d861")
+stretch_mode = 0
+
+[node name="BackToLobbyLabel" type="Label" parent="LeftPage_BG/BackButton"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 24.0
+offset_right = 251.0
+offset_bottom = 81.0
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("7_e34ok")
+theme_override_font_sizes/font_size = 20
+text = "Back to Lobby"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="LeftPage_BG/BackButton"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 30.0
+offset_right = 66.0
+offset_bottom = 70.0
+texture = ExtResource("14_74gqe")
+flip_h = true
+
 [node name="RightPage_BG" type="NinePatchRect" parent="."]
 layout_mode = 0
 offset_left = 917.0
@@ -223,19 +253,20 @@ layout_mode = 2
 [node name="SuccessChance" type="TextureRect" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer"]
 modulate = Color(1, 1, 1, 0.937255)
 layout_mode = 0
-offset_left = 32.0
-offset_top = 20.0
-offset_right = 243.0
-offset_bottom = 89.0
+offset_left = -5.0
+offset_top = 22.0
+offset_right = 229.0
+offset_bottom = 102.0
 texture = ExtResource("3_1miym")
 
 [node name="SuccessLabel" type="Label" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/SuccessChance"]
 layout_mode = 0
-offset_left = 12.0
-offset_top = 7.0
-offset_right = 195.0
-offset_bottom = 28.0
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 225.0
+offset_bottom = 34.0
 theme_override_fonts/font = ExtResource("7_e34ok")
+theme_override_font_sizes/font_size = 19
 text = "Success Chance:"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -243,32 +274,33 @@ justification_flags = 0
 
 [node name="TextureRect" type="TextureRect" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/SuccessChance"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 25.0
-offset_right = 207.0
-offset_bottom = 66.0
+offset_left = 4.0
+offset_top = 29.0
+offset_right = 228.0
+offset_bottom = 75.0
 texture = ExtResource("13_daaas")
 expand_mode = 1
 
 [node name="SuccessIndicatorLabel" type="Label" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/SuccessChance/TextureRect"]
-self_modulate = Color(0.392157, 0.0588235, 0.0196078, 1)
+self_modulate = Color(1, 0.0823529, 0.0313726, 1)
 layout_mode = 0
-offset_left = 6.0
-offset_top = 7.0
-offset_right = 197.0
-offset_bottom = 37.0
-theme_override_font_sizes/font_size = 21
+offset_left = 17.0
+offset_top = 6.0
+offset_right = 208.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 26
 text = "VERY LIKELY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BalanceAfterPayouts" type="TextureRect" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer"]
 layout_mode = 0
-offset_left = 289.0
+offset_left = 264.0
 offset_right = 768.0
-offset_bottom = 95.0
+offset_bottom = 110.0
 
 [node name="Label" type="Label" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts"]
+visible = false
 modulate = Color(0.388235, 0.25098, 0.254902, 1)
 layout_mode = 0
 offset_left = -14.0
@@ -282,9 +314,9 @@ vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts"]
 layout_mode = 0
-offset_left = -18.0
-offset_top = 33.0
-offset_right = 475.0
+offset_left = -24.0
+offset_top = 13.0
+offset_right = 502.0
 offset_bottom = 112.0
 texture = ExtResource("3_1miym")
 
@@ -297,10 +329,10 @@ offset_bottom = 41.0
 
 [node name="PayLabel" type="Label" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Payout"]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 6.0
-offset_right = 149.0
-offset_bottom = 43.0
+offset_left = -1.0
+offset_top = 3.0
+offset_right = 145.0
+offset_bottom = 40.0
 theme_override_fonts/font = ExtResource("7_e34ok")
 theme_override_font_sizes/font_size = 20
 text = "Quest Pay:"
@@ -318,10 +350,10 @@ texture = ExtResource("9_moi7u")
 
 [node name="PayValue" type="Label" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Payout"]
 layout_mode = 0
-offset_left = 224.0
-offset_top = 14.0
-offset_right = 328.0
-offset_bottom = 44.0
+offset_left = 360.0
+offset_top = 8.0
+offset_right = 464.0
+offset_bottom = 38.0
 theme_override_fonts/font = ExtResource("7_e34ok")
 theme_override_font_sizes/font_size = 16
 text = "+ 50 Gold"
@@ -338,10 +370,10 @@ offset_bottom = 73.0
 
 [node name="FeeLabel" type="Label" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Fee"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 8.0
-offset_right = 213.0
-offset_bottom = 44.0
+offset_left = -2.0
+offset_top = 2.0
+offset_right = 210.0
+offset_bottom = 38.0
 theme_override_fonts/font = ExtResource("7_e34ok")
 theme_override_font_sizes/font_size = 20
 text = "Adventureres fee:"
@@ -361,10 +393,10 @@ texture = ExtResource("9_moi7u")
 [node name="FeeValue" type="Label" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Fee"]
 self_modulate = Color(0.905882, 0.313726, 0.235294, 1)
 layout_mode = 0
-offset_left = 220.0
-offset_top = 11.0
-offset_right = 328.0
-offset_bottom = 41.0
+offset_left = 358.0
+offset_top = 5.0
+offset_right = 466.0
+offset_bottom = 35.0
 theme_override_fonts/font = ExtResource("7_e34ok")
 theme_override_font_sizes/font_size = 16
 text = "- 50 Gold"
@@ -381,38 +413,39 @@ metadata/_edit_lock_ = true
 
 [node name="FeeLabel" type="Label" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Total"]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 1.0
-offset_right = 122.0
-offset_bottom = 41.0
+offset_left = -320.0
+offset_top = 72.0
+offset_right = 76.0
+offset_bottom = 104.0
 theme_override_fonts/font = ExtResource("7_e34ok")
-text = "Total:"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_font_sizes/font_size = 16
+text = "Estimated Earnings if Success:"
+autowrap_mode = 2
 
 [node name="GoldCoin" type="TextureRect" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Total"]
 layout_mode = 0
-offset_left = 123.0
-offset_top = 22.0
-offset_right = 162.0
-offset_bottom = 62.0
+offset_left = 159.0
+offset_top = 36.0
+offset_right = 198.0
+offset_bottom = 76.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("9_moi7u")
 
 [node name="TotalValue" type="Label" parent="RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Total"]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 29.0
-offset_right = 120.0
-offset_bottom = 86.0
+offset_left = 4.0
+offset_top = 54.0
+offset_right = 145.0
+offset_bottom = 111.0
 theme_override_fonts/font = ExtResource("7_e34ok")
 theme_override_font_sizes/font_size = 16
 text = "+20000 Gold"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="StartQuestButton" type="TextureButton" parent="RightPage_BG"]
+visible = false
 layout_mode = 0
 offset_left = 543.0
 offset_top = 694.0
@@ -441,39 +474,30 @@ offset_right = 255.0
 offset_bottom = 70.0
 texture = ExtResource("14_74gqe")
 
-[node name="BackButton" type="TextureButton" parent="RightPage_BG"]
+[node name="CantPay" type="TextureRect" parent="RightPage_BG"]
+visible = false
 layout_mode = 0
-offset_left = -827.0
-offset_top = 689.0
-offset_right = -556.0
-offset_bottom = 780.0
-texture_normal = ExtResource("13_3d861")
-stretch_mode = 0
+offset_left = 203.0
+offset_top = 692.0
+offset_right = 672.0
+offset_bottom = 779.0
+texture = ExtResource("3_1miym")
 
-[node name="BackToLobbyLabel" type="Label" parent="RightPage_BG/BackButton"]
+[node name="Label" type="Label" parent="RightPage_BG/CantPay"]
+self_modulate = Color(0.905882, 0.313726, 0.235294, 1)
 layout_mode = 0
-offset_left = 71.0
-offset_top = 24.0
-offset_right = 251.0
-offset_bottom = 81.0
-mouse_filter = 1
+offset_right = 467.0
+offset_bottom = 104.0
 theme_override_fonts/font = ExtResource("7_e34ok")
-theme_override_font_sizes/font_size = 20
-text = "Back to Lobby"
+theme_override_font_sizes/font_size = 40
+text = "Not Enough Gold"
+horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="RightPage_BG/BackButton"]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 30.0
-offset_right = 66.0
-offset_bottom = 70.0
-texture = ExtResource("14_74gqe")
-flip_h = true
-
+[connection signal="mouse_entered" from="LeftPage_BG/BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="mouse_exited" from="LeftPage_BG/BackButton" to="." method="_on_back_button_mouse_exited"]
+[connection signal="pressed" from="LeftPage_BG/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="mouse_entered" from="RightPage_BG/StartQuestButton" to="." method="_on_start_quest_button_mouse_entered"]
 [connection signal="mouse_exited" from="RightPage_BG/StartQuestButton" to="." method="_on_start_quest_button_mouse_exited"]
 [connection signal="pressed" from="RightPage_BG/StartQuestButton" to="." method="_on_start_quest_button_pressed"]
-[connection signal="mouse_entered" from="RightPage_BG/BackButton" to="." method="_on_back_button_mouse_entered"]
-[connection signal="mouse_exited" from="RightPage_BG/BackButton" to="." method="_on_back_button_mouse_exited"]
-[connection signal="pressed" from="RightPage_BG/BackButton" to="." method="_on_back_button_pressed"]

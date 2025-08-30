@@ -31,12 +31,19 @@ func _process(delta):
 	
 	#caso aconteça alguma mudança no rooster dos personagens selecionados pra quest atual
 	if Globals.partyNow.size()!=auxPartyCounter and Globals.questAux!=null:
+		$RightPage_BG/CantPay.visible = false
 		attPartyCharactersDisplay()
 		attGuildCharacterStatus()
+		attQuestChancesandPayouts()
 		auxPartyCounter = Globals.partyNow.size()
 		if Globals.partyNow.size() > 0:
 			attQuestChancesandPayouts()
-			$RightPage_BG/StartQuestButton.visible = true
+			if canPayFee():
+				$RightPage_BG/StartQuestButton.visible = true
+				$RightPage_BG/CantPay.visible = false
+			else:
+				$RightPage_BG/StartQuestButton.visible = false
+				$RightPage_BG/CantPay.visible = true
 		else:
 			outComeContainer.visible = false
 			$RightPage_BG/StartQuestButton.visible = false
@@ -63,13 +70,15 @@ func attQuestChancesandPayouts():
 	var succChance = auxdiff/percentile
 
 	if Globals.questAux.Rank == "F":
+		print("here if f")
 		successIndicatorLabel.text = "VERY LIKELY"
 		successIndicatorLabel.self_modulate = Color("55a965")
 		Globals.questAux.chanceOfSuccess = "VERY LIKELY"
 	else:
+		print("here else")
 		if succChance < -80:
 			successIndicatorLabel.text = "VERY UNLIKELY"
-			successIndicatorLabel.self_modulate = Color("640f05")
+			successIndicatorLabel.self_modulate = Color("ff1508")
 			Globals.questAux.chanceOfSuccess = "VERY UNLIKELY"
 		elif succChance < -80 and succChance > -30:
 			successIndicatorLabel.text = "UNLIKELY"
@@ -95,8 +104,8 @@ func attQuestChancesandPayouts():
 	for adv in Globals.partyNow:
 		feeTotalValue = feeTotalValue + adv.getAdventurerFee()
 		
-	FeeValueLabel.text = "-" + str(feeTotalValue)
-	TotalValueLabel.text = str(feeTotalValue - Globals.questAux.gold)
+	FeeValueLabel.text = str(feeTotalValue*-1)
+	TotalValueLabel.text = str((feeTotalValue*-1) + Globals.questAux.gold)
 
 func attQuestInfos():
 	currQuestNameLabel.text = str(Globals.questAux.questname)
@@ -127,7 +136,29 @@ func listGuildCharacters():
 		charactersContainer.add_child(advlabel)
 		advlabel.setAdventurer(adv)
 
+func canPayFee():
+	
+	var goldcost = 0
+	for adv in Globals.partyNow:
+		goldcost = adv.getAdventurerFee() + goldcost	
+		
+	## if can pay
+	if Globals.totalgold >= goldcost:
+			return true	
+	return false
+
+
 func _on_back_button_pressed() -> void:
+	
+	for p in playerSlots:
+		p._on_pressed()
+	
+	outComeContainer.visible = false
+	attPartyCharactersDisplay()
+	attGuildCharacterStatus()
+	$RightPage_BG/CantPay.visible = false
+	#Globals.removeParty(localAdvReference)
+	
 	get_tree().get_root().get_node("Main").changeBookPage("lobby")
 	SoundManager.pickButtonSFX(randi() % 3)
 	has_been_visible_and_processed = false
@@ -153,10 +184,10 @@ func _on_start_quest_button_pressed() -> void:
 			# da clear no partyAux e no quest aux
 			Globals.partyNow.clear()
 			Globals.startActiveQuest()
-			
-		get_tree().get_root().get_node("Main").changeBookPage("lobby")
-		SoundManager.pickButtonSFX(randi() % 3)
-		has_been_visible_and_processed = false
+	
+			get_tree().get_root().get_node("Main").changeBookPage("lobby")
+			SoundManager.pickButtonSFX(randi() % 3)
+			has_been_visible_and_processed = false
 
 
 func _on_start_quest_button_mouse_entered() -> void:
@@ -167,11 +198,10 @@ func _on_start_quest_button_mouse_exited() -> void:
 	$RightPage_BG/StartQuestButton/StartQuestLabel.modulate = Color("ffffff")
 	$RightPage_BG/StartQuestButton/TextureRect.texture = load("res://Resources/Sprites/UI_TravelBook_IconArrow01a.png")
 
-
 func _on_back_button_mouse_entered() -> void:
-	$RightPage_BG/BackButton/BackToLobbyLabel.modulate = Color("d2b1b0")
-	$RightPage_BG/BackButton/TextureRect.texture = load("res://Resources/Sprites/UI_TravelBook_IconArrow01a-1PRESSED.png")
+	$LeftPage_BG/BackButton/BackToLobbyLabel.modulate = Color("d2b1b0")
+	$LeftPage_BG/BackButton/TextureRect.texture = load("res://Resources/Sprites/UI_TravelBook_IconArrow01a-1PRESSED.png")
 
 func _on_back_button_mouse_exited() -> void:
-	$RightPage_BG/BackButton/BackToLobbyLabel.modulate = Color("ffffff")
-	$RightPage_BG/BackButton/TextureRect.texture = load("res://Resources/Sprites/UI_TravelBook_IconArrow01a.png")
+	$LeftPage_BG/BackButton/BackToLobbyLabel.modulate = Color("ffffff")
+	$LeftPage_BG/BackButton/TextureRect.texture = load("res://Resources/Sprites/UI_TravelBook_IconArrow01a.png")

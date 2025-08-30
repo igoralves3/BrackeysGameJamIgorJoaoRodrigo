@@ -18,7 +18,7 @@ func setNewQuest(q: quest):
 	elif q.difficulty > 160 and q.difficulty <= 1440:
 		difrepIcon.texture = load("res://Resources/Sprites/UI_TravelBook_IconStar01a.png")
 	else:
-		difrepIcon.texture = load("res://Resources/Sprites/UI_TravelBook_IconStar01a-1.png.png")
+		difrepIcon.texture = load("res://Resources/Sprites/UI_TravelBook_IconStar01a-1.png-1.png.png")
 	
 	if q.onGoing == true:
 		self.modulate = Color("#565656")

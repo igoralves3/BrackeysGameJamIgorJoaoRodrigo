@@ -393,3 +393,85 @@ func spawnNewAdventurer() -> adventurer:
 		auxnewa.setAdventurer(characterName,"female",newAdvRank)
 		
 	return auxnewa
+
+
+
+func spawnTestPool():
+	
+	## ADVENTURERS TEST
+	const nadv = preload("res://Scripts/Classes/adventurer.gd")
+	var auxnewa = adventurer.new()
+	auxnewa.setAdventurer("Adv Rank F","male","F")
+	Globals.knownAdventurers.append(auxnewa)
+	
+	auxnewa = adventurer.new()
+	auxnewa.setAdventurer("Adv Rank E","male","E")
+	Globals.knownAdventurers.append(auxnewa)
+	
+	auxnewa = adventurer.new()
+	auxnewa.setAdventurer("Adv Rank D","male","D")
+	Globals.knownAdventurers.append(auxnewa)
+	
+	auxnewa = adventurer.new()
+	auxnewa.setAdventurer("Adv Rank C","male","C")
+	Globals.knownAdventurers.append(auxnewa)
+	
+	auxnewa = adventurer.new()
+	auxnewa.setAdventurer("Adv Rank B","male","B")
+	Globals.knownAdventurers.append(auxnewa)
+	
+	auxnewa = adventurer.new()
+	auxnewa.setAdventurer("Adv Rank A","male","A")
+	Globals.knownAdventurers.append(auxnewa)
+	
+	auxnewa = adventurer.new()
+	auxnewa.setAdventurer("MISTER S","male","S")
+	Globals.knownAdventurers.append(auxnewa)
+	
+	
+	const nq = preload("res://Scripts/Classes/quest.gd")
+	
+	## F
+	var q = nq.new()
+	q.setQuest(2,20,"Quest Test F", 1)
+	q.questinfo = "Quest Test Rank: F"
+	Globals.availableQuests.append(q)
+	
+	## E
+	q = nq.new()
+	q.setQuest(5,60,"Quest Test E", 10)
+	q.questinfo = "Quest Test Rank: E"
+	Globals.availableQuests.append(q)
+	
+	
+	
+	## D
+	q = nq.new()
+	q.setQuest(15,300,"Quest Test D", 40)
+	q.questinfo = "Quest Test Rank: D"
+	Globals.availableQuests.append(q)
+	
+	
+	## C
+	q = nq.new()
+	q.setQuest(40,1000,"Quest Test C", 160)
+	q.questinfo = "Quest Test Rank: C"
+	Globals.availableQuests.append(q)
+	
+	## B
+	q = nq.new()
+	q.setQuest(120,4000,"Quest Test B", 480)
+	q.questinfo = "Quest Test Rank: B"
+	Globals.availableQuests.append(q)
+	
+	## A
+	q = nq.new()
+	q.setQuest(300,12000,"Quest Test A", 1440)
+	q.questinfo = "Quest Test Rank: A"
+	Globals.availableQuests.append(q)
+	
+	## S
+	q = nq.new()
+	q.setQuest(1500,50000,"Quest Test S", 3900)
+	q.questinfo = "Quest Test Rank: S"
+	Globals.availableQuests.append(q)

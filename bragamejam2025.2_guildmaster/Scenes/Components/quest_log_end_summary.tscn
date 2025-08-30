@@ -17,7 +17,6 @@ texture = ExtResource("1_16sf7")
 script = ExtResource("2_6m1p7")
 
 [node name="QuestEndLogContainer" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 32.0
 offset_top = 10.0
@@ -163,11 +162,12 @@ custom_minimum_size = Vector2(0, 22)
 layout_mode = 2
 
 [node name="DDQuestContinueContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 23.0
+offset_left = 30.0
 offset_top = 19.0
-offset_right = 555.0
-offset_bottom = 146.0
+offset_right = 722.0
+offset_bottom = 129.0
 
 [node name="DoubleDownLabel" type="Label" parent="DDQuestContinueContainer"]
 self_modulate = Color(0.388235, 0.25098, 0.254902, 1)
