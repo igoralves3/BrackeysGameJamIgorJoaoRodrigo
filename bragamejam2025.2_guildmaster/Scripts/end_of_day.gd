@@ -236,10 +236,10 @@ func clearViews():
 		c2.queue_free()
 
 func _on_back_to_lobby_button_pressed() -> void:
-	
+	var main_node = get_tree().get_root().get_node("Main")
 	SceneTransition.transition()
 	await SceneTransition.on_transition_finished
-	get_tree().get_root().get_node("Main").changeBookPage("lobby")
+	main_node.changeBookPage("lobby")
 	SoundManager.pickButtonSFX(randi() % 3)
 	
 	endDayAttQuestResults()
