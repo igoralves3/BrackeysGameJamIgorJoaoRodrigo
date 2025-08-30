@@ -1,14 +1,132 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmvplitwo1xgc"]
+[gd_scene load_steps=14 format=3 uid="uid://bmvplitwo1xgc"]
 
 [ext_resource type="Script" uid="uid://dmen8hq1nnxs3" path="res://Scripts/main_menu.gd" id="1_bumi1"]
-[ext_resource type="Texture2D" uid="uid://bl8r1v10ok3sv" path="res://Resources/BGs/IMG_4822.png" id="2_17uig"]
 [ext_resource type="Texture2D" uid="uid://0vq6dm5scg0w" path="res://Resources/BGs/IMG_5239.png" id="3_6itu3"]
-[ext_resource type="Script" uid="uid://ccocmh3nyq4pb" path="res://Scripts/bgscrollscript.gd" id="4_17uig"]
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="4_n4fnu"]
 [ext_resource type="Texture2D" uid="uid://b6xdjhwggsd7a" path="res://Resources/Sprites/UI_TravelBook_Spritesheet01a.png" id="5_6itu3"]
 [ext_resource type="Texture2D" uid="uid://dqaa4end3as5n" path="res://Resources/Sprites/UI_TravelBook_Frame01a.png" id="7_6itu3"]
+[ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="7_trj04"]
+[ext_resource type="Texture2D" uid="uid://budfry37bvmol" path="res://Resources/Sprites/UI_TravelBook_Frame01a_PRESSED.png" id="8_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://dks3kqa0ppcv" path="res://Resources/Sprites/UI_TravelBook_Frame01a_HOVER.png" id="10_16hvj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6itu3"]
+[sub_resource type="Animation" id="Animation_trj04"]
+resource_name = "BG"
+length = 10.0
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG_5:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector2(959, 120), Vector2(959, 950)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainMenuContainer/MainMenuVBoxContainer/GameTitleTexture:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainMenuContainer/MainMenuVBoxContainer/GuildNameBoxContainer/LineEdit:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainMenuContainer/MainMenuVBoxContainer/GuildNameBoxContainer/PlayGameButton:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.75, 4.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_16hvj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG_5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(959, 120)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainMenuContainer/MainMenuVBoxContainer/GameTitleTexture:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainMenuContainer/MainMenuVBoxContainer/GuildNameBoxContainer/LineEdit:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainMenuContainer/MainMenuVBoxContainer/GuildNameBoxContainer/PlayGameButton:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vr1f0"]
+_data = {
+&"BG": SubResource("Animation_trj04"),
+&"RESET": SubResource("Animation_16hvj")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cp0ys"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cp0ys"]
+texture = ExtResource("7_trj04")
+expand_margin_left = 20.0
+expand_margin_top = 23.0
+expand_margin_right = 20.0
+expand_margin_bottom = 7.0
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -21,20 +139,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bumi1")
 
-[node name="BG_12" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(965, 720)
-scale = Vector2(15, 15)
-texture = ExtResource("2_17uig")
-hframes = 4
-vframes = 3
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vr1f0")
+}
+autoplay = "BG"
 
 [node name="BG_5" type="Sprite2D" parent="."]
 position = Vector2(959, 120)
 scale = Vector2(15, 15)
 texture = ExtResource("3_6itu3")
 hframes = 5
-script = ExtResource("4_17uig")
 
 [node name="MainMenuContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -45,75 +160,84 @@ alignment = 1
 [node name="MainMenuVBoxContainer" type="VBoxContainer" parent="MainMenuContainer"]
 custom_minimum_size = Vector2(500, 400)
 layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="MarginContainer2" type="MarginContainer" parent="MainMenuContainer/MainMenuVBoxContainer"]
-custom_minimum_size = Vector2(50, 200)
+[node name="ReferenceRect" type="ReferenceRect" parent="MainMenuContainer/MainMenuVBoxContainer"]
+custom_minimum_size = Vector2(0, 177.4)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MainMenuContainer/MainMenuVBoxContainer"]
-custom_minimum_size = Vector2(1200, 220)
+[node name="GameTitleTexture" type="TextureRect" parent="MainMenuContainer/MainMenuVBoxContainer"]
+custom_minimum_size = Vector2(1300, 240)
 layout_mode = 2
 texture = ExtResource("5_6itu3")
 
-[node name="GameTitle" type="Label" parent="MainMenuContainer/MainMenuVBoxContainer/TextureRect"]
+[node name="GameTitle" type="Label" parent="MainMenuContainer/MainMenuVBoxContainer/GameTitleTexture"]
 self_modulate = Color(0.76544, 0.345707, 0.211681, 1)
 layout_mode = 2
-offset_left = 59.0
-offset_top = 74.0
-offset_right = 1142.0
-offset_bottom = 189.0
+offset_left = 70.0
+offset_top = 91.0
+offset_right = 1243.0
+offset_bottom = 206.0
+theme_override_colors/font_color = Color(0.580392, 0.247059, 0.137255, 1)
 theme_override_fonts/font = ExtResource("4_n4fnu")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 113
 text = "The GuildMaster"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MainMenuContainer/MainMenuVBoxContainer"]
-custom_minimum_size = Vector2(50, 150)
+[node name="ReferenceRect2" type="ReferenceRect" parent="MainMenuContainer/MainMenuVBoxContainer"]
+custom_minimum_size = Vector2(0, 203.995)
 layout_mode = 2
 
-[node name="PlayButtonContainer" type="HBoxContainer" parent="MainMenuContainer/MainMenuVBoxContainer"]
+[node name="GuildNameBoxContainer" type="VBoxContainer" parent="MainMenuContainer/MainMenuVBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 55
 alignment = 1
 
-[node name="InputFieldContainer" type="HBoxContainer" parent="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer"]
-visible = false
-custom_minimum_size = Vector2(300, 80)
+[node name="LineEdit" type="LineEdit" parent="MainMenuContainer/MainMenuVBoxContainer/GuildNameBoxContainer"]
+custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/InputFieldContainer"]
-custom_minimum_size = Vector2(300, 80)
-layout_mode = 2
-texture = ExtResource("7_6itu3")
-
-[node name="LineEdit" type="LineEdit" parent="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/InputFieldContainer/TextureRect"]
-self_modulate = Color(0.57485, 0.244301, 0.135397, 1)
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-offset_left = 10.0
-offset_top = 9.0
-offset_right = 291.0
-offset_bottom = 69.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/caret_color = Color(0.576471, 0.243137, 0.137255, 1)
+theme_override_colors/font_placeholder_color = Color(0.765348, 0.345647, 0.213585, 0.560784)
+theme_override_colors/font_color = Color(0.458336, 0.185942, 0.0992516, 1)
 theme_override_fonts/font = ExtResource("4_n4fnu")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxEmpty_6itu3")
-placeholder_text = "Guild Name"
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cp0ys")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cp0ys")
+placeholder_text = "Enter guild name"
 alignment = 1
 max_length = 15
+<<<<<<< Updated upstream
+=======
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+caret_blink = true
+caret_blink_interval = 0.55
+>>>>>>> Stashed changes
 
-[node name="PlayGameButton" type="TextureButton" parent="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer"]
+[node name="PlayGameButton" type="TextureButton" parent="MainMenuContainer/MainMenuVBoxContainer/GuildNameBoxContainer"]
 custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource("7_6itu3")
+texture_pressed = ExtResource("8_yhxw7")
+texture_hover = ExtResource("10_16hvj")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/PlayGameButton"]
+[node name="Label" type="Label" parent="MainMenuContainer/MainMenuVBoxContainer/GuildNameBoxContainer/PlayGameButton"]
 self_modulate = Color(0.580392, 0.247059, 0.137255, 1)
 layout_mode = 0
-offset_top = 8.0
+offset_top = 5.0
 offset_right = 295.0
-offset_bottom = 83.0
+offset_bottom = 80.0
 theme_override_fonts/font = ExtResource("4_n4fnu")
 theme_override_font_sizes/font_size = 35
 text = "Play Game"
@@ -132,7 +256,5 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[connection signal="text_submitted" from="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/InputFieldContainer/TextureRect/LineEdit" to="." method="_on_line_edit_text_submitted"]
-[connection signal="mouse_entered" from="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/PlayGameButton" to="." method="_on_play_game_button_mouse_entered"]
-[connection signal="mouse_exited" from="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/PlayGameButton" to="." method="_on_play_game_button_mouse_exited"]
-[connection signal="pressed" from="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/PlayGameButton" to="." method="_on_play_game_button_pressed"]
+[connection signal="text_submitted" from="MainMenuContainer/MainMenuVBoxContainer/GuildNameBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="MainMenuContainer/MainMenuVBoxContainer/GuildNameBoxContainer/PlayGameButton" to="." method="_on_play_game_button_pressed"]

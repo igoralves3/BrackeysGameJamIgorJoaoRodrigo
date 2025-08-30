@@ -1,0 +1,189 @@
+[gd_scene load_steps=13 format=3 uid="uid://qdh8unw5dtb2"]
+
+[ext_resource type="Texture2D" uid="uid://c1ubaqspyqtu2" path="res://Resources/BGs/MedievalTown2.png" id="1_qt38q"]
+[ext_resource type="Texture2D" uid="uid://0hax4aidumaf" path="res://Resources/BGs/Fantasy_Landscape.png" id="2_b0bvp"]
+[ext_resource type="Texture2D" uid="uid://b6xdjhwggsd7a" path="res://Resources/Sprites/UI_TravelBook_Spritesheet01a.png" id="3_f5oo1"]
+[ext_resource type="Texture2D" uid="uid://dt67lygir0fmv" path="res://Resources/Sprites/UI_TravelBook_Bar01a.png" id="4_b0bvp"]
+[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="4_qrb8g"]
+[ext_resource type="Texture2D" uid="uid://1ani1rq2to8l" path="res://Resources/Sprites/UI_TravelBook_IconArrow01a.png" id="6_f5oo1"]
+
+[sub_resource type="Animation" id="Animation_qt38q"]
+resource_name = "Textures"
+length = 6.0
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DayTexture:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ContinueButton:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b0bvp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DayTexture:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ContinueButton:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f5oo1"]
+_data = {
+&"RESET": SubResource("Animation_b0bvp"),
+&"Textures": SubResource("Animation_qt38q")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qrb8g"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_f5oo1"]
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_qrb8g"]
+events = [SubResource("InputEventKey_f5oo1")]
+
+[node name="DayCycle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_f5oo1")
+}
+autoplay = "Textures"
+
+[node name="MedievalTown2" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_qt38q")
+
+[node name="FantasyLandscape" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_b0bvp")
+
+[node name="DayTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -604.5
+offset_top = 90.0
+offset_right = 604.5
+offset_bottom = 300.0
+grow_horizontal = 2
+size_flags_vertical = 3
+texture = ExtResource("3_f5oo1")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="DayTexture"]
+self_modulate = Color(0.764706, 0.345098, 0.211765, 1)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 120.5
+offset_top = -1.5
+offset_right = 300.5
+offset_bottom = 9.5
+grow_vertical = 2
+texture = ExtResource("4_b0bvp")
+expand_mode = 2
+
+[node name="DayLabel" type="Label" parent="DayTexture"]
+self_modulate = Color(0.764706, 0.345098, 0.211765, 1)
+custom_minimum_size = Vector2(478.885, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.443
+offset_top = -26.5
+offset_right = 239.443
+offset_bottom = 70.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.580392, 0.247059, 0.137255, 1)
+theme_override_fonts/font = ExtResource("4_qrb8g")
+theme_override_font_sizes/font_size = 96
+text = "Day 50"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="DayTexture"]
+self_modulate = Color(0.764706, 0.345098, 0.211765, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -304.5
+offset_top = -1.5
+offset_right = -124.5
+offset_bottom = 9.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_b0bvp")
+expand_mode = 2
+
+[node name="ContinueButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1605.0
+offset_top = 866.0
+offset_right = 1862.0
+offset_bottom = 1036.0
+theme_override_colors/font_hover_color = Color(0.443137, 0.0862745, 0.027451, 1)
+theme_override_colors/icon_pressed_color = Color(0.35315, 0.260841, 0.167252, 1)
+theme_override_colors/font_pressed_color = Color(0.443137, 0.0862745, 0.027451, 1)
+theme_override_fonts/font = ExtResource("4_qrb8g")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qrb8g")
+shortcut = SubResource("Shortcut_qrb8g")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = " Continue"
+icon = ExtResource("6_f5oo1")
+flat = true
+icon_alignment = 1
+expand_icon = true

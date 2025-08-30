@@ -1,8 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://qfslktk4vorj"]
+[gd_scene load_steps=6 format=3 uid="uid://qfslktk4vorj"]
 
 [ext_resource type="Script" uid="uid://d0nojrk4qp7ef" path="res://Scripts/Singletons/scene_transition.gd" id="1_crfs3"]
-[ext_resource type="Texture2D" uid="uid://0vq6dm5scg0w" path="res://Resources/BGs/IMG_5239.png" id="2_8sxkv"]
-[ext_resource type="Script" uid="uid://ccocmh3nyq4pb" path="res://Scripts/bgscrollscript.gd" id="3_sd3nk"]
 
 [sub_resource type="Animation" id="Animation_4k12m"]
 length = 0.001
@@ -58,14 +56,6 @@ _data = {
 
 [node name="SceneTransition" type="CanvasLayer"]
 script = ExtResource("1_crfs3")
-
-[node name="BG_5" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(959, 120)
-scale = Vector2(15, 15)
-texture = ExtResource("2_8sxkv")
-hframes = 5
-script = ExtResource("3_sd3nk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 self_modulate = Color(1, 1, 1, 0)
