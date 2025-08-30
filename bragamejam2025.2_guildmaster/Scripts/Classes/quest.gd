@@ -10,7 +10,7 @@ var advDead: Array[adventurer]
 
 ## contador usado para verificação da mecanica de double down, sendo aqui quantas vezes a quest foi continuada
 ## quando fizer double down e incrementar o contador, lembrar de ajustar a rep e o gold deacordo
-var doubleDownaux = 0
+var doubleDownTriggered = false
 
 
 # VERY LIKELY, LIKELY, EVEN ODDS, UNLIKELY, VERY UNLIKELY 

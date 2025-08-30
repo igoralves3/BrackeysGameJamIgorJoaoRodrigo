@@ -17,6 +17,9 @@ var rivalGuilds_dict = {"White Guild": 500, "Yellow Guild": 750, "Orange Guild":
 
 var availableQuests: Array[quest]
 var onGoingQuests: Array[quest]
+var DDQuests: Array[quest]
+
+var ddEventResolvedRefreshView = false
 
 ## all adventurerrs
 var knownAdventurers: Array[adventurer]

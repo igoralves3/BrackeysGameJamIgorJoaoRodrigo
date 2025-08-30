@@ -123,6 +123,11 @@ func checkQuestExists(q: quest) -> bool:
 	for gq in Globals.availableQuests:
 		if gq.questname == q.questname:
 			return true
+			
+	for gq in Globals.onGoingQuests:
+		if gq.questname == q.questname:
+			return true
+			
 	return false
 
 

@@ -9,9 +9,11 @@ extends TextureRect
 @onready var DDChoiceContainer = $DDQuestChoiceContainer
 @onready var DDContinueContainer = $DDQuestContinueContainer
 
+var questlocal = null
+signal DDQuestSignalRefresh
+
 
 func setEndLabels(q: quest):
-	
 	QEndLogContainer.visible = true
 	
 	if q.success:
@@ -30,16 +32,50 @@ func setEndLabels(q: quest):
 	
 ## nesse momento no tempo se a quest nao possui personagens nela entao falou	
 func setLabels(q: quest):
-	if q.doubleDownaux>0:
+	questlocal = q
+	
+	if q.doubleDownTriggered:
 		DDChoiceContainer.visible = true
 	else:		
 		setEndLabels(q)
 
+
+func questDoubleDownValuesAtt(q: quest):
+	if q.success:
+		randomize()
+		var diceRoll: int = randi() % 100
+		var probability: int = 15
+		match (q.chanceOfSuccess):
+			"EVEN ODDS":
+				probability += 10
+				pass
+			"UNLIKELY":
+				probability += 25
+				pass
+			"VERY UNLIKELY":
+				probability += 50
+				pass
+		if diceRoll <= probability:
+			#success
+			pass
+		else:
+			#fail
+			pass
+	else:
+		pass
+## calculo sobreviventes ou nao da quest	
+
+
 func _on_dd_confirm_button_pressed() -> void:
 	DDChoiceContainer.visible = false
 	DDContinueContainer = true
+	questDoubleDownValuesAtt(questlocal)
+	
+	## NAO ESQUECER DE TIRAR DEPOIS DE IMPLEMENTAR CHANCE DE DD
+	##questlocal.doubleDownTriggered = false
 
 
 func _on_dd_return_button_pressed() -> void:
 	DDChoiceContainer.visible = false
-	QEndLogContainer.visible = true
+	Globals.ddEventResolvedRefreshView = true
+	questlocal.doubleDownTriggered = false

@@ -157,6 +157,7 @@ layout_mode = 2
 
 [node name="DDQuestContinueContainer" type="VBoxContainer" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 23.0
 offset_top = 19.0
 offset_right = 555.0
