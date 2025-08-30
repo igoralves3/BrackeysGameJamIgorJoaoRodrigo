@@ -20,13 +20,15 @@ func _process(delta: float) -> void:
 func _ready() -> void:
 	guildNameLabel.text = Globals.guildName
 
-
-
 func resolvePendingDDQuests():
-	clearViews()
-	for activeQuest in Globals.onGoingQuests:	
+	clearViews()	
+
+	## pegar todas as quests ativas e resolver elas
+	for activeQuest in Globals.onGoingQuests:
+			
 		if activeQuest.doubleDownTriggered == false:
 			resolveQuest(activeQuest)
+		
 			## populate summaries
 			var questsum = quest_end_summary.instantiate()
 			questsSummaryContainer.add_child(questsum)
@@ -36,7 +38,13 @@ func resolvePendingDDQuests():
 			var questresult = quest_result_value.instantiate()
 			questsResultsContainer.add_child(questresult)
 			questresult.setLabels(activeQuest)
-				
+		
+		else:
+			## populate ONLY summaries
+			var questsum = quest_end_summary.instantiate()
+			questsSummaryContainer.add_child(questsum)
+			questsum.setLabels(activeQuest)
+		
 	## calculate and att total 
 	$RightPage_BG/Results/Total/RepTotalContainer/RepTotalLabel.text = "+ " + str(int(endDayRepEarned)) + " Rep"
 	$RightPage_BG/Results/Total/GoldTotalContainer/GoldTotalLabel.text = "+ " + str(int(endDayGoldEarned)) + " Gold"
@@ -267,8 +275,7 @@ func _on_back_to_lobby_button_pressed() -> void:
 	
 	print("end day gold = "+str(endDayGoldEarned))	
 		
-	#Globals.totalgold += endDayGoldEarned
-		
+	Globals.totalgold += int(endDayGoldEarned)
 	Globals.availableQuests.clear()
 	
 	#print("rep earnedthisround: " + str(endDayRepEarned))
