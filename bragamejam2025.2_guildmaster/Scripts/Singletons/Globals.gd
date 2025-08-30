@@ -114,6 +114,8 @@ func gameEndLost():
 
 func endDay():
 	day = day + 1
+	randomize()
+	SoundManager.pickBGMusic(randi()%5)
 	if day == 50 and tierGuild != "Pinnacle":
 		gameEndLost()
 

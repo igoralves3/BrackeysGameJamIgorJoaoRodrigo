@@ -248,7 +248,9 @@ func _on_back_to_lobby_button_pressed() -> void:
 	## caso contrario nada acontece
 	else:
 		pass
-		
+	
+	endDayGoldEarned = 0
+	endDayRepEarned = 0
 	Globals.endDay()
 
 func _on_back_to_lobby_button_button_down() -> void:
