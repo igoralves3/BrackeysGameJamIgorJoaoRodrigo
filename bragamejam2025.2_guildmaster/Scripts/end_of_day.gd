@@ -261,10 +261,10 @@ func clearViews():
 
 func _on_back_to_lobby_button_pressed() -> void:
 	var main_node = get_tree().get_root().get_node("Main")
-	SceneTransition.transition()
-	await SceneTransition.on_transition_finished
+	#SceneTransition.transition()
+	#await SceneTransition.on_transition_finished
 	main_node.changeBookPage("lobby")
-	SoundManager.pickButtonSFX(randi() % 3)
+	#SoundManager.pickButtonSFX(randi() % 3)
 	
 	endDayAttQuestResults()
 	startResolvingDayQuests()
@@ -296,6 +296,15 @@ func _on_back_to_lobby_button_pressed() -> void:
 	endDayGoldEarned = 0
 	endDayRepEarned = 0
 	Globals.endDay()
+	
+	
+	SceneTransition.transition()
+	await SceneTransition.on_transition_finished
+	SoundManager.pickButtonSFX(randi() % 3)
+	
+	const scenetoLoad = preload("res://Scenes/day_cycle.tscn")
+	get_tree().change_scene_to_packed(scenetoLoad)
+	
 
 func _on_back_to_lobby_button_button_down() -> void:
 	pass # Replace with function body.

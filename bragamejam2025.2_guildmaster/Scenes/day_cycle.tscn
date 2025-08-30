@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://qdh8unw5dtb2"]
+[gd_scene load_steps=15 format=3 uid="uid://burvnhwtx8ic4"]
 
+[ext_resource type="Script" uid="uid://pwshjq6chwlm" path="res://Scripts/day_cycle.gd" id="1_ji1li"]
 [ext_resource type="Texture2D" uid="uid://ck5q830e3t0wl" path="res://Resources/BGs/MedievalTown.png" id="1_qrb8g"]
 [ext_resource type="Texture2D" uid="uid://c1ubaqspyqtu2" path="res://Resources/BGs/MedievalTown2.png" id="1_qt38q"]
 [ext_resource type="Texture2D" uid="uid://0hax4aidumaf" path="res://Resources/BGs/Fantasy_Landscape.png" id="2_b0bvp"]
@@ -85,6 +86,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ji1li")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -192,3 +194,5 @@ icon = ExtResource("6_f5oo1")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
