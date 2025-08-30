@@ -29,7 +29,6 @@ custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_05kh4")
 theme_override_font_sizes/font_size = 18
-text = " - Quest xyz  Quest xyz  Quest xyz  Quest xyz Quest xyz Quest xyz Quest xyz "
 vertical_alignment = 2
 autowrap_mode = 2
 
