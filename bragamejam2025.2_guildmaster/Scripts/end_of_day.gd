@@ -231,11 +231,29 @@ func _on_back_to_lobby_button_pressed() -> void:
 	startResolvingDayQuests()
 	endDayAttQuestResults()
 	
-	Globals.totalgold = Globals.totalgold + endDayGoldEarned
+	
+	
+	for q in Globals.onGoingQuests:
+		
+		var bonus_rewards = 1.0
+		
+		if q.chanceOfSuccess == "EVEN ODDS":
+			bonus_rewards = 1.2 
+		if q.chanceOfSuccess == "UNLIKELY":
+			bonus_rewards = 1.5 
+		if q.chanceOfSuccess == "VERY UNLIKELY":
+			bonus_rewards = 2.0 
+		
+		endDayGoldEarned = endDayGoldEarned + q.gold * bonus_rewards
+		endDayRepEarned = endDayRepEarned + q.rep * bonus_rewards
+	print("end day gold = "+str(endDayGoldEarned))	
+		
+	Globals.totalgold += endDayGoldEarned
+		
 	Globals.availableQuests.clear()
 	
 	#print("rep earnedthisround: " + str(endDayRepEarned))
-	Globals.repEarnedThisRound = endDayRepEarned
+	Globals.repEarnedThisRound += endDayRepEarned
 	## se retornar true upou agora
 	if Globals.addReputationGuild(endDayRepEarned):
 		print("Up Guild Tier: " + Globals.tierGuild)

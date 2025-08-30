@@ -42,6 +42,7 @@ func setLabels(q: quest):
 
 
 func questDoubleDownValuesAtt(q: quest):
+	"""
 	if q.success:
 		randomize()
 		var diceRoll: int = randi() % 100
@@ -64,6 +65,11 @@ func questDoubleDownValuesAtt(q: quest):
 			pass
 	else:
 		pass
+	"""
+	
+	q.gold *= 2
+	q.difficulty *= 2
+	
 ## calculo sobreviventes ou nao da quest	
 
 
