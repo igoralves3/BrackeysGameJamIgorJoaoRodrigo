@@ -29,7 +29,7 @@ animations = [{
 
 [node name="CharacterSlot_MissionSelection" type="TextureButton"]
 custom_minimum_size = Vector2(600, 150)
-offset_right = 775.0
+offset_right = 612.0
 offset_bottom = 153.0
 toggle_mode = true
 button_group = ExtResource("1_v57m6")
@@ -92,7 +92,7 @@ vertical_alignment = 1
 [node name="InfoContainer" type="NinePatchRect" parent="."]
 layout_mode = 0
 offset_left = 165.0
-offset_right = 770.0
+offset_right = 606.0
 offset_bottom = 144.0
 texture = ExtResource("3_di7qs")
 
@@ -125,10 +125,10 @@ text = "- Goblin Slayer
 [node name="LabelCost" type="Label" parent="."]
 modulate = Color(0.386831, 0.249975, 0.253888, 1)
 layout_mode = 0
-offset_left = 526.0
-offset_top = 106.0
-offset_right = 728.0
-offset_bottom = 141.0
+offset_left = 319.0
+offset_top = 87.0
+offset_right = 566.0
+offset_bottom = 133.0
 theme_override_fonts/font = ExtResource("2_jhl5o")
 theme_override_font_sizes/font_size = 33
 text = "Cost: 1000 Gold"
@@ -137,39 +137,39 @@ vertical_alignment = 2
 [node name="AddButton" type="TextureButton" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 589.0
-offset_top = 45.0
-offset_right = 752.0
-offset_bottom = 106.0
+offset_left = 615.0
+offset_top = 36.0
+offset_right = 778.0
+offset_bottom = 94.0
 
 [node name="BG" type="TextureRect" parent="AddButton"]
 layout_mode = 0
-offset_left = -11.0
-offset_top = -4.0
-offset_right = 166.0
-offset_bottom = 57.0
+offset_right = 181.0
+offset_bottom = 61.0
 texture = ExtResource("10_pj1ht")
 
 [node name="Arrow" type="TextureRect" parent="AddButton"]
 layout_mode = 0
-offset_left = 102.0
-offset_top = 7.0
-offset_right = 152.0
-offset_bottom = 47.0
+offset_left = 115.0
+offset_top = 10.0
+offset_right = 165.0
+offset_bottom = 50.0
 texture = ExtResource("11_scw8u")
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="AddButton"]
 layout_mode = 0
-offset_left = -8.0
+offset_left = 10.0
 offset_top = 6.0
-offset_right = 100.0
-offset_bottom = 54.0
+offset_right = 114.0
+offset_bottom = 56.0
 theme_override_fonts/font = ExtResource("4_7dn51")
 theme_override_font_sizes/font_size = 18
 text = "Add To 
 Party"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

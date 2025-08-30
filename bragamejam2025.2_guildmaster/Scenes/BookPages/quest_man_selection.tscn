@@ -56,7 +56,7 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = 42.0
 offset_top = 101.0
-offset_right = 825.0
+offset_right = 838.0
 offset_bottom = 678.0
 
 [node name="CharacterSlotsContainer" type="VBoxContainer" parent="LeftPage_BG/ScrollContainer"]

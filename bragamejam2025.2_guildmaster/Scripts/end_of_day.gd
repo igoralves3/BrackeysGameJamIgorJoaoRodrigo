@@ -101,7 +101,7 @@ func resolveQuest(q: quest):
 	## quest survivors calculation
 	questSurvivorsCalculation(q)
 	q.onGoing = false
-
+	
 
 func questSurvivorsCalculation(q: quest):
 	## quest end set remaining survivors to avaible 	
@@ -201,6 +201,7 @@ func questSuccessCalculation(q: quest):
 		auxnewE.setEvent("Quest Completed",Globals.guildName,"Completing the Quest",q)
 		Globals.currentEvents.append(auxnewE)
 		
+		## underdog
 		var bonus_rewards = 1.0
 		if q.chanceOfSuccess == "EVEN ODDS":
 			bonus_rewards = 1.2 
@@ -211,6 +212,9 @@ func questSuccessCalculation(q: quest):
 
 		endDayGoldEarned = endDayGoldEarned + (q.gold * bonus_rewards)
 		endDayRepEarned = endDayRepEarned + (q.rep * bonus_rewards)
+		
+		if Globals.onGoingQuests.has(q):
+			Globals.onGoingQuests.erase(q)
 		
 		#Globals.totalgold += int(q.gold * bonus_rewards)
 		#Globals.addReputationGuild(q.rep * bonus_rewards)
