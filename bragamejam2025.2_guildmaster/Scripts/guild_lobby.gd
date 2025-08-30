@@ -23,7 +23,7 @@ func _ready() -> void:
 	Globals.knownAdventurers.append(auxnewa)
 	
 	
-	Spawner.spawnTestPool()
+	#Spawner.spawnTestPool()
 	
 	#var auxnewa2 = Spawner.spawnNewAdventurer()
 	#adc no globals o adv
