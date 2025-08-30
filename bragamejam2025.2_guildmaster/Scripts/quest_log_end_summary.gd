@@ -32,41 +32,17 @@ func setEndLabels(q: quest):
 	
 ## nesse momento no tempo se a quest nao possui personagens nela entao falou	
 func setLabels(q: quest):
-	questlocal = q
 	
+	questlocal = q
 	if q.doubleDownTriggered:
 		DDChoiceContainer.visible = true
 		$DDQuestChoiceContainer/DoubleDownLabel.text = "- Quest: " + questlocal.questname + " has found a hidden riches during the quest, the party is tired, but they can try to get the valuables at a increased risk, SHOULD THEY PROCEED?"
-	else:		
+	if q.doubleDownTriggered == false and q.doubleDownNow == false:
 		setEndLabels(q)
 
 
 func questDoubleDownValuesAtt(q: quest):
-	"""
-	if q.success:
-		randomize()
-		var diceRoll: int = randi() % 100
-		var probability: int = 15
-		match (q.chanceOfSuccess):
-			"EVEN ODDS":
-				probability += 10
-				pass
-			"UNLIKELY":
-				probability += 25
-				pass
-			"VERY UNLIKELY":
-				probability += 50
-				pass
-		if diceRoll <= probability:
-			#success
-			pass
-		else:
-			#fail
-			pass
-	else:
-		pass
-	"""
-	
+
 	q.gold *= 2
 	q.rep *= 2
 	q.difficulty *= 2
@@ -75,19 +51,19 @@ func questDoubleDownValuesAtt(q: quest):
 
 
 func _on_dd_confirm_button_pressed() -> void:
+	
+	questlocal.doubleDownTriggered = true
+	questDoubleDownValuesAtt(questlocal)
 	DDChoiceContainer.visible = false
 	DDContinueContainer.visible = true
-	questDoubleDownValuesAtt(questlocal)
+	QEndLogContainer.visible = false
 	$DDQuestContinueContainer/DoubleDownLabel.text = "- Quest: " + questlocal.questname + " has continued searching for greater riches and fame!"
-	
-	## NAO ESQUECER DE TIRAR DEPOIS DE IMPLEMENTAR CHANCE DE DD
-	##questlocal.doubleDownTriggered = false
 
 
 func _on_dd_return_button_pressed() -> void:
-	DDChoiceContainer.visible = false
-	Globals.ddEventResolvedRefreshView = true
+	
 	questlocal.doubleDownTriggered = false
+	Globals.ddEventResolvedRefreshView = true
 
 
 func _on_dd_confirm_button_mouse_entered() -> void:

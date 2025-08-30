@@ -14,12 +14,32 @@ var endDayRepEarned = 0
 func _process(delta: float) -> void:
 	
 	if Globals.ddEventResolvedRefreshView == true:
-		startResolvingDayQuests()
+		resolvePendingDDQuests()
 		Globals.ddEventResolvedRefreshView = false
 
 func _ready() -> void:
 	guildNameLabel.text = Globals.guildName
 
+
+
+func resolvePendingDDQuests():
+	clearViews()
+	for activeQuest in Globals.onGoingQuests:	
+		if activeQuest.doubleDownTriggered == false:
+			resolveQuest(activeQuest)
+			## populate summaries
+			var questsum = quest_end_summary.instantiate()
+			questsSummaryContainer.add_child(questsum)
+			questsum.setLabels(activeQuest)
+			
+			## populate overall rep and gold gain
+			var questresult = quest_result_value.instantiate()
+			questsResultsContainer.add_child(questresult)
+			questresult.setLabels(activeQuest)
+				
+	## calculate and att total 
+	$RightPage_BG/Results/Total/RepTotalContainer/RepTotalLabel.text = "+ " + str(int(endDayRepEarned)) + " Rep"
+	$RightPage_BG/Results/Total/GoldTotalContainer/GoldTotalLabel.text = "+ " + str(int(endDayGoldEarned)) + " Gold"
 
 func startResolvingDayQuests():
 	clearViews()	
@@ -27,11 +47,12 @@ func startResolvingDayQuests():
 	## pegar todas as quests ativas e resolver elas
 	for activeQuest in Globals.onGoingQuests:
 		
-		## CHANCE DE DOUBLE DOWN
-		var random_roll = randi_range(1, 100)	
-		if random_roll <= 15:
-			activeQuest.doubleDownTriggered = true
 		
+		if activeQuest.doubleDownTriggered == false:
+			## CHANCE DE DOUBLE DOWN
+			var random_roll = randi_range(1, 100)	
+			if random_roll <= 50:
+				activeQuest.doubleDownTriggered = true
 		
 		if activeQuest.doubleDownTriggered == false:
 			resolveQuest(activeQuest)
