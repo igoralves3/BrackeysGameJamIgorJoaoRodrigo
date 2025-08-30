@@ -26,10 +26,10 @@ hframes = 5
 
 [node name="ResourcesInfoBar" parent="." instance=ExtResource("3_50glp")]
 layout_mode = 0
-offset_left = 8.0
-offset_top = -131.0
-offset_right = 1841.0
-offset_bottom = -4.0
+offset_left = -1.0
+offset_top = -129.0
+offset_right = 1847.0
+offset_bottom = -2.0
 
 [node name="GuildLobby" parent="." instance=ExtResource("4_vy5pj")]
 layout_mode = 0
