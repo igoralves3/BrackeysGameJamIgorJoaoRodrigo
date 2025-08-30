@@ -19,7 +19,7 @@ func setLabel(guildName,GuildRep):
 			pass
 	
 	GuildNameLabel.text = guildName
-	GuildRepLabel.text = str(GuildRep) + " Reputation"
+	GuildRepLabel.text = str(int(GuildRep)) + " Reputation"
 	
 	if(guildName==Globals.guildName):
 		##GuildIcon

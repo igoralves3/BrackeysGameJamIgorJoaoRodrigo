@@ -53,8 +53,8 @@ func startResolvingDayQuests():
 			questsum.setLabels(activeQuest)
 		
 	## calculate and att total 
-	$RightPage_BG/Results/Total/RepTotalContainer/RepTotalLabel.text = "+ " + str(endDayRepEarned) + " Rep"
-	$RightPage_BG/Results/Total/GoldTotalContainer/GoldTotalLabel.text = "+ " + str(endDayGoldEarned) + " Gold"
+	$RightPage_BG/Results/Total/RepTotalContainer/RepTotalLabel.text = "+ " + str(int(endDayRepEarned)) + " Rep"
+	$RightPage_BG/Results/Total/GoldTotalContainer/GoldTotalLabel.text = "+ " + str(int(endDayGoldEarned)) + " Gold"
 
 
 func endDayAttQuestResults():
@@ -172,25 +172,20 @@ func questSuccessCalculation(q: quest):
 		auxnewE.setEvent("Quest Completed",Globals.guildName,"Completing the Quest",q)
 		Globals.currentEvents.append(auxnewE)
 		
-		for qi in Globals.onGoingQuests:
+		var bonus_rewards = 1.0
+		if q.chanceOfSuccess == "EVEN ODDS":
+			bonus_rewards = 1.2 
+		if q.chanceOfSuccess == "UNLIKELY":
+			bonus_rewards = 1.5 
+		if q.chanceOfSuccess == "VERY UNLIKELY":
+			bonus_rewards = 2.0 
+
+		endDayGoldEarned = endDayGoldEarned + (q.gold * bonus_rewards)
+		endDayRepEarned = endDayRepEarned + (q.rep * bonus_rewards)
 		
-			var bonus_rewards = 1.0
-		
-			if qi.chanceOfSuccess == "EVEN ODDS":
-				bonus_rewards = 1.2 
-			if qi.chanceOfSuccess == "UNLIKELY":
-				bonus_rewards = 1.5 
-			if qi.chanceOfSuccess == "VERY UNLIKELY":
-				bonus_rewards = 2.0 
-		
-			endDayGoldEarned = endDayGoldEarned + (qi.gold * bonus_rewards)
-			endDayRepEarned = endDayRepEarned + (qi.rep * bonus_rewards)
-		
-		Globals.totalgold += int(endDayGoldEarned)
-		Globals.totalrep+=int(endDayRepEarned)
-		## calculate gold and rep earned
-		#endDayGoldEarned = endDayGoldEarned + q.finalGold
-		#endDayRepEarned = endDayRepEarned + q.finalRep
+		#Globals.totalgold += int(q.gold * bonus_rewards)
+		#Globals.addReputationGuild(q.rep * bonus_rewards)
+
 	else:
 		#Fracasso
 		
@@ -256,7 +251,7 @@ func _on_back_to_lobby_button_pressed() -> void:
 	Globals.availableQuests.clear()
 	
 	#print("rep earnedthisround: " + str(endDayRepEarned))
-	#Globals.repEarnedThisRound += endDayRepEarned
+	Globals.repEarnedThisRound += endDayRepEarned
 	## se retornar true upou agora
 	if Globals.addReputationGuild(endDayRepEarned):
 		print("Up Guild Tier: " + Globals.tierGuild)

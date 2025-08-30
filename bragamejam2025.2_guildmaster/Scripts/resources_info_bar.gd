@@ -11,5 +11,5 @@ extends NinePatchRect
 func _process(delta: float) -> void:
 	guildNameLabel.text = Globals.guildName
 	totalgold.text = str(Globals.totalgold)
-	totalreptutation.text = str(Globals.totalrep)
+	totalreptutation.text = str(int(Globals.totalrep))
 	dayCounter.text = "Day " + str(Globals.day)

@@ -82,11 +82,11 @@ func attQuestChancesandPayouts():
 			successIndicatorLabel.text = "VERY UNLIKELY"
 			successIndicatorLabel.self_modulate = Color("ff1508")
 			Globals.questAux.chanceOfSuccess = "VERY UNLIKELY"
-		elif succChance < -80 and succChance > -30:
+		elif succChance > -80 and succChance < -30:
 			successIndicatorLabel.text = "UNLIKELY"
 			successIndicatorLabel.self_modulate = Color("e04037")
 			Globals.questAux.chanceOfSuccess = "UNLIKELY"
-		elif succChance == 0:	
+		elif succChance > -30 and succChance < 30:	
 			successIndicatorLabel.text = "EVEN ODDS"
 			successIndicatorLabel.self_modulate = Color("e06324")
 			Globals.questAux.chanceOfSuccess = "EVEN ODDS"
