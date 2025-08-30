@@ -68,6 +68,7 @@ func questDoubleDownValuesAtt(q: quest):
 	"""
 	
 	q.gold *= 2
+	q.rep *= 2
 	q.difficulty *= 2
 	
 ## calculo sobreviventes ou nao da quest	
