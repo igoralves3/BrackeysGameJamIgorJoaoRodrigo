@@ -5,8 +5,8 @@ extends NinePatchRect
 
 @onready var guildNameLabel = $RightPage_BG/GuildNameLabel
 
-var quest_end_summary = preload("res://Scenes/quest_log_end_summary.tscn")
-var quest_result_value = preload("res://Scenes/result_quest_end.tscn")
+var quest_end_summary = preload("res://Scenes/Components/quest_log_end_summary.tscn")
+var quest_result_value = preload("res://Scenes/Components/result_quest_end.tscn")
 
 var endDayGoldEarned = 0
 var endDayRepEarned = 0

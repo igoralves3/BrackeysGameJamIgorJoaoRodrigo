@@ -1,6 +1,6 @@
 extends NinePatchRect
 
-var adv_label = preload("res://Scenes/character_slot_mission_selection.tscn")
+var adv_label = preload("res://Scenes/Components/character_slot_mission_selection.tscn")
 @onready var charactersContainer = $LeftPage_BG/ScrollContainer/CharacterSlotsContainer
 
 ## current quest infos

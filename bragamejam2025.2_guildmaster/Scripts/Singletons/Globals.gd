@@ -2,6 +2,10 @@ extends Node
 
 # variaveis globais tipo gold, rep, day(ou semana), hired_adv (array que aramazena os personagens da guild)
 
+const scenetoLoad = preload("res://Scenes/end_game_screen.tscn")
+var gameResult = false
+
+
 const SAVE_PATH = "res://savedata/highscores.txt"
 # Create new ConfigFile object.
 var config = ConfigFile.new()
@@ -91,10 +95,22 @@ func addReputationGuild(rep) -> bool:
 
 
 func gameEndWon():
-	pass
+
+	gameResult = true
+	SceneTransition.transition()
+	await SceneTransition.on_transition_finished
+	get_tree().change_scene_to_packed(scenetoLoad)
+	SoundManager.pickButtonSFX(randi() % 3)
+	
 	
 func gameEndLost():
-	pass
+	
+	gameResult = false
+	SceneTransition.transition()
+	await SceneTransition.on_transition_finished
+	get_tree().change_scene_to_packed(scenetoLoad)
+	SoundManager.pickButtonSFX(randi() % 3)
+	
 
 func endDay():
 	day = day + 1

@@ -1,6 +1,6 @@
 extends Control
 
-const scenetoLoad = preload("res://Scenes/BookPages/Main.tscn")
+const scenetoLoad = preload("res://Scenes/Components/Main.tscn")
 
 @onready var playerButtonContainer = $MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/PlayGameButton
 @onready var guildNameInputContainer = $MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer/InputFieldContainer

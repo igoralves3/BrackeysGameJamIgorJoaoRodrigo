@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="11_bl8j3"]
 [ext_resource type="Texture2D" uid="uid://b18ndtkveouh5" path="res://Resources/Sprites Animated/UI_TravelBook_Button01a_1.png" id="13_3d861"]
 [ext_resource type="Texture2D" uid="uid://b6xdjhwggsd7a" path="res://Resources/Sprites/UI_TravelBook_Spritesheet01a.png" id="13_daaas"]
-[ext_resource type="PackedScene" uid="uid://v224q32i67ns" path="res://Scenes/party_slot.tscn" id="13_mu333"]
+[ext_resource type="PackedScene" uid="uid://v224q32i67ns" path="res://Scenes/Components/party_slot.tscn" id="13_mu333"]
 [ext_resource type="Texture2D" uid="uid://1ani1rq2to8l" path="res://Resources/Sprites/UI_TravelBook_IconArrow01a.png" id="14_74gqe"]
 
 [node name="QuestManSelection" type="NinePatchRect"]

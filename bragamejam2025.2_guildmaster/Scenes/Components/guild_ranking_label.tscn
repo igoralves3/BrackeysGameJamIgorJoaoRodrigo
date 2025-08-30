@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://crboxa4c7vkj1"]
 
-[ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="1_cf33y"]
-[ext_resource type="Script" uid="uid://ctopv5niq87gf" path="res://Scripts/guild_ranking_label.gd" id="2_vxnop"]
-[ext_resource type="Texture2D" uid="uid://d0or5a66vwhp2" path="res://Resources/ShieldSprites/Transperent/Icon9.png" id="3_rldey"]
-[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="3_vxnop"]
-[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="5_rldey"]
+[ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="1_jlerv"]
+[ext_resource type="Script" uid="uid://ctopv5niq87gf" path="res://Scripts/guild_ranking_label.gd" id="2_ukapx"]
+[ext_resource type="Texture2D" uid="uid://d0or5a66vwhp2" path="res://Resources/ShieldSprites/Transperent/Icon9.png" id="3_op5mh"]
+[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="4_3so4w"]
+[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="5_gggod"]
 
 [node name="GuildRankingLabel" type="TextureRect"]
 custom_minimum_size = Vector2(0, 50)
 offset_right = 493.0
 offset_bottom = 56.0
-texture = ExtResource("1_cf33y")
-script = ExtResource("2_vxnop")
+texture = ExtResource("1_jlerv")
+script = ExtResource("2_ukapx")
 
 [node name="GuildIcon" type="TextureRect" parent="."]
 layout_mode = 0
@@ -20,7 +20,7 @@ offset_top = 7.0
 offset_right = 57.0
 offset_bottom = 39.0
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("3_rldey")
+texture = ExtResource("3_op5mh")
 
 [node name="GuildName" type="Label" parent="."]
 self_modulate = Color(0.286275, 0.2, 0.2, 1)
@@ -29,7 +29,7 @@ offset_left = 69.0
 offset_top = 9.0
 offset_right = 285.0
 offset_bottom = 48.0
-theme_override_fonts/font = ExtResource("3_vxnop")
+theme_override_fonts/font = ExtResource("4_3so4w")
 theme_override_font_sizes/font_size = 16
 text = "White Guild White Guild White Guild "
 vertical_alignment = 1
@@ -42,7 +42,7 @@ offset_left = 268.0
 offset_top = 11.0
 offset_right = 468.0
 offset_bottom = 40.0
-theme_override_fonts/font = ExtResource("5_rldey")
+theme_override_fonts/font = ExtResource("5_gggod")
 theme_override_font_sizes/font_size = 25
 text = " 10000 Reputation"
 horizontal_alignment = 2

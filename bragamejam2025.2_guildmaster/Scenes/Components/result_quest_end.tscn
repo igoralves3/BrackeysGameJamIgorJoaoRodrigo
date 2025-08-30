@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://dx7xdjmsxbu4x"]
 
-[ext_resource type="Script" uid="uid://b7waptjxcywga" path="res://Scripts/result_quest_end.gd" id="1_4nv7m"]
-[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="1_amr13"]
-[ext_resource type="Texture2D" uid="uid://cyagfudhlne1p" path="res://Resources/Sprites/UI_TravelBook_IconStar01a.png" id="2_4nv7m"]
-[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="3_f06ou"]
-[ext_resource type="Texture2D" uid="uid://ca7g5ekj3goff" path="res://Resources/Sprites/UI_TravelBook_IconCoin01a.png" id="4_mbl6y"]
+[ext_resource type="Script" uid="uid://b7waptjxcywga" path="res://Scripts/result_quest_end.gd" id="1_lu0d5"]
+[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="2_vigho"]
+[ext_resource type="Texture2D" uid="uid://cyagfudhlne1p" path="res://Resources/Sprites/UI_TravelBook_IconStar01a.png" id="3_1amc5"]
+[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="4_c566m"]
+[ext_resource type="Texture2D" uid="uid://ca7g5ekj3goff" path="res://Resources/Sprites/UI_TravelBook_IconCoin01a.png" id="5_5qebr"]
 
 [node name="ResultQuestEnd" type="HBoxContainer"]
 alignment = 1
-script = ExtResource("1_4nv7m")
+script = ExtResource("1_lu0d5")
 
 [node name="Rep_HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -17,20 +17,20 @@ theme_override_constants/separation = 8
 [node name="QuestNameLabel" type="Label" parent="Rep_HBoxContainer"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_amr13")
+theme_override_fonts/font = ExtResource("2_vigho")
 text = "XYZ: "
 vertical_alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="Rep_HBoxContainer"]
 custom_minimum_size = Vector2(30, 20)
 layout_mode = 2
-texture = ExtResource("2_4nv7m")
+texture = ExtResource("3_1amc5")
 stretch_mode = 4
 
 [node name="QuestRepResult" type="Label" parent="Rep_HBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_f06ou")
+theme_override_fonts/font = ExtResource("4_c566m")
 theme_override_font_sizes/font_size = 30
 text = "+ 500"
 vertical_alignment = 2
@@ -46,13 +46,13 @@ theme_override_constants/separation = 8
 [node name="TextureRect" type="TextureRect" parent="Gold_HBoxContainer"]
 custom_minimum_size = Vector2(30, 20)
 layout_mode = 2
-texture = ExtResource("4_mbl6y")
+texture = ExtResource("5_5qebr")
 stretch_mode = 4
 
 [node name="QuestGoldResult" type="Label" parent="Gold_HBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_f06ou")
+theme_override_fonts/font = ExtResource("4_c566m")
 theme_override_font_sizes/font_size = 30
 text = "+ 0"
 vertical_alignment = 2

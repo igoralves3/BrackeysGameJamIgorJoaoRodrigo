@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxlhoks2ojowv"]
+
+[ext_resource type="Script" uid="uid://ge72656exa8v" path="res://Scripts/GameManager.gd" id="1_v1gob"]
+[ext_resource type="Texture2D" uid="uid://0vq6dm5scg0w" path="res://Resources/BGs/IMG_5239.png" id="2_jw32o"]
+[ext_resource type="PackedScene" uid="uid://cc0gjmke6ki1w" path="res://Scenes/Components/resources_info_bar.tscn" id="3_50glp"]
+[ext_resource type="PackedScene" uid="uid://bpdnaxogb4p58" path="res://Scenes/BookPages/guild_lobby.tscn" id="4_vy5pj"]
+[ext_resource type="PackedScene" uid="uid://b87ohqrvtvkrs" path="res://Scenes/BookPages/quest_man_selection.tscn" id="5_bmxlf"]
+[ext_resource type="PackedScene" uid="uid://wbvwabakpwe4" path="res://Scenes/BookPages/end_of_day.tscn" id="6_4kpch"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v1gob")
+
+[node name="BG_5" type="Sprite2D" parent="."]
+position = Vector2(942, 445)
+scale = Vector2(15, 15)
+texture = ExtResource("2_jw32o")
+hframes = 5
+
+[node name="ResourcesInfoBar" parent="." instance=ExtResource("3_50glp")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -131.0
+offset_right = 1841.0
+offset_bottom = -4.0
+
+[node name="GuildLobby" parent="." instance=ExtResource("4_vy5pj")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1847.0
+offset_bottom = 915.0
+
+[node name="QuestManSelection" parent="." instance=ExtResource("5_bmxlf")]
+visible = false
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1847.0
+offset_bottom = 915.0
+
+[node name="EndOfDay" parent="." instance=ExtResource("6_4kpch")]
+visible = false
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1847.0
+offset_bottom = 915.0

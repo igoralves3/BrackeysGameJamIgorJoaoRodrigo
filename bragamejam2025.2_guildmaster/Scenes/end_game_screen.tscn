@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5qxx3xuk82uk"]
+
+[ext_resource type="Script" uid="uid://dyg7qjnwmslse" path="res://Scripts/end_game_screen.gd" id="1_4xkc4"]
+[ext_resource type="Texture2D" uid="uid://xen16wm55ml7" path="res://Resources/BGs/The Coastal Fortress.png" id="2_i7oje"]
+[ext_resource type="Script" uid="uid://ccocmh3nyq4pb" path="res://Scripts/bgscrollscript.gd" id="3_idqu6"]
+[ext_resource type="Texture2D" uid="uid://cq067j5kjd7nr" path="res://Resources/Sprites/UI_TravelBook_Fill01b.png" id="4_1h134"]
+[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="5_cj5dx"]
+[ext_resource type="Texture2D" uid="uid://bsccqcw5a2j7h" path="res://Resources/Sprites/UI_TravelBook_Popup01a.png" id="6_sj3wq"]
+
+[node name="endGameScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 145.0
+offset_right = -3.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4xkc4")
+
+[node name="BG_5" type="Sprite2D" parent="."]
+position = Vector2(463, 134)
+scale = Vector2(15, 15)
+texture = ExtResource("2_i7oje")
+script = ExtResource("3_idqu6")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 615.0
+offset_right = 1200.0
+offset_bottom = 744.0
+stretch_mode = 0
+metadata/_edit_lock_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="TextureButton"]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 135.0
+texture = ExtResource("4_1h134")
+region_rect = Rect2(1.53354, 1.23403, 58.1663, 26.1155)
+
+[node name="Label" type="Label" parent="TextureButton/NinePatchRect"]
+self_modulate = Color(0.779533, 0.650423, 0.56041, 1)
+layout_mode = 0
+offset_left = -3.0
+offset_top = 17.0
+offset_right = 497.0
+offset_bottom = 137.0
+theme_override_fonts/font = ExtResource("5_cj5dx")
+theme_override_font_sizes/font_size = 40
+text = "Back To Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DisplayBackgroun" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 420.0
+offset_right = 1420.0
+offset_bottom = 350.0
+texture = ExtResource("6_sj3wq")
+
+[node name="LabelWon" type="Label" parent="DisplayBackgroun"]
+visible = false
+self_modulate = Color(0.873689, 0.496267, 0.383773, 1)
+layout_mode = 0
+offset_left = 57.0
+offset_top = 39.0
+offset_right = 945.0
+offset_bottom = 307.0
+theme_override_fonts/font = ExtResource("5_cj5dx")
+theme_override_font_sizes/font_size = 50
+text = "You Won!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelLost" type="Label" parent="DisplayBackgroun"]
+self_modulate = Color(0.886275, 0.254902, 0.25098, 1)
+layout_mode = 0
+offset_left = 57.0
+offset_top = 39.0
+offset_right = 945.0
+offset_bottom = 302.0
+theme_override_fonts/font = ExtResource("5_cj5dx")
+theme_override_font_sizes/font_size = 50
+text = "You Lost!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

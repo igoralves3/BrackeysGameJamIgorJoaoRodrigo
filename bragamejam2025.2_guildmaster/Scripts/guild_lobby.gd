@@ -5,9 +5,9 @@ extends NinePatchRect
 @onready var rankingContainer =$LeftPage_BG/RankingLabel/ScrollContainer/VBoxContainer
 @onready var questsContainer = $RightPage_BG/QuestsScrollContainer/QuestsVBoxContainer
 
-var quest_label = preload("res://Scenes/quest_label.tscn")
-var rank_label = preload("res://Scenes/guild_ranking_label.tscn")
-var news_label = preload("res://Scenes/news_log.tscn")
+var quest_label = preload("res://Scenes/Components/quest_label.tscn")
+var rank_label = preload("res://Scenes/Components/guild_ranking_label.tscn")
+var news_label = preload("res://Scenes/Components/news_log.tscn")
 
 @onready var hold_timer = $RightPage_BG/EndDayButton/HoldTimer
 

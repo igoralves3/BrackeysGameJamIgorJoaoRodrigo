@@ -10,9 +10,9 @@
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="6_4p0pl"]
 [ext_resource type="Texture2D" uid="uid://bwtwncf7c26n0" path="res://Resources/Sprites/UI_TravelBook_Line01a.png" id="6_w0nxr"]
 [ext_resource type="Texture2D" uid="uid://b18ndtkveouh5" path="res://Resources/Sprites Animated/UI_TravelBook_Button01a_1.png" id="7_d6kf4"]
-[ext_resource type="PackedScene" uid="uid://brkndl8b72nhc" path="res://Scenes/news_log.tscn" id="7_tkfya"]
-[ext_resource type="PackedScene" uid="uid://crboxa4c7vkj1" path="res://Scenes/guild_ranking_label.tscn" id="9_6a4ub"]
-[ext_resource type="PackedScene" uid="uid://bstbx8p6c2u25" path="res://Scenes/quest_label.tscn" id="12_8xw2f"]
+[ext_resource type="PackedScene" uid="uid://brkndl8b72nhc" path="res://Scenes/Components/news_log.tscn" id="7_tkfya"]
+[ext_resource type="PackedScene" uid="uid://crboxa4c7vkj1" path="res://Scenes/Components/guild_ranking_label.tscn" id="9_6a4ub"]
+[ext_resource type="PackedScene" uid="uid://bstbx8p6c2u25" path="res://Scenes/Components/quest_label.tscn" id="12_8xw2f"]
 [ext_resource type="Texture2D" uid="uid://ebq7e1aveu2" path="res://Resources/Sprites/UI_TravelBook_IconHome01a-1ANIMATED.png" id="14_l7g5x"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dognj"]

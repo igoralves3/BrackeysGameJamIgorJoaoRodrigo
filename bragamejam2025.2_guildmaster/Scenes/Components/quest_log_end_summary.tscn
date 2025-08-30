@@ -1,20 +1,20 @@
 [gd_scene load_steps=8 format=3 uid="uid://m30m3havx1rw"]
 
-[ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="1_sv3q6"]
-[ext_resource type="Script" uid="uid://nwvir4cx4myp" path="res://Scripts/quest_log_end_summary.gd" id="2_fwrmf"]
-[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="2_vgbvq"]
-[ext_resource type="Texture2D" uid="uid://cyagfudhlne1p" path="res://Resources/Sprites/UI_TravelBook_IconStar01a.png" id="3_fwrmf"]
-[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="4_yde1k"]
-[ext_resource type="Texture2D" uid="uid://ca7g5ekj3goff" path="res://Resources/Sprites/UI_TravelBook_IconCoin01a.png" id="5_ghxj8"]
-[ext_resource type="Texture2D" uid="uid://duasghhm14jjl" path="res://Resources/Sprites/UI_TravelBook_Slot01a.png" id="7_fwrmf"]
+[ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="1_16sf7"]
+[ext_resource type="Script" uid="uid://nwvir4cx4myp" path="res://Scripts/quest_log_end_summary.gd" id="2_6m1p7"]
+[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="3_05kh4"]
+[ext_resource type="Texture2D" uid="uid://cyagfudhlne1p" path="res://Resources/Sprites/UI_TravelBook_IconStar01a.png" id="4_6vlc1"]
+[ext_resource type="FontFile" uid="uid://0qjiky5fnp8b" path="res://Resources/Fonts/Dumbledor.ttf" id="5_osstf"]
+[ext_resource type="Texture2D" uid="uid://ca7g5ekj3goff" path="res://Resources/Sprites/UI_TravelBook_IconCoin01a.png" id="6_2btvl"]
+[ext_resource type="Texture2D" uid="uid://duasghhm14jjl" path="res://Resources/Sprites/UI_TravelBook_Slot01a.png" id="7_1ttd4"]
 
 [node name="QuestLogEndSummary" type="TextureRect"]
 custom_minimum_size = Vector2(0, 160)
 offset_right = 750.0
 offset_bottom = 161.0
 size_flags_vertical = 3
-texture = ExtResource("1_sv3q6")
-script = ExtResource("2_fwrmf")
+texture = ExtResource("1_16sf7")
+script = ExtResource("2_6m1p7")
 
 [node name="QuestEndLogContainer" type="VBoxContainer" parent="."]
 visible = false
@@ -28,7 +28,7 @@ offset_bottom = 150.0
 self_modulate = Color(0.388235, 0.25098, 0.254902, 1)
 custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_vgbvq")
+theme_override_fonts/font = ExtResource("3_05kh4")
 theme_override_font_sizes/font_size = 18
 text = " - Quest xyz  Quest xyz  Quest xyz  Quest xyz Quest xyz Quest xyz Quest xyz "
 vertical_alignment = 2
@@ -49,13 +49,13 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
-texture = ExtResource("3_fwrmf")
+texture = ExtResource("4_6vlc1")
 metadata/_edit_lock_ = true
 
 [node name="RepResultLabel" type="Label" parent="QuestEndLogContainer/HBoxContainer/RepResult"]
 modulate = Color(0.388235, 0.25098, 0.254902, 1)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_yde1k")
+theme_override_fonts/font = ExtResource("5_osstf")
 theme_override_font_sizes/font_size = 30
 text = "- 5 Rep"
 horizontal_alignment = 1
@@ -72,13 +72,13 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.0
-texture = ExtResource("5_ghxj8")
+texture = ExtResource("6_2btvl")
 metadata/_edit_lock_ = true
 
 [node name="GoldResultLabel" type="Label" parent="QuestEndLogContainer/HBoxContainer/GoldResult"]
 self_modulate = Color(0.388235, 0.25098, 0.254902, 1)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_yde1k")
+theme_override_fonts/font = ExtResource("5_osstf")
 theme_override_font_sizes/font_size = 32
 text = "+ 0 Gold"
 horizontal_alignment = 1
@@ -103,7 +103,7 @@ self_modulate = Color(0.388235, 0.25098, 0.254902, 1)
 custom_minimum_size = Vector2(250, 45)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_vgbvq")
+theme_override_fonts/font = ExtResource("3_05kh4")
 theme_override_font_sizes/font_size = 15
 text = "- Quest xyz has found a hidden riches during the quest, the party is tired, but they can try to get the valuables at a increased risk, SHOULD THEY PROCEED?"
 autowrap_mode = 2
@@ -119,7 +119,7 @@ layout_mode = 2
 [node name="DDConfirmButton" type="TextureButton" parent="DDQuestChoiceContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 35)
 layout_mode = 2
-texture_normal = ExtResource("7_fwrmf")
+texture_normal = ExtResource("7_1ttd4")
 stretch_mode = 0
 
 [node name="DDConfirmLabel" type="Label" parent="DDQuestChoiceContainer/HBoxContainer/DDConfirmButton"]
@@ -129,7 +129,7 @@ offset_left = 10.0
 offset_top = 3.0
 offset_right = 141.0
 offset_bottom = 37.0
-theme_override_fonts/font = ExtResource("4_yde1k")
+theme_override_fonts/font = ExtResource("5_osstf")
 theme_override_font_sizes/font_size = 27
 text = "Accept Risk"
 horizontal_alignment = 1
@@ -142,7 +142,7 @@ layout_mode = 2
 [node name="DDReturnButton" type="TextureButton" parent="DDQuestChoiceContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
-texture_normal = ExtResource("7_fwrmf")
+texture_normal = ExtResource("7_1ttd4")
 stretch_mode = 0
 
 [node name="DDReturnLabel" type="Label" parent="DDQuestChoiceContainer/HBoxContainer/DDReturnButton"]
@@ -152,7 +152,7 @@ offset_left = 10.0
 offset_top = 3.0
 offset_right = 141.0
 offset_bottom = 37.0
-theme_override_fonts/font = ExtResource("4_yde1k")
+theme_override_fonts/font = ExtResource("5_osstf")
 theme_override_font_sizes/font_size = 20
 text = "Return to Guild"
 horizontal_alignment = 1
@@ -163,7 +163,6 @@ custom_minimum_size = Vector2(0, 22)
 layout_mode = 2
 
 [node name="DDQuestContinueContainer" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 23.0
 offset_top = 19.0
@@ -175,7 +174,7 @@ self_modulate = Color(0.388235, 0.25098, 0.254902, 1)
 custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_vgbvq")
+theme_override_fonts/font = ExtResource("3_05kh4")
 theme_override_font_sizes/font_size = 19
 text = "- Quest xyz has continued searching for greater riches and fame!"
 vertical_alignment = 1
