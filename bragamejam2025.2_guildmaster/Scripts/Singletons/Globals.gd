@@ -84,9 +84,22 @@ func addReputationGuild(rep) -> bool:
 				tierGuild = "Pinnacle"
 				availbleAdventurersMaxLimit = 20
 				knownAdventurersMaxLimit = (availbleAdventurersMaxLimit * 2)
+				gameEndWon()	
 				return true
 	
 	return false
+
+
+func gameEndWon():
+	pass
+	
+func gameEndLost():
+	pass
+
+func endDay():
+	day = day + 1
+	if day == 50 and tierGuild != "Pinnacle":
+		gameEndLost()
 
 func updateRivalGuildsRep():
 	

@@ -100,7 +100,7 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6itu3")
 placeholder_text = "Guild Name"
 alignment = 1
-max_length = 36
+max_length = 33
 
 [node name="PlayGameButton" type="TextureButton" parent="MainMenuContainer/MainMenuVBoxContainer/PlayButtonContainer"]
 custom_minimum_size = Vector2(300, 80)

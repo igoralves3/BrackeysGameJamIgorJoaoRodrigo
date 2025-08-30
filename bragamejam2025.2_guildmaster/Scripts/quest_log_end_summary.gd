@@ -36,6 +36,7 @@ func setLabels(q: quest):
 	
 	if q.doubleDownTriggered:
 		DDChoiceContainer.visible = true
+		$DDQuestChoiceContainer/DoubleDownLabel.text = "- Quest: " + questlocal.questname + " has found a hidden riches during the quest, the party is tired, but they can try to get the valuables at a increased risk, SHOULD THEY PROCEED?"
 	else:		
 		setEndLabels(q)
 
@@ -68,8 +69,9 @@ func questDoubleDownValuesAtt(q: quest):
 
 func _on_dd_confirm_button_pressed() -> void:
 	DDChoiceContainer.visible = false
-	DDContinueContainer = true
+	DDContinueContainer.visible = true
 	questDoubleDownValuesAtt(questlocal)
+	$DDQuestContinueContainer/DoubleDownLabel.text = "- Quest: " + questlocal.questname + " has continued searching for greater riches and fame!"
 	
 	## NAO ESQUECER DE TIRAR DEPOIS DE IMPLEMENTAR CHANCE DE DD
 	##questlocal.doubleDownTriggered = false
@@ -79,3 +81,19 @@ func _on_dd_return_button_pressed() -> void:
 	DDChoiceContainer.visible = false
 	Globals.ddEventResolvedRefreshView = true
 	questlocal.doubleDownTriggered = false
+
+
+func _on_dd_confirm_button_mouse_entered() -> void:
+	$DDQuestChoiceContainer/HBoxContainer/DDConfirmButton/DDConfirmLabel.self_modulate = Color("3a8211")
+
+
+func _on_dd_confirm_button_mouse_exited() -> void:
+	$DDQuestChoiceContainer/HBoxContainer/DDConfirmButton/DDConfirmLabel.self_modulate = Color("256109")
+
+
+func _on_dd_return_button_mouse_entered() -> void:
+	$DDQuestChoiceContainer/HBoxContainer/DDReturnButton/DDReturnLabel.self_modulate = Color("ecb0ac")
+
+
+func _on_dd_return_button_mouse_exited() -> void:
+	$DDQuestChoiceContainer/HBoxContainer/DDReturnButton/DDReturnLabel.self_modulate = Color("b75857")

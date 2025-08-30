@@ -249,7 +249,7 @@ func _on_back_to_lobby_button_pressed() -> void:
 	else:
 		pass
 		
-	Globals.day = Globals.day + 1
+	Globals.endDay()
 
 func _on_back_to_lobby_button_button_down() -> void:
 	pass # Replace with function body.

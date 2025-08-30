@@ -27,7 +27,7 @@ func setDesc(eventType):
 		## great quest completed 	
 		## USAGE : var1 = GUILDNAME, var2 = custom text for specified quest ex: giant spiders quest - defeating the eight legged manace!
 		"Quest Completed":
-			eventDesc = "Congratulations to The " + aux1 + " for  " + aux2
+			eventDesc = "Congratulations to The " + aux1 + " for" + aux2
 
 			
 		## great quest failed 	
@@ -39,12 +39,12 @@ func setDesc(eventType):
 		## great quest failed 	
 		## USAGE : var1 = GUILDNAME, var2 = ADV_DEAD_NAME
 		"Adventurer Death":
-			eventDesc = "Unfortunately the party sent by the " + aux1 +" came back with losses "+ aux2 + " perished"
+			eventDesc = "Unfortunately the party sent by the " + aux1 +" came back with losses - "+ aux2 + " perished"
 
 		## great quest failed 	
 		## USAGE : var1 = GUILDNAME, var2 = ADV_RANKUP_NAME
 		"Adventurer RankUp":
-			eventDesc = "Congratulations the party sent by the " + aux1 +" foght and won "+ aux2 + " became Stronger"
+			eventDesc = "Congratulations the party sent by the " + aux1 +" foght and won - "+ aux2 + " became Stronger"
 			
 		"Custom Event":
 			eventDesc = aux1
