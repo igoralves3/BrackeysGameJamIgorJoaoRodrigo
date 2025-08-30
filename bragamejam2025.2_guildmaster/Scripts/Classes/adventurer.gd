@@ -62,6 +62,8 @@ func addReputationAdv(rep) -> bool:
 				rankedup = true
 	
 	if rankedup:
+		rollAdvPower()
+		
 		# adding event to current events
 		const ne = preload("res://Scripts/Classes/event.gd")
 		var auxnewE = ne.new()
@@ -76,7 +78,36 @@ func setAdventurer(advn,advs,advr):
 	adv_name = advn
 	adv_sex = advs
 	rank = advr
+	
+	rollAdvPower()
 	setAdvPortrait()
+
+func rollAdvPower():
+	
+	match rank:
+		"F":
+			#power = randi_range(1,5)
+			power = randi_range(5,9)
+		"E":
+			#power = randi_range(1,10)
+			power = 10
+		"D":
+			#power = randi_range(10,28)
+			power = 28
+		"C":
+			#power = randi_range(28,80)
+			power = 80
+		"B":
+			#power = randi_range(80,240)
+			power = 240
+		"A":
+			#power = randi_range(240,720)
+			power  = 720
+		"S":
+			#power = randi_range(720,2880)
+			power  = 2880
+	
+	
 
 func setAdvPortrait():
 	

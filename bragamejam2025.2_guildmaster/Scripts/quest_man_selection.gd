@@ -60,8 +60,10 @@ func attQuestChancesandPayouts():
 	outComeContainer.visible = true
 	## quest success calculation
 	var total_party_power = 0
-	for quest_adv in Globals.questAux.questAdventurers:
+	for quest_adv in Globals.partyNow:
 		total_party_power += quest_adv.power
+		
+	print("total_partyp: "+str(total_party_power))
 		
 	var auxdiff = total_party_power - Globals.questAux.difficulty
 	var percentile = roundi(Globals.questAux.difficulty/100)
@@ -69,13 +71,13 @@ func attQuestChancesandPayouts():
 		percentile = 1
 	var succChance = auxdiff/percentile
 
+	print("success: "+str(succChance))
+
 	if Globals.questAux.Rank == "F":
-		print("here if f")
 		successIndicatorLabel.text = "VERY LIKELY"
 		successIndicatorLabel.self_modulate = Color("55a965")
 		Globals.questAux.chanceOfSuccess = "VERY LIKELY"
 	else:
-		print("here else")
 		if succChance < -80:
 			successIndicatorLabel.text = "VERY UNLIKELY"
 			successIndicatorLabel.self_modulate = Color("ff1508")

@@ -39,13 +39,13 @@ func _on_toggled(toggled_on: bool) -> void:
 
 
 func _on_add_button_pressed() -> void:
-	if adventurerLocal.isAvaible == true:
+	if adventurerLocal.isAvaible == true and Globals.partyNow.size()<4:
 		Globals.addParty(adventurerLocal)
 		self.modulate = Color("#565656")
 		AddPartyButton.visible = false
 		SoundManager.pickClickSFX(randi()%3)
 	else:
-		print("cannot add adverurer not avaible")
+		print("cannot add adverurer not avaible or party full")
 
 
 

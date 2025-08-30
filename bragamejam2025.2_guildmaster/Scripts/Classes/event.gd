@@ -23,19 +23,16 @@ func setDesc(eventType):
 		"Guild RankUp":
 			eventDesc = "Congratulations to The " + aux1 + " for reachin the " + aux2 + " Tier"
 
-	
 		## great quest completed 	
 		## USAGE : var1 = GUILDNAME, var2 = custom text for specified quest ex: giant spiders quest - defeating the eight legged manace!
 		"Quest Completed":
 			eventDesc = "Congratulations to The " + aux1 + " for" + aux2
 
-			
 		## great quest failed 	
 		## USAGE : var1 = GUILDNAME, var2 = custom text for specified quest ex: giant spiders quest - perished in the webs of fate!	
 		"Quest Failed":
 			eventDesc = "Unfortunately the party sent by the " + aux1 + aux2
 
-			
 		## great quest failed 	
 		## USAGE : var1 = GUILDNAME, var2 = ADV_DEAD_NAME
 		"Adventurer Death":

@@ -73,22 +73,24 @@ text = "Rank S"
 
 [node name="LabelNameBG" type="TextureRect" parent="."]
 layout_mode = 0
-offset_top = -6.0
+offset_top = -17.0
 offset_right = 172.0
-offset_bottom = 23.0
+offset_bottom = 25.0
 texture = ExtResource("6_7gpl8")
 
 [node name="LabelName" type="Label" parent="."]
 modulate = Color(0.388235, 0.25098, 0.254902, 1)
 layout_mode = 0
-offset_left = 8.0
-offset_right = 170.0
-offset_bottom = 20.0
+offset_left = 5.0
+offset_top = -14.0
+offset_right = 166.0
+offset_bottom = 21.0
 theme_override_fonts/font = ExtResource("7_uavlv")
-theme_override_font_sizes/font_size = 16
-text = "Empty"
+theme_override_font_sizes/font_size = 14
+text = "Empty "
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

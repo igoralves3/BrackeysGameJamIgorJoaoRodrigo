@@ -17,6 +17,7 @@ texture = ExtResource("1_16sf7")
 script = ExtResource("2_6m1p7")
 
 [node name="QuestEndLogContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 32.0
 offset_top = 10.0
