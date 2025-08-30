@@ -211,8 +211,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cp0ys")
 placeholder_text = "Enter guild name"
 alignment = 1
 max_length = 15
-<<<<<<< Updated upstream
-=======
 context_menu_enabled = false
 emoji_menu_enabled = false
 shortcut_keys_enabled = false
@@ -220,7 +218,6 @@ middle_mouse_paste_enabled = false
 drag_and_drop_selection_enabled = false
 caret_blink = true
 caret_blink_interval = 0.55
->>>>>>> Stashed changes
 
 [node name="PlayGameButton" type="TextureButton" parent="MainMenuContainer/MainMenuVBoxContainer/GuildNameBoxContainer"]
 custom_minimum_size = Vector2(300, 80)

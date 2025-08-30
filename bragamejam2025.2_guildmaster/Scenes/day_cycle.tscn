@@ -1,11 +1,39 @@
-[gd_scene load_steps=13 format=3 uid="uid://qdh8unw5dtb2"]
+[gd_scene load_steps=14 format=3 uid="uid://qdh8unw5dtb2"]
 
+[ext_resource type="Texture2D" uid="uid://ck5q830e3t0wl" path="res://Resources/BGs/MedievalTown.png" id="1_qrb8g"]
 [ext_resource type="Texture2D" uid="uid://c1ubaqspyqtu2" path="res://Resources/BGs/MedievalTown2.png" id="1_qt38q"]
 [ext_resource type="Texture2D" uid="uid://0hax4aidumaf" path="res://Resources/BGs/Fantasy_Landscape.png" id="2_b0bvp"]
 [ext_resource type="Texture2D" uid="uid://b6xdjhwggsd7a" path="res://Resources/Sprites/UI_TravelBook_Spritesheet01a.png" id="3_f5oo1"]
 [ext_resource type="Texture2D" uid="uid://dt67lygir0fmv" path="res://Resources/Sprites/UI_TravelBook_Bar01a.png" id="4_b0bvp"]
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="4_qrb8g"]
 [ext_resource type="Texture2D" uid="uid://1ani1rq2to8l" path="res://Resources/Sprites/UI_TravelBook_IconArrow01a.png" id="6_f5oo1"]
+
+[sub_resource type="Animation" id="Animation_b0bvp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DayTexture:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ContinueButton:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_qt38q"]
 resource_name = "Textures"
@@ -36,33 +64,6 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_b0bvp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DayTexture:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ContinueButton:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f5oo1"]
 _data = {
 &"RESET": SubResource("Animation_b0bvp"),
@@ -90,6 +91,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_f5oo1")
 }
 autoplay = "Textures"
+
+[node name="MedievalTown" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_qrb8g")
 
 [node name="MedievalTown2" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
