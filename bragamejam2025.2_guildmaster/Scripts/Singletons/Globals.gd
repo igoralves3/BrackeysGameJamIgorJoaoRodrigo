@@ -34,8 +34,8 @@ var availbleAdventurersMaxLimit = 5
 
 var currentEvents: Array[event]
 
-var totalgold = 1000
-var totalrep = 99
+var totalgold = 250#1000
+var totalrep = 0#99
 var day = 1
 
 var tierGuild = "Unlicenced"
