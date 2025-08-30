@@ -43,6 +43,7 @@ func _on_add_button_pressed() -> void:
 		Globals.addParty(adventurerLocal)
 		self.modulate = Color("#565656")
 		AddPartyButton.visible = false
+		SoundManager.pickClickSFX(randi()%3)
 	else:
 		print("cannot add adverurer not avaible")
 
