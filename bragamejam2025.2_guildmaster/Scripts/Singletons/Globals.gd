@@ -23,6 +23,8 @@ var availableQuests: Array[quest]
 var onGoingQuests: Array[quest]
 var DDQuests: Array[quest]
 
+var DDquestAux: quest
+
 var ddEventResolvedRefreshView = false
 
 ## all adventurerrs

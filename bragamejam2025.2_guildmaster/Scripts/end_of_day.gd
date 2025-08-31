@@ -14,40 +14,30 @@ var endDayRepEarned = 0
 func _process(delta: float) -> void:
 	
 	if Globals.ddEventResolvedRefreshView == true:
-		resolvePendingDDQuests()
+		resolvePendingDDQuests(Globals.DDquestAux)
 		Globals.ddEventResolvedRefreshView = false
 
 func _ready() -> void:
 	guildNameLabel.text = Globals.guildName
 
-func resolvePendingDDQuests():
-	clearViews()	
-
-	## pegar todas as quests ativas e resolver elas
-	for activeQuest in Globals.onGoingQuests:
-		
-		print(activeQuest.questname)
-		
-		if activeQuest.doubleDownTriggered == false:
-			resolveQuest(activeQuest)
-		
+func resolvePendingDDQuests(q: quest):
+	print("resolving dd quests")
+	resolveQuest(q)
+	
+	var children = questsSummaryContainer.get_children()
+	for c in children:
+		if c.questlocal.questname == q.questname:
+			c.queue_free()
 			## populate summaries
 			var questsum = quest_end_summary.instantiate()
 			questsSummaryContainer.add_child(questsum)
-			questsum.setLabels(activeQuest)
-			
-			## populate overall rep and gold gain
-			var questresult = quest_result_value.instantiate()
-			questsResultsContainer.add_child(questresult)
-			questresult.setLabels(activeQuest)
+			questsum.setLabels(q)
 		
-		else:
-			## checca se foi ativado double down ai nao popula mais com botao ativado, apenas botoes desativdos com indicaçao de dd
-			## populate ONLY summaries
-			var questsum = quest_end_summary.instantiate()
-			questsSummaryContainer.add_child(questsum)
-			questsum.setLabels(activeQuest)
-		
+	## populate overall rep and gold gain
+	var questresult = quest_result_value.instantiate()
+	questsResultsContainer.add_child(questresult)
+	questresult.setLabels(q)
+				
 	## calculate and att total 
 	$RightPage_BG/Results/Total/RepTotalContainer/RepTotalLabel.text = "+ " + str(int(endDayRepEarned)) + " Rep"
 	$RightPage_BG/Results/Total/GoldTotalContainer/GoldTotalLabel.text = "+ " + str(int(endDayGoldEarned)) + " Gold"
@@ -59,11 +49,11 @@ func startResolvingDayQuests():
 	for activeQuest in Globals.onGoingQuests:
 		
 		
-		if activeQuest.doubleDownTriggered == false:
-			## CHANCE DE DOUBLE DOWN
-			var random_roll = randi_range(1, 100)	
-			if random_roll <= 50:
-				activeQuest.doubleDownTriggered = true
+		#if activeQuest.doubleDownTriggered == false:
+		#	## CHANCE DE DOUBLE DOWN
+		#	var random_roll = randi_range(1, 100)	
+		#	if random_roll <= 50:
+		activeQuest.doubleDownTriggered = true
 		
 		if activeQuest.doubleDownTriggered == false:
 			resolveQuest(activeQuest)
@@ -296,10 +286,11 @@ func _on_back_to_lobby_button_pressed() -> void:
 	else:
 		pass
 	
+	
+	## at the very end
 	endDayGoldEarned = 0
 	endDayRepEarned = 0
 	Globals.endDay()
-	
 	endDayAttQuestResults()
 	
 	SceneTransition.transition()

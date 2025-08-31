@@ -62,8 +62,7 @@ func attQuestChancesandPayouts():
 	var total_party_power = 0
 	for quest_adv in Globals.partyNow:
 		total_party_power += quest_adv.power
-		
-	print("total_partyp: "+str(total_party_power))
+	
 		
 	var auxdiff = total_party_power - Globals.questAux.difficulty
 	var percentile = roundi(Globals.questAux.difficulty/100)
@@ -71,7 +70,6 @@ func attQuestChancesandPayouts():
 		percentile = 1
 	var succChance = auxdiff/percentile
 
-	print("success: "+str(succChance))
 
 	if Globals.questAux.Rank == "F":
 		successIndicatorLabel.text = "VERY LIKELY"

@@ -7,7 +7,6 @@ extends TextureRect
 
 @onready var QEndLogContainer = $QuestEndLogContainer
 @onready var DDChoiceContainer = $DDQuestChoiceContainer
-@onready var DDContinueContainer = $DDQuestContinueContainer
 
 var questlocal = null
 signal DDQuestSignalRefresh
@@ -34,45 +33,32 @@ func setEndLabels(q: quest):
 func setLabels(q: quest):
 	
 	questlocal = q
-	
-	if q.doubleDownActive == true:
-		DDChoiceContainer.visible = false
-		DDContinueContainer.visible = true
-		QEndLogContainer.visible = false
-		$DDQuestContinueContainer/DoubleDownLabel.text = "- Quest: " + questlocal.questname + " has continued searching for greater riches and fame!"
-		return
 
 	if q.doubleDownTriggered:
 		DDChoiceContainer.visible = true
-		$DDQuestChoiceContainer/DoubleDownLabel.text = "- Quest: " + questlocal.questname + " has found a hidden riches during the quest, the party is tired, but they can try to get the valuables at a increased risk, SHOULD THEY PROCEED?"
-		return 
-		
-	if q.doubleDownTriggered == false and q.doubleDownActive == false:
+		$DDQuestChoiceContainer/DoubleDownLabel.text = "- Quest: " + questlocal.questname + " has found a hidden riches during the quest, the party is tired, but they can try to get the valuables at a increased risk, SHOULD THEY PROCEED?"		
+	else:
 		setEndLabels(q)
 
 
 func questDoubleDownValuesAtt(q: quest):
-
-	
-
 	q.gold *= 2
 	q.rep *= 2
 	q.difficulty *= 2
-	
-## calculo sobreviventes ou nao da quest	
-
 
 func _on_dd_confirm_button_pressed() -> void:
+	
+	Globals.DDquestAux = questlocal
+	
 	questlocal.doubleDownTriggered = false
 	questDoubleDownValuesAtt(questlocal)
-	DDChoiceContainer.visible = false
-	DDContinueContainer.visible = true
-	QEndLogContainer.visible = false
-	questlocal.doubleDownTriggered = true
+	Globals.ddEventResolvedRefreshView = true
 	$DDQuestContinueContainer/DoubleDownLabel.text = "- Quest: " + questlocal.questname + " has continued searching for greater riches and fame!"
 
 
 func _on_dd_return_button_pressed() -> void:
+	
+	Globals.DDquestAux = questlocal
 	
 	questlocal.doubleDownTriggered = false
 	Globals.ddEventResolvedRefreshView = true
