@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bstbx8p6c2u25"]
+[gd_scene load_steps=10 format=3 uid="uid://bstbx8p6c2u25"]
 
 [ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="1_5ds12"]
 [ext_resource type="Script" uid="uid://8xxpj1irn71b" path="res://Scripts/quest_label.gd" id="2_1lrto"]
@@ -7,12 +7,55 @@
 [ext_resource type="Texture2D" uid="uid://1ani1rq2to8l" path="res://Resources/Sprites/UI_TravelBook_IconArrow01a.png" id="5_jg4aa"]
 [ext_resource type="Texture2D" uid="uid://cuuaic7otunys" path="res://Resources/Sprites/UI_TravelBook_IconArrow01a-1PRESSED.png" id="6_vjw7u"]
 
+[sub_resource type="Animation" id="Animation_5ds12"]
+resource_name = "GoButtonAnimation"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoButton:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(642, 24), Vector2(663, 24), Vector2(642, 24)]
+}
+
+[sub_resource type="Animation" id="Animation_1lrto"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(648, 24)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c25xy"]
+_data = {
+&"GoButtonAnimation": SubResource("Animation_5ds12"),
+&"RESET": SubResource("Animation_1lrto")
+}
+
 [node name="QuestLabel" type="TextureRect"]
 custom_minimum_size = Vector2(0, 100)
 offset_right = 754.0
 offset_bottom = 108.0
 texture = ExtResource("1_5ds12")
 script = ExtResource("2_1lrto")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_c25xy")
+}
 
 [node name="DifRepIcon" type="TextureRect" parent="."]
 layout_mode = 0

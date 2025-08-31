@@ -8,8 +8,8 @@ extends Node
 @onready var SelectionPlayList: Array = ["res://Resources/Sounds/select.wav"]
 
 
-func _ready():
-	pickBGMusic(randi() % 4)
+#func _ready():
+	#pickBGMusic(randi() % 4)
 
 func pickBGMusic(index: int):
 	var tween = create_tween()
@@ -69,6 +69,12 @@ func pickBGByName(s: String):
 	tween.tween_property($BG, "volume_db", 0.0, 0.5)
 
 func pickSFXByName(sfx: String):
-	$SFX.stop()
 	$SFX.stream = load(sfx)
 	$SFX.play()
+
+func playMainMenuBGMusic(index: int):
+	$BG.stream = load(BGMusicPlaylist[index])
+	
+	var tween = create_tween()
+	$BG.play()
+	tween.tween_property($BG, "volume_db", 0.0, 0.5)

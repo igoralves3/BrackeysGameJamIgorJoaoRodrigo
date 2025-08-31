@@ -6,6 +6,9 @@ const scenetoLoad = preload("res://Scenes/Components/Main.tscn")
 @onready var v_box_container: VBoxContainer = $MainMenuContainer/MainMenuVBoxContainer/VBoxContainer
 @onready var line_edit: LineEdit = $MainMenuContainer/MainMenuVBoxContainer/GuildNameBoxContainer/LineEdit
 
+func _ready() -> void:
+	SoundManager.playMainMenuBGMusic(randi() % 4)
+
 func _on_play_game_button_pressed() -> void:
 	
 	if line_edit.text == "":
