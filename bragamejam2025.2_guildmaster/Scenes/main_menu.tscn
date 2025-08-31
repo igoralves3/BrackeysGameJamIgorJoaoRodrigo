@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://0vq6dm5scg0w" path="res://Resources/BGs/IMG_5239.png" id="3_6itu3"]
 [ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="4_n4fnu"]
 [ext_resource type="Texture2D" uid="uid://b6xdjhwggsd7a" path="res://Resources/Sprites/UI_TravelBook_Spritesheet01a.png" id="5_6itu3"]
-[ext_resource type="Texture2D" uid="uid://dqaa4end3as5n" path="res://Resources/Sprites/UI_TravelBook_Frame01a.png" id="7_6itu3"]
+[ext_resource type="Texture2D" uid="uid://bsccqcw5a2j7h" path="res://Resources/Sprites/UI_TravelBook_Popup01a.png" id="6_opfnp"]
 [ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="7_trj04"]
-[ext_resource type="Texture2D" uid="uid://budfry37bvmol" path="res://Resources/Sprites/UI_TravelBook_Frame01a_PRESSED.png" id="8_yhxw7"]
-[ext_resource type="Texture2D" uid="uid://dks3kqa0ppcv" path="res://Resources/Sprites/UI_TravelBook_Frame01a_HOVER.png" id="10_16hvj"]
+[ext_resource type="Texture2D" uid="uid://dc3fo2lflog6" path="res://Resources/Sprites/UI_TravelBook_Popup01a_PRESSED.png" id="7_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://vnlit3ush742" path="res://Resources/Sprites/UI_TravelBook_Popup01a_HOVER.png" id="8_trj04"]
 
 [sub_resource type="Animation" id="Animation_trj04"]
 resource_name = "BG"
@@ -224,17 +224,17 @@ custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("7_6itu3")
-texture_pressed = ExtResource("8_yhxw7")
-texture_hover = ExtResource("10_16hvj")
+texture_normal = ExtResource("6_opfnp")
+texture_pressed = ExtResource("7_yhxw7")
+texture_hover = ExtResource("8_trj04")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="MainMenuContainer/MainMenuVBoxContainer/GuildNameBoxContainer/PlayGameButton"]
 self_modulate = Color(0.580392, 0.247059, 0.137255, 1)
 layout_mode = 0
-offset_top = 5.0
+offset_top = 8.0
 offset_right = 295.0
-offset_bottom = 80.0
+offset_bottom = 83.0
 theme_override_fonts/font = ExtResource("4_n4fnu")
 theme_override_font_sizes/font_size = 35
 text = "Play Game"

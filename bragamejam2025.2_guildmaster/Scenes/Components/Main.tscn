@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxlhoks2ojowv"]
+[gd_scene load_steps=13 format=3 uid="uid://cxlhoks2ojowv"]
 
 [ext_resource type="Script" uid="uid://ge72656exa8v" path="res://Scripts/GameManager.gd" id="1_v1gob"]
 [ext_resource type="Texture2D" uid="uid://0vq6dm5scg0w" path="res://Resources/BGs/IMG_5239.png" id="2_jw32o"]
@@ -6,6 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bpdnaxogb4p58" path="res://Scenes/BookPages/guild_lobby.tscn" id="4_vy5pj"]
 [ext_resource type="PackedScene" uid="uid://b87ohqrvtvkrs" path="res://Scenes/BookPages/quest_man_selection.tscn" id="5_bmxlf"]
 [ext_resource type="PackedScene" uid="uid://wbvwabakpwe4" path="res://Scenes/BookPages/end_of_day.tscn" id="6_4kpch"]
+[ext_resource type="Texture2D" uid="uid://b6xdjhwggsd7a" path="res://Resources/Sprites/UI_TravelBook_Spritesheet01a.png" id="7_e68ou"]
+[ext_resource type="FontFile" uid="uid://b1s1rbc2pq2bd" path="res://Resources/Fonts/Berry Rotunda.ttf" id="8_vy4ah"]
+[ext_resource type="Texture2D" uid="uid://bsccqcw5a2j7h" path="res://Resources/Sprites/UI_TravelBook_Popup01a.png" id="9_k13ua"]
+[ext_resource type="Texture2D" uid="uid://dc3fo2lflog6" path="res://Resources/Sprites/UI_TravelBook_Popup01a_PRESSED.png" id="10_k13ua"]
+[ext_resource type="Texture2D" uid="uid://vnlit3ush742" path="res://Resources/Sprites/UI_TravelBook_Popup01a_HOVER.png" id="11_5ffvw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e68ou"]
+bg_color = Color(0, 0, 0, 0.796078)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -53,3 +61,114 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 1847.0
 offset_bottom = 915.0
+
+[node name="YourMissionPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -67.0
+offset_top = -237.0
+offset_right = 1931.0
+offset_bottom = 988.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e68ou")
+
+[node name="HelloGuildmasterTexture" type="TextureRect" parent="YourMissionPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -245.0
+offset_top = -286.5
+offset_right = 245.0
+offset_bottom = -114.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_k13ua")
+
+[node name="HelloGuildmasterLabel" type="Label" parent="YourMissionPanel/HelloGuildmasterTexture"]
+self_modulate = Color(0.443137, 0.0862745, 0.027451, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 68.5
+offset_right = -46.0
+offset_bottom = -43.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 17
+theme_override_fonts/font = ExtResource("8_vy4ah")
+theme_override_font_sizes/font_size = 52
+text = "Hello Guildmaster!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MissionDescriptionTexture" type="TextureRect" parent="YourMissionPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -674.0
+offset_top = -102.0
+offset_right = 674.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_e68ou")
+
+[node name="MissionDescriptionLabel" type="Label" parent="YourMissionPanel/MissionDescriptionTexture"]
+self_modulate = Color(0.576471, 0.266667, 0.301961, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 68.5
+offset_right = -46.0
+offset_bottom = -43.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 10
+theme_override_fonts/font = ExtResource("8_vy4ah")
+theme_override_font_sizes/font_size = 25
+text = "You have 50 days to turn your scrappy guild from an unlicensed nobody into a legendary giant. Manage your budget, hire a team of powerful heroes, and climb the competitive guild leaderboards to reach the envied #1 spot."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ConfirmButton" type="TextureButton" parent="YourMissionPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.5
+offset_top = 151.5
+offset_right = 151.5
+offset_bottom = 223.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("9_k13ua")
+texture_pressed = ExtResource("10_k13ua")
+texture_hover = ExtResource("11_5ffvw")
+stretch_mode = 0
+
+[node name="ConfirmLabel" type="Label" parent="YourMissionPanel/ConfirmButton"]
+self_modulate = Color(0.576471, 0.266667, 0.301961, 1)
+layout_mode = 0
+offset_left = 37.0
+offset_top = 14.0
+offset_right = 263.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("8_vy4ah")
+theme_override_font_sizes/font_size = 25
+text = "Accept"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="YourMissionPanel/ConfirmButton" to="." method="_on_confirm_button_pressed"]

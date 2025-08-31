@@ -2,9 +2,12 @@ extends TextureRect
 
 
 @onready var descName = $QuestDescriptionLabel
-var questLocal = null
-
 @onready var questRankLabel = $WaxSeal/WaxSealLabel
+@onready var animation_player = $AnimationPlayer
+@onready var go_button = $GoButton
+
+
+var questLocal = null
 
 
 func setNewQuest(q: quest):
@@ -33,9 +36,27 @@ func setNewQuest(q: quest):
 		$GoButton.visible = true
 	
 
-func _on_go_button_pressed() -> void:
+#func _on_go_button_pressed() -> void:
+	#if questLocal.onGoing == false:
+		#Globals.questAux = questLocal
+		#get_tree().get_root().get_node("Main").changeBookPage("quests")
+		#SoundManager.pickButtonSFX(randi() % 3)
+
+
+func _on_button_mouse_entered() -> void:
+	animation_player.play("GoButtonAnimation")
+
+
+func _on_button_mouse_exited() -> void:
+	animation_player.stop()
+
+
+func _on_button_pressed() -> void:
+	go_button.button_pressed = true
+	
+	await get_tree().create_timer(0.1).timeout
+	
 	if questLocal.onGoing == false:
 		Globals.questAux = questLocal
 		get_tree().get_root().get_node("Main").changeBookPage("quests")
 		SoundManager.pickButtonSFX(randi() % 3)
-	

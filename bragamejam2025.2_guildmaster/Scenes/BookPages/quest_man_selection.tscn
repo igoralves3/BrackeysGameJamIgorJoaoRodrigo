@@ -272,7 +272,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="OutcomeContainer" type="Control" parent="RightPage_BG/PartySlots/VBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(780, 110)
 layout_mode = 2
 
@@ -315,7 +314,6 @@ offset_top = 6.0
 offset_right = 208.0
 offset_bottom = 42.0
 theme_override_font_sizes/font_size = 26
-text = "VERY LIKELY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -382,7 +380,6 @@ offset_right = 464.0
 offset_bottom = 38.0
 theme_override_fonts/font = ExtResource("7_e34ok")
 theme_override_font_sizes/font_size = 16
-text = "+ 50 Gold"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -425,7 +422,6 @@ offset_right = 466.0
 offset_bottom = 35.0
 theme_override_fonts/font = ExtResource("7_e34ok")
 theme_override_font_sizes/font_size = 16
-text = "- 50 Gold"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -465,7 +461,6 @@ offset_right = 145.0
 offset_bottom = 111.0
 theme_override_fonts/font = ExtResource("7_e34ok")
 theme_override_font_sizes/font_size = 16
-text = "+20000 Gold"
 horizontal_alignment = 2
 vertical_alignment = 1
 autowrap_mode = 2
