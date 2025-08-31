@@ -44,7 +44,7 @@ tracks/2/path = NodePath("MainMenuContainer/MainMenuVBoxContainer/GuildNameBoxCo
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(3, 4),
+"times": PackedFloat32Array(1.30873, 2.30873),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -56,7 +56,7 @@ tracks/3/path = NodePath("MainMenuContainer/MainMenuVBoxContainer/GuildNameBoxCo
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(3.75, 4.75),
+"times": PackedFloat32Array(2.18002, 3.18002),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://burvnhwtx8ic4"]
+[gd_scene load_steps=15 format=3 uid="uid://qdh8unw5dtb2"]
 
 [ext_resource type="Script" uid="uid://pwshjq6chwlm" path="res://Scripts/day_cycle.gd" id="1_ji1li"]
 [ext_resource type="Texture2D" uid="uid://ck5q830e3t0wl" path="res://Resources/BGs/MedievalTown.png" id="1_qrb8g"]

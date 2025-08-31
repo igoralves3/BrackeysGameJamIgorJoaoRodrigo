@@ -6,6 +6,10 @@ extends Control
 
 func _ready() -> void:
 	daylabel.text = "Day: " + str(Globals.day)
+	SoundManager.pickBGByName("res://Resources/Sounds/BGMusic1.wav")
+	
+	await (get_tree().create_timer(1.3).timeout)
+	SoundManager.pickSFXByName("res://Resources/Sounds/FarmRoosterCockadoodledo.mp3")
 	
 func _on_continue_button_pressed() -> void:
 	SceneTransition.transition()

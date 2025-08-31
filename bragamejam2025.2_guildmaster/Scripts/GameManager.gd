@@ -5,6 +5,9 @@ extends Control
 @onready var questsSelection = $QuestManSelection
 
 
+func _ready() -> void:
+	SoundManager.pickBGMusic(randi() % 4)
+
 func changeBookPage(page: String):
 	guildLobby.visible = false
 	endOfDay.visible = false

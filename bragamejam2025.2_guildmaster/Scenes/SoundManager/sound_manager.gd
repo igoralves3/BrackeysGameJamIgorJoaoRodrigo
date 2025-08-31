@@ -1,6 +1,6 @@
 extends Node
 
-@onready var BGMusicPlaylist: Array = ["res://Resources/Sounds/BGMusic1.wav", "res://Resources/Sounds/BGMusic2.wav", "res://Resources/Sounds/BGMusic3.wav", "res://Resources/Sounds/BGMusic4.wav", "res://Resources/Sounds/BGMusic5.wav"]
+@onready var BGMusicPlaylist: Array = ["res://Resources/Sounds/BGMusic2.wav", "res://Resources/Sounds/BGMusic3.wav", "res://Resources/Sounds/BGMusic4.wav", "res://Resources/Sounds/BGMusic5.wav"]
 @onready var FailPlaylist: Array = ["res://Resources/Sounds/fail1.wav", "res://Resources/Sounds/fail2.wav", "res://Resources/Sounds/fail3.wav"]
 @onready var VictoryPlaylist: Array = ["res://Resources/Sounds/victory1.wav", "res://Resources/Sounds/victory2.wav"]
 @onready var ButtonPlayList: Array = ["res://Resources/Sounds/Button1.wav", "res://Resources/Sounds/Button2.wav", "res://Resources/Sounds/Button3.wav"]
@@ -9,14 +9,19 @@ extends Node
 
 
 func _ready():
-	pickBGMusic(randi() % 5)
+	pickBGMusic(randi() % 4)
 
 func pickBGMusic(index: int):
+	var tween = create_tween()
+	tween.tween_property($BG, "volume_db", -80.0, 0.5)
 	$BG.stop()
 	#print(index)
 	#print(BGMusicPlaylist[index])
 	$BG.stream = load(BGMusicPlaylist[index])
+	
+	#$BG.volume_db = -80.0
 	$BG.play()
+	tween.tween_property($BG, "volume_db", 0.0, 0.5)
 
 func pickFailMusic(index: int):
 	$SFX.stop()
@@ -51,4 +56,19 @@ func pickSelectSFX(index: int = 0):
 	#print(index)
 	#print(ButtonPlayList[index])
 	$SFX.stream = load(SelectionPlayList[index])
+	$SFX.play()
+
+func pickBGByName(s: String):
+	var tween = create_tween()
+	tween.tween_property($BG, "volume_db", -80.0, 0.5)
+	$BG.stop()
+	
+	$BG.stream = load(s)
+	
+	$BG.play()
+	tween.tween_property($BG, "volume_db", 0.0, 0.5)
+
+func pickSFXByName(sfx: String):
+	$SFX.stop()
+	$SFX.stream = load(sfx)
 	$SFX.play()
