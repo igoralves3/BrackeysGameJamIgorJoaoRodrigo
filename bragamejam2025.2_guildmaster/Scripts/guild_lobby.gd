@@ -112,10 +112,11 @@ func newDaySpawnQuests():
 	##elif minumum_ranks_possible > 4:
 	##	max_quests=7
 		
-	var n = randi_range(1,max_quests)
+	var n = randi_range(2,max_quests)
 	for i in range(0,n):
-		var auxnewq = Spawner.spawnNewQuest()	
+		var auxnewq = Spawner.spawnNewQuest()
 		if checkQuestExists(auxnewq):
+			print("Quest already available")
 			pass
 		else:
 			Globals.availableQuests.append(auxnewq)

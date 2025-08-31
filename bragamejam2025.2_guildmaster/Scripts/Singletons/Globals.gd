@@ -40,7 +40,7 @@ var totalgold = 250#1000
 var totalrep = 0#99
 var day = 1
 
-var tierGuild = "Unlicenced"
+var tierGuild = "Unlicensed"
 
 
 ## usado para adicionar reputção no final do dia, retorna true se upou agora (para fins de popups e triggar animaçoes)
@@ -49,7 +49,7 @@ func addReputationGuild(rep) -> bool:
 	updateRivalGuildsRep()
 	
 	match tierGuild:
-		"Unlicenced":
+		"Unlicensed":
 			if totalrep > 100:
 				tierGuild = "Iron"
 				availbleAdventurersMaxLimit = 7
