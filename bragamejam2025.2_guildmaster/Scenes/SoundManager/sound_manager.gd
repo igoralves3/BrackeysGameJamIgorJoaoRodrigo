@@ -12,16 +12,20 @@ extends Node
 	#pickBGMusic(randi() % 4)
 
 func pickBGMusic(index: int):
+	
+	print("toca audio")
+	
 	var tween = create_tween()
 	tween.tween_property($BG, "volume_db", -80.0, 0.5)
-	$BG.stop()
-	#print(index)
-	#print(BGMusicPlaylist[index])
+	#$BG.stop()
+	tween.tween_interval(0.5)
+	
 	$BG.stream = load(BGMusicPlaylist[index])
 	
-	#$BG.volume_db = -80.0
 	$BG.play()
-	tween.tween_property($BG, "volume_db", 0.0, 0.5)
+	print("outra musica")
+	tween.chain().tween_property($BG, "volume_db", 0.0, 0.5)
+	#tween.tween_property($BG, "volume_db", 0.0, 0.5)
 
 func pickFailMusic(index: int):
 	$SFX.stop()

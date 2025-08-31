@@ -95,14 +95,17 @@ libraries = {
 autoplay = "Textures"
 
 [node name="MedievalTown" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(960, 540)
 texture = ExtResource("1_qrb8g")
 
 [node name="MedievalTown2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(960, 540)
 texture = ExtResource("1_qt38q")
 
 [node name="FantasyLandscape" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(960, 540)
 texture = ExtResource("2_b0bvp")
 
