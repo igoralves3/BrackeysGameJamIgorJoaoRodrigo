@@ -167,20 +167,23 @@ func attGuildRanks():
 		ranklabel.setLabel(key,deep_dict_copy_aux[key])
 
 
-func _on_end_day_button_button_down() -> void:
-	hold_timer.start()
+func _on_end_day_button_mouse_entered() -> void:
 	$RightPage_BG/EndDayButton/TextureRect.play("default")
-
-func _on_end_day_button_button_up() -> void:
-	if hold_timer.is_stopped():
-		$RightPage_BG/EndDayButton/TextureRect.play("static")
-		pass
-	else:
-		$RightPage_BG/EndDayButton/TextureRect.play("static")
-		hold_timer.stop()
+	$RightPage_BG/EndDayButton/Label.modulate = Color("99725d")
 
 
-func _on_hold_timer_timeout() -> void:
+func _on_end_day_button_mouse_exited() -> void:
+	$RightPage_BG/EndDayButton/TextureRect.play("static")
+	$RightPage_BG/EndDayButton/Label.modulate = Color("ffffff")
+
+
+func _on_end_day_button_pressed() -> void:
+	$RightPage_BG/EndDayConfirm.visible = true
+
+func _on_go_back_button_pressed() -> void:
+	$RightPage_BG/EndDayConfirm.visible = false
+
+func _on_end_day_confirm_button_pressed() -> void:
 	get_tree().get_root().get_node("Main").changeBookPage("endofday")
 	Globals.currentEvents.clear()
 	Globals.repEarnedThisRound = 0
@@ -188,9 +191,16 @@ func _on_hold_timer_timeout() -> void:
 	SoundManager.pickButtonSFX(randi() % 3)
 
 
-func _on_end_day_button_mouse_entered() -> void:
-	$RightPage_BG/EndDayButton/Label.modulate = Color("99725d")
+
+func _on_end_day_confirm_button_mouse_entered() -> void:
+	$RightPage_BG/EndDayConfirm/EndDayConfirmButton/EndDayLabel.self_modulate = Color("306f32")
+
+func _on_end_day_confirm_button_mouse_exited() -> void:
+	$RightPage_BG/EndDayConfirm/EndDayConfirmButton/EndDayLabel.self_modulate = Color("3f8e42")
 
 
-func _on_end_day_button_mouse_exited() -> void:
-	$RightPage_BG/EndDayButton/Label.modulate = Color("ffffff")
+func _on_go_back_button_mouse_entered() -> void:
+	$RightPage_BG/EndDayConfirm/GoBackButton/BackLabel.self_modulate = Color("732d1c")
+
+func _on_go_back_button_mouse_exited() -> void:
+	$RightPage_BG/EndDayConfirm/GoBackButton/BackLabel.self_modulate = Color("c0543a")

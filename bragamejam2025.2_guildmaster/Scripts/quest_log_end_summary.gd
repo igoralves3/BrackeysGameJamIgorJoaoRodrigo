@@ -25,7 +25,7 @@ func setEndLabels(q: quest):
 		
 	if q.advDead.size()>0:
 		for adv in q.advDead:
-			logLabel.text = logLabel.text + " - " + adv.adv_name + " morreu!"
+			logLabel.text = logLabel.text + " - " + adv.adv_name + " Died!"
 	
 	goldLabel.text =  "+" + str(q.finalGold) + " Gold"
 	

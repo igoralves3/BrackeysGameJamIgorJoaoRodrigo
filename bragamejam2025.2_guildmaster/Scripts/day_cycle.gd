@@ -5,7 +5,8 @@ extends Control
 
 
 func _ready() -> void:
-	daylabel.text = "Day: " + str(Globals.day)
+	Globals.endDay()
+	daylabel.text = "Day " + str(Globals.day)
 	SoundManager.pickBGByName("res://Resources/Sounds/BGMusic1.wav")
 	
 	await (get_tree().create_timer(1.3).timeout)

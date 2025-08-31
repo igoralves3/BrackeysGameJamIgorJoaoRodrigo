@@ -3,8 +3,6 @@ extends NinePatchRect
 @onready var questsSummaryContainer = $LeftPage_BG/QuestLogLabel/ScrollContainer/VBoxContainer
 @onready var questsResultsContainer = $RightPage_BG/Results/ResultsScrollContainer/VBoxContainer
 
-@onready var guildNameLabel = $RightPage_BG/GuildNameLabel
-
 var quest_end_summary = preload("res://Scenes/Components/quest_log_end_summary.tscn")
 var quest_result_value = preload("res://Scenes/Components/result_quest_end.tscn")
 
@@ -16,9 +14,6 @@ func _process(delta: float) -> void:
 	if Globals.ddEventResolvedRefreshView == true:
 		resolvePendingDDQuests(Globals.DDquestAux)
 		Globals.ddEventResolvedRefreshView = false
-
-func _ready() -> void:
-	guildNameLabel.text = Globals.guildName
 
 func resolvePendingDDQuests(q: quest):
 	print("resolving dd quests")
@@ -49,11 +44,11 @@ func startResolvingDayQuests():
 	for activeQuest in Globals.onGoingQuests:
 		
 		
-		#if activeQuest.doubleDownTriggered == false:
-		#	## CHANCE DE DOUBLE DOWN
-		#	var random_roll = randi_range(1, 100)	
-		#	if random_roll <= 50:
-		activeQuest.doubleDownTriggered = true
+		if activeQuest.doubleDownTriggered == false:
+			## CHANCE DE DOUBLE DOWN
+			var random_roll = randi_range(1, 100)	
+			if random_roll <= 15:
+				activeQuest.doubleDownTriggered = true
 		
 		if activeQuest.doubleDownTriggered == false:
 			resolveQuest(activeQuest)
@@ -290,7 +285,7 @@ func _on_back_to_lobby_button_pressed() -> void:
 	## at the very end
 	endDayGoldEarned = 0
 	endDayRepEarned = 0
-	Globals.endDay()
+	#Globals.endDay()
 	endDayAttQuestResults()
 	
 	SceneTransition.transition()
