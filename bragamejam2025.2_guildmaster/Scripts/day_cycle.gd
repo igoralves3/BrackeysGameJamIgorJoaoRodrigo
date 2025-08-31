@@ -1,11 +1,11 @@
 extends Control
 
-
 @onready var daylabel = $DayTexture/DayLabel
-
+@onready var backgrounds = [$MedievalTown, $MedievalTown2, $FantasyLandscape]
 
 func _ready() -> void:
 	Globals.endDay()
+	backgrounds.pick_random().visible = true
 	daylabel.text = "Day " + str(Globals.day)
 	SoundManager.pickBGByName("res://Resources/Sounds/BGMusic1.wav")
 	

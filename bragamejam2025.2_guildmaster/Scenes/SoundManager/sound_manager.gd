@@ -12,16 +12,16 @@ extends Node
 	#pickBGMusic(randi() % 4)
 
 func pickBGMusic(index: int):
-	var tween = create_tween()
-	tween.tween_property($BG, "volume_db", -80.0, 0.5)
-	$BG.stop()
-	#print(index)
-	#print(BGMusicPlaylist[index])
-	$BG.stream = load(BGMusicPlaylist[index])
+	var tween_out = create_tween()
+	tween_out.tween_property($BG, "volume_db", -80.0, 0.5)
 	
-	#$BG.volume_db = -80.0
+	await tween_out.finished
+	
+	$BG.stream = load(BGMusicPlaylist[index])
 	$BG.play()
-	tween.tween_property($BG, "volume_db", 0.0, 0.5)
+	
+	var tween_in = create_tween()
+	tween_in.tween_property($BG, "volume_db", 0.0, 0.5)
 
 func pickFailMusic(index: int):
 	$SFX.stop()
@@ -61,12 +61,14 @@ func pickSelectSFX(index: int = 0):
 func pickBGByName(s: String):
 	var tween = create_tween()
 	tween.tween_property($BG, "volume_db", -80.0, 0.5)
-	$BG.stop()
+	
+	await tween.finished
 	
 	$BG.stream = load(s)
-	
 	$BG.play()
-	tween.tween_property($BG, "volume_db", 0.0, 0.5)
+	
+	var tween_in = create_tween()
+	tween_in.tween_property($BG, "volume_db", 0.0, 0.5)
 
 func pickSFXByName(sfx: String):
 	$SFX.stream = load(sfx)
@@ -75,6 +77,4 @@ func pickSFXByName(sfx: String):
 func playMainMenuBGMusic(index: int):
 	$BG.stream = load(BGMusicPlaylist[index])
 	
-	var tween = create_tween()
 	$BG.play()
-	tween.tween_property($BG, "volume_db", 0.0, 0.5)
