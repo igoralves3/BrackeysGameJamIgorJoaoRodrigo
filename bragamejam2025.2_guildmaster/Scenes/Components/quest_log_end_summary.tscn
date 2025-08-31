@@ -161,29 +161,6 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 22)
 layout_mode = 2
 
-[node name="DDQuestContinueContainer" type="VBoxContainer" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 30.0
-offset_top = 19.0
-offset_right = 722.0
-offset_bottom = 129.0
-
-[node name="DoubleDownLabel" type="Label" parent="DDQuestContinueContainer"]
-self_modulate = Color(0.388235, 0.25098, 0.254902, 1)
-custom_minimum_size = Vector2(250, 50)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_05kh4")
-theme_override_font_sizes/font_size = 19
-text = "- Quest xyz has continued searching for greater riches and fame!"
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="DDQuestContinueContainer"]
-custom_minimum_size = Vector2(0, 18)
-layout_mode = 2
-
 [connection signal="mouse_entered" from="DDQuestChoiceContainer/HBoxContainer/DDConfirmButton" to="." method="_on_dd_confirm_button_mouse_entered"]
 [connection signal="mouse_exited" from="DDQuestChoiceContainer/HBoxContainer/DDConfirmButton" to="." method="_on_dd_confirm_button_mouse_exited"]
 [connection signal="pressed" from="DDQuestChoiceContainer/HBoxContainer/DDConfirmButton" to="." method="_on_dd_confirm_button_pressed"]

@@ -204,8 +204,8 @@ func questSuccessCalculation(q: quest):
 		if q.chanceOfSuccess == "VERY UNLIKELY":
 			bonus_rewards = 2.0 
 
-		endDayGoldEarned = endDayGoldEarned + (q.gold * bonus_rewards)
-		endDayRepEarned = endDayRepEarned + (q.rep * bonus_rewards)
+		endDayGoldEarned = endDayGoldEarned + (q.finalGold * bonus_rewards)
+		endDayRepEarned = endDayRepEarned + (q.finalRep * bonus_rewards)
 		
 		if Globals.onGoingQuests.has(q):
 			Globals.onGoingQuests.erase(q)

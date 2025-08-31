@@ -42,19 +42,18 @@ func setLabels(q: quest):
 
 
 func questDoubleDownValuesAtt(q: quest):
-	q.gold *= 2
-	q.rep *= 2
-	q.difficulty *= 2
+	q.finalGold = q.gold * 2
+	q.finalRep = q.rep * 2
+	q.difficulty = q.difficulty * 2
 
 func _on_dd_confirm_button_pressed() -> void:
 	
-	Globals.DDquestAux = questlocal
 	
 	questlocal.doubleDownTriggered = false
 	questDoubleDownValuesAtt(questlocal)
+	
+	Globals.DDquestAux = questlocal
 	Globals.ddEventResolvedRefreshView = true
-	$DDQuestContinueContainer/DoubleDownLabel.text = "- Quest: " + questlocal.questname + " has continued searching for greater riches and fame!"
-
 
 func _on_dd_return_button_pressed() -> void:
 	

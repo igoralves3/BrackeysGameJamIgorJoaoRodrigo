@@ -10,6 +10,8 @@ var adv_label = preload("res://Scenes/Components/character_slot_mission_selectio
 @onready var currQuestGoldLabel = $RightPage_BG/QuestInfoPannel/Gold/TotalGold
 
 
+@onready var waxSealRankLabel = $RightPage_BG/QuestInfoPannel/WaxSeal/WaxSealLabel
+
 @onready var successIndicatorLabel = $RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/SuccessChance/TextureRect/SuccessIndicatorLabel
 @onready var PayValueLabel = $RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Payout/PayValue
 @onready var FeeValueLabel = $RightPage_BG/PartySlots/VBoxContainer/OutcomeContainer/BalanceAfterPayouts/TextureRect/Fee/FeeValue
@@ -108,6 +110,7 @@ func attQuestChancesandPayouts():
 	TotalValueLabel.text = str((feeTotalValue*-1) + Globals.questAux.gold)
 
 func attQuestInfos():
+	waxSealRankLabel.text = str(Globals.questAux.Rank)
 	currQuestNameLabel.text = str(Globals.questAux.questname)
 	currQuestInfoLabel.text = str(Globals.questAux.questinfo)
 	currQuestRepLabel.text = str(Globals.questAux.rep)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b87ohqrvtvkrs"]
+[gd_scene load_steps=18 format=3 uid="uid://b87ohqrvtvkrs"]
 
 [ext_resource type="Texture2D" uid="uid://c63amgxyxowqv" path="res://Resources/Sprites/UI_TravelBook_BookCover01a.png" id="1_o27pf"]
 [ext_resource type="Texture2D" uid="uid://d3ppyp8155ntn" path="res://Resources/Sprites/UI_TravelBook_BookPageLeft01a.png" id="2_j45gr"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://ca7g5ekj3goff" path="res://Resources/Sprites/UI_TravelBook_IconCoin01a.png" id="9_moi7u"]
 [ext_resource type="Texture2D" uid="uid://cyagfudhlne1p" path="res://Resources/Sprites/UI_TravelBook_IconStar01a.png" id="10_uhmu2"]
 [ext_resource type="Texture2D" uid="uid://bmalybikwu6en" path="res://Resources/Sprites/UI_TravelBook_FrameSelect01b.png" id="11_bl8j3"]
+[ext_resource type="Texture2D" uid="uid://b8oj31fq8bg7k" path="res://Resources/BGs/image-removebg-preview.png" id="11_vjbap"]
+[ext_resource type="FontFile" uid="uid://5vx5l4dwvy3a" path="res://Resources/Fonts/Lohengrin.ttf" id="12_5o8t8"]
 [ext_resource type="Texture2D" uid="uid://b18ndtkveouh5" path="res://Resources/Sprites Animated/UI_TravelBook_Button01a_1.png" id="13_3d861"]
 [ext_resource type="Texture2D" uid="uid://b6xdjhwggsd7a" path="res://Resources/Sprites/UI_TravelBook_Spritesheet01a.png" id="13_daaas"]
 [ext_resource type="PackedScene" uid="uid://v224q32i67ns" path="res://Scenes/Components/party_slot.tscn" id="13_mu333"]
@@ -109,6 +111,30 @@ offset_right = 813.0
 offset_bottom = 360.0
 texture = ExtResource("8_rpcs8")
 
+[node name="WaxSeal" type="TextureRect" parent="RightPage_BG/QuestInfoPannel"]
+self_modulate = Color(0.470076, 0.470076, 0.470076, 1)
+layout_mode = 0
+offset_left = 568.0
+offset_top = 86.0
+offset_right = 1568.0
+offset_bottom = 1046.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_vjbap")
+
+[node name="WaxSealLabel" type="Label" parent="RightPage_BG/QuestInfoPannel/WaxSeal"]
+self_modulate = Color(0.882353, 0.486275, 0.00392157, 1)
+layout_mode = 0
+offset_left = 118.0
+offset_top = 436.0
+offset_right = 715.0
+offset_bottom = 930.0
+rotation = -0.620837
+theme_override_fonts/font = ExtResource("12_5o8t8")
+theme_override_font_sizes/font_size = 500
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="QuestNameLabel" type="Label" parent="RightPage_BG/QuestInfoPannel"]
 modulate = Color(0.6, 0.32549, 0.317647, 1)
 layout_mode = 0
@@ -123,12 +149,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InfoLabel" type="Label" parent="RightPage_BG/QuestInfoPannel"]
-modulate = Color(0.388235, 0.25098, 0.254902, 1)
+modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 42.0
 offset_top = 27.0
-offset_right = 736.0
-offset_bottom = 213.0
+offset_right = 705.0
+offset_bottom = 222.0
 theme_override_fonts/font = ExtResource("4_sn0tn")
 theme_override_font_sizes/font_size = 28
 text = "The horse stable keepers in the city need some help with a... delicate procedure. They are full of manure, and the stablehands have threatened to walk out. The guild is being offered a smelly but straightforward job: shovel the day away, loading carts with horse manure for the city gardens. Iron stomach and sturdy shoes recommended."
@@ -173,7 +199,7 @@ offset_right = 168.0
 offset_bottom = 61.0
 theme_override_fonts/font = ExtResource("7_e34ok")
 theme_override_font_sizes/font_size = 35
-text = "5"
+text = "50000"
 horizontal_alignment = 1
 vertical_alignment = 2
 metadata/_edit_lock_ = true
