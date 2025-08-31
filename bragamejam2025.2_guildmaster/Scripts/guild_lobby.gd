@@ -112,16 +112,40 @@ func newDaySpawnQuests():
 	##elif minumum_ranks_possible > 4:
 	##	max_quests=7
 		
-	var n = randi_range(2,max_quests)
-	for i in range(0,n):
-		var auxnewq = Spawner.spawnNewQuest()
-		if checkQuestExists(auxnewq):
-			print("Quest already available")
-			pass
-		else:
-			Globals.availableQuests.append(auxnewq)
+	#var n = randi_range(2,max_quests)
+	#for i in range(0,n):
+		#var auxnewq = Spawner.spawnNewQuest()
+		#if checkQuestExists(auxnewq):
+			#print("Quest already available")
+			#pass
+		#else:
+			#Globals.availableQuests.append(auxnewq)
+	#
+	#attAvaibleQuestsDisplay()
 	
+	var n = randi_range(2, max_quests)
+	print("Number of max quests: " + str(n))
+	var quests_added = 0
+	var attempts = 0 # Safety break to prevent an infinite loop
+
+	# Keep looping until we've added 'n' unique quests
+	while quests_added < n:
+		# Safety break: if we try too many times, exit the loop
+		attempts += 1
+		if attempts > n * 5: # Tries up to 5 times per needed quest
+			print("Could not find enough unique quests! Breaking loop.")
+			break
+
+		var new_quest = Spawner.spawnNewQuest()
+		if not checkQuestExists(new_quest):
+			# Only when the quest is unique:
+			Globals.availableQuests.append(new_quest)
+			quests_added += 1 # Increment our counter
+		else:
+			print("Quest already available, trying again.")
+			
 	attAvaibleQuestsDisplay()
+	
 
 func checkQuestExists(q: quest) -> bool:
 	for gq in Globals.availableQuests:

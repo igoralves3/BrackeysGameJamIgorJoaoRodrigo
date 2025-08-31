@@ -65,41 +65,74 @@ func attQuestChancesandPayouts():
 	for quest_adv in Globals.partyNow:
 		total_party_power += quest_adv.power
 	
-		
-	var auxdiff = total_party_power - Globals.questAux.difficulty
-	var percentile = roundi(Globals.questAux.difficulty/100)
-	if percentile == 0:
-		percentile = 1
-	var succChance = auxdiff/percentile
-
-
+	print("Total Party power: " + str(total_party_power))
+	print("Total Quest difficulty: " + str(Globals.questAux.difficulty))
+	var ptPowerMinusDifficulty = float(total_party_power) / float(Globals.questAux.difficulty)
+	print("Party power / Quest difficulty: " + str(ptPowerMinusDifficulty))
+	var p_success = clamp(ptPowerMinusDifficulty * 50.0, 5.0, 99.0)
+	print("Success chance: " + str(p_success) + "%")
+	
 	if Globals.questAux.Rank == "F":
 		successIndicatorLabel.text = "VERY LIKELY"
 		successIndicatorLabel.self_modulate = Color("55a965")
 		Globals.questAux.chanceOfSuccess = "VERY LIKELY"
 	else:
-		if succChance < -80:
+		if p_success <= 19:
 			successIndicatorLabel.text = "VERY UNLIKELY"
 			successIndicatorLabel.self_modulate = Color("ff1508")
 			Globals.questAux.chanceOfSuccess = "VERY UNLIKELY"
-		elif succChance > -80 and succChance < -30:
+		elif p_success >= 20 and p_success <= 39:
 			successIndicatorLabel.text = "UNLIKELY"
 			successIndicatorLabel.self_modulate = Color("e04037")
 			Globals.questAux.chanceOfSuccess = "UNLIKELY"
-		elif succChance > -30 and succChance < 30:	
+		elif p_success >= 40 and p_success <= 59:
 			successIndicatorLabel.text = "EVEN ODDS"
 			successIndicatorLabel.self_modulate = Color("e06324")
 			Globals.questAux.chanceOfSuccess = "EVEN ODDS"
-		elif succChance > 30 and succChance < 80:
+		elif p_success >= 60 and p_success <= 79:
 			successIndicatorLabel.text = "LIKELY"
 			successIndicatorLabel.self_modulate = Color("3b7a47")
 			Globals.questAux.chanceOfSuccess = "LIKELY"
-		elif succChance > 80:
+		elif p_success > 80:
 			successIndicatorLabel.text = "VERY LIKELY"
 			successIndicatorLabel.self_modulate = Color("55a965")
 			Globals.questAux.chanceOfSuccess = "VERY LIKELY"
-
-
+	
+	
+	#var auxdiff = total_party_power - Globals.questAux.difficulty
+	#var percentile = roundi(Globals.questAux.difficulty/100)
+	#if percentile == 0:
+		#percentile = 1
+	#var succChance = auxdiff/percentile
+	#print(str(succChance))
+	#
+	#if Globals.questAux.Rank == "F":
+		#successIndicatorLabel.text = "VERY LIKELY"
+		#successIndicatorLabel.self_modulate = Color("55a965")
+		#Globals.questAux.chanceOfSuccess = "VERY LIKELY"
+	#else:
+		#if succChance < -80:
+			#successIndicatorLabel.text = "VERY UNLIKELY"
+			#successIndicatorLabel.self_modulate = Color("ff1508")
+			#Globals.questAux.chanceOfSuccess = "VERY UNLIKELY"
+		#elif succChance > -80 and succChance < -30:
+			#successIndicatorLabel.text = "UNLIKELY"
+			#successIndicatorLabel.self_modulate = Color("e04037")
+			#Globals.questAux.chanceOfSuccess = "UNLIKELY"
+		#elif succChance > -30 and succChance < 30:	
+			#successIndicatorLabel.text = "EVEN ODDS"
+			#successIndicatorLabel.self_modulate = Color("e06324")
+			#Globals.questAux.chanceOfSuccess = "EVEN ODDS"
+		#elif succChance > 30 and succChance < 80:
+			#successIndicatorLabel.text = "LIKELY"
+			#successIndicatorLabel.self_modulate = Color("3b7a47")
+			#Globals.questAux.chanceOfSuccess = "LIKELY"
+		#elif succChance > 80:
+			#successIndicatorLabel.text = "VERY LIKELY"
+			#successIndicatorLabel.self_modulate = Color("55a965")
+			#Globals.questAux.chanceOfSuccess = "VERY LIKELY"
+	
+	
 	## pay information indicators
 	PayValueLabel.text = "+" + str(Globals.questAux.gold)
 	var feeTotalValue = 0

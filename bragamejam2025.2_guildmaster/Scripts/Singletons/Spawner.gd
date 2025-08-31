@@ -3,8 +3,8 @@ extends Node
 
 func spawnNewQuest() -> quest:
 	
-	print("New quest generated")
-	print(str(Globals.tierGuild))
+	#print("New quest generated")
+	#print("Guild Tier: " + str(Globals.tierGuild))
 	
 	const nq = preload("res://Scripts/Classes/quest.gd")
 	var rank = "F"
@@ -16,7 +16,6 @@ func spawnNewQuest() -> quest:
 	
 	if Globals.tierGuild == "Unlicensed":
 		r = randi_range(0,100)
-		print(str(r))
 		if r <= 40:
 			print("F rank quest generated")
 			rank = "F"

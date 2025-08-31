@@ -87,10 +87,11 @@ func rollAdvPower():
 	match rank:
 		"F":
 			#power = randi_range(1,5)
-			power = randi_range(5,9)
+			#power = randi_range(5,9)
+			power = 5
 		"E":
 			#power = randi_range(1,10)
-			power = 10
+			power = 9
 		"D":
 			#power = randi_range(10,28)
 			power = 28

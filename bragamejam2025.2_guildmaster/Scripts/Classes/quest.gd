@@ -40,19 +40,34 @@ func setQuest(qrep,qgold,qname,qdiff):
 	finalGold = qgold
 	finalRep = qrep
 	
-	if qdiff < 10:
+	#if qdiff < 10:
+		#Rank = "F"
+	#elif qdiff >= 10 and qdiff < 40:
+		#Rank = "E"
+	#elif qdiff >= 40 and qdiff < 160:
+		#Rank = "D"	
+	#elif qdiff >= 160 and qdiff < 480:
+		#Rank = "C"
+	#elif qdiff >= 180 and qdiff < 1440:
+		#Rank = "B"
+	#elif qdiff >= 1440 and qdiff < 3900:
+		#Rank = "A"
+	#elif qdiff >= 3900:
+		#Rank = "S"
+		
+	if qdiff == 1:
 		Rank = "F"
-	elif qdiff >= 10 and qdiff < 40:
+	elif qdiff == 10:
 		Rank = "E"
-	elif qdiff >= 40 and qdiff < 160:
+	elif qdiff == 40:
 		Rank = "D"	
-	elif qdiff >= 160 and qdiff < 480:
+	elif qdiff == 160:
 		Rank = "C"
-	elif qdiff >= 180 and qdiff < 1440:
+	elif qdiff == 480:
 		Rank = "B"
-	elif qdiff >= 1440 and qdiff < 3900:
+	elif qdiff == 1440:
 		Rank = "A"
-	elif qdiff >= 3900:
+	elif qdiff == 3900:
 		Rank = "S"
 		
 func addAdventurer(adv: adventurer):
