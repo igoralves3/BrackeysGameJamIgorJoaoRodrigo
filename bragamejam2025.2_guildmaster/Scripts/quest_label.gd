@@ -13,7 +13,7 @@ var questLocal = null
 func setNewQuest(q: quest):
 	questLocal = q
 	
-	questRankLabel.text = q.Rank	
+	questRankLabel.text = q.Rank
 	descName.text = str(q.questname) + " - " + str(q.gold) + " Gold, " + str(q.rep) + " Rep"
 	
 	

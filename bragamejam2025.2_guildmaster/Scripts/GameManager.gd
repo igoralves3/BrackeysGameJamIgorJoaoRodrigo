@@ -32,3 +32,4 @@ func changeBookPage(page: String):
 
 func _on_confirm_button_pressed() -> void:
 	your_mission_panel.visible = false
+	SoundManager.pickButtonSFX(randi() % 3)
